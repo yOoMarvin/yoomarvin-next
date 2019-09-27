@@ -27,10 +27,6 @@ export const theme = {
   warn: {
     default: "#B00A0A"
   },
-  spectrum: {
-    default: "#4400CC",
-    alt: "#7B16FF"
-  },
   shadows: {
     default: "0 4px 8px rgba(0,0,0,0.08)",
     hover: "0 8px 24px rgba(0,0,0,0.10)",
