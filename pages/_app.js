@@ -1,5 +1,5 @@
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import { GlobalStyles } from "../static/normalize";
 
@@ -19,7 +19,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
+      <div>
         <GlobalStyles />
 
         <Head>
@@ -52,7 +52,7 @@ class MyApp extends App {
           />
         </Head>
         <Component {...pageProps} />
-      </Container>
+      </div>
     );
   }
 }
