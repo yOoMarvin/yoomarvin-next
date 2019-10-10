@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ["plugin:prettier/recommended", "airbnb-base"],
+  extends: [
+    "plugin:prettier/recommended",
+    "airbnb",
+    "plugin:react/recommended"
+  ],
   rules: {
     "import/prefer-default-export": 0,
     "space-before-function-paren": 0,
@@ -12,5 +16,6 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ]
-  }
+  },
+  plugins: ["react"]
 };
