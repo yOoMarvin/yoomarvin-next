@@ -20,42 +20,42 @@ export const Content = css`
   h1 {
     font-size: 40px;
     font-weight: 700;
-    color: ${props => props.theme.text.default};
+    color: ${theme.text.default};
     margin-top: 28px;
   }
 
   h2 {
     font-size: 32px;
     font-weight: 700;
-    color: ${props => props.theme.text.default};
+    color: ${theme.text.default};
     margin-top: 26px;
   }
 
   h3 {
     font-size: 24px;
     font-weight: 600;
-    color: ${props => props.theme.text.default};
+    color: ${theme.text.default};
     margin-top: 24px;
   }
 
   h4 {
     font-size: 20px;
     font-weight: 600;
-    color: ${props => props.theme.text.default};
+    color: ${theme.text.default};
     margin-top: 16px;
   }
 
   h5 {
     font-size: 18px;
     font-weight: 600;
-    color: ${props => props.theme.text.default};
+    color: ${theme.text.default};
     margin-top: 16px;
   }
 
   h6 {
     font-size: 16px;
     font-weight: 500;
-    color: ${props => props.theme.text.default};
+    color: ${theme.text.default};
     margin-top: 16px;
     text-transform: uppercase;
   }
@@ -64,12 +64,12 @@ export const Content = css`
     font-size: 18px;
     font-weight: 400;
     line-height: 1.6;
-    color: ${props => props.theme.text.secondary};
+    color: ${theme.text.secondary};
     margin-top: 16px;
   }
 
   a {
-    color: ${props => props.theme.brand.default};
+    color: ${theme.brand.default};
     font-weight: 500;
   }
 
@@ -89,7 +89,7 @@ export const Content = css`
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
-    color: ${props => props.theme.text.secondary};
+    color: ${theme.text.secondary};
     margin-top: 16px;
   }
 

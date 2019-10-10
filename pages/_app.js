@@ -42,7 +42,6 @@ class MyApp extends App {
             content="Marvin Messenzehl"
             key="og:site_name"
           />
-          <meta name="theme-color" content="#16171A" key="theme-color" />
           <meta name="description" content="Developer" />
 
           <link
