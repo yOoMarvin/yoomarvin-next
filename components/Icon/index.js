@@ -1,4 +1,5 @@
-// @flow
+// custom svg icons because why not?
+
 import * as React from "react";
 import styled from "styled-components";
 

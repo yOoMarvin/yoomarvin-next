@@ -1,3 +1,5 @@
+// global helpers and functions
+
 import { css } from "styled-components";
 import { theme } from "../theme";
 
@@ -16,6 +18,7 @@ export const Shadows = {
   `
 };
 
+// css for blog content (written), so I mean content is THE REAL content
 export const Content = css`
   h1 {
     font-size: 40px;
