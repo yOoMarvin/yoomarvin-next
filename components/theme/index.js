@@ -15,7 +15,7 @@ export const theme = {
     tertiary: "#5C6166",
     placeholder: "#91989F"
   },
-  // used for links and a tags
+  // brand colors used for links and a tags
   brand: {
     default: "#067AE4",
     alt: "#0684F8"

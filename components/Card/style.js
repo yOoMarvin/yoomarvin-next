@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Shadows } from "../theme";
+import { theme } from "../theme";
+import { Shadows } from "../globals";
 
 export const StyledCard = styled.div`
   position: relative;

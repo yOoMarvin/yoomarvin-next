@@ -2,19 +2,24 @@ import React from "react";
 import Link from "next/link";
 import Page, { SectionHeading, Heading, Subheading } from "../components/Page";
 
+import BlogCard from "../components/BlogCard";
+
 // uses the Page component as global page structure
 // headings are references from the styles of the Page component
 function Home() {
   return (
     <Page>
       <SectionHeading>
-        <Link href="/journal">
+        <Link href="/blog">
           <a>
-            <Heading>Journal</Heading>
+            <Heading>Blog</Heading>
           </a>
         </Link>
         <Subheading>Short updates about tech and life</Subheading>
       </SectionHeading>
+
+      <BlogCard title="Hello World" details="a story about life" slug="life" />
+
       <SectionHeading>
         <Link href="/oss">
           <a>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import StyledCard from "./style";
+import { StyledCard } from "./style";
 
 export default function Card(props) {
   const { style, children } = props;
