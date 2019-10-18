@@ -3,5 +3,6 @@
 // different components are gathered here and exported so you only need to import the Button Component
 
 import OutlineButton from "./OutlineButton";
+import GhostButton from "./GhostButton";
 
-export { OutlineButton };
+export { OutlineButton, GhostButton };

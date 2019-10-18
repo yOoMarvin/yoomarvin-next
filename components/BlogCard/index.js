@@ -4,7 +4,9 @@ import Card from "../Card";
 import { Title, CardContent, DetailsText, DateContainer } from "./style";
 
 export default function BlogCard(props) {
-  const { title, date, slug, details } = props;
+  const {
+    post: { title, slug, description }
+  } = props;
   return (
     <Link href="/blog/[slug]" as={`/blog/${slug}`}>
       <a>
@@ -12,7 +14,7 @@ export default function BlogCard(props) {
           {/*<DateContainer>{date}</DateContainer>*/}
           <CardContent>
             <Title>{title}</Title>
-            <DetailsText>{details}</DetailsText>
+            <DetailsText>{description}</DetailsText>
           </CardContent>
         </Card>
       </a>

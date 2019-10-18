@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Page, { SectionHeading, Heading, Subheading } from "../components/Page";
 
-import BlogCard from "../components/BlogCard";
+import BlogGrid from "../components/BlogGrid";
 
 // uses the Page component as global page structure
 // headings are references from the styles of the Page component
@@ -18,7 +18,7 @@ function Home() {
         <Subheading>Short updates about tech and life</Subheading>
       </SectionHeading>
 
-      <BlogCard title="Hello World" details="a story about life" slug="life" />
+      <BlogGrid truncated />
 
       <SectionHeading>
         <Link href="/oss">
