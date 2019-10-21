@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../theme";
 
 export const Container = styled.div`
   width: 100%;
@@ -21,4 +22,10 @@ export const HeadingContainer = styled.div`
     align-items: flex-start;
     max-width: 100%;
   }
+`;
+
+export const Divider = styled.div`
+  height: 1px;
+  background: ${theme.border.default};
+  margin: 32px 0;
 `;
