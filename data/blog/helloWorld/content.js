@@ -1,5 +1,3 @@
-export default [
-  {
-    text: "This is a simple Text to say hello to the blog"
-  }
-];
+const text = "Hi this is some **markdown**";
+
+export default text;

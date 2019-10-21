@@ -6,7 +6,7 @@ import { LargeHeading, LargeSubheading } from "../Page";
 //import { Divider } from "../Blog";
 import BlogGrid from "../BlogGrid";
 //import PostShareButtons from "../PostShareButtons";
-//import Markdown from "../Markdown";
+import Markdown from "../Markdown";
 import { Container, HeadingContainer } from "./style";
 
 export default function BlogView(props) {
@@ -27,11 +27,6 @@ export default function BlogView(props) {
           key="og:description"
         />
         <meta
-          content={`/static/img/design-details/${post.slug}.jpeg`}
-          name="og:image"
-          key="og:image"
-        />
-        <meta
           content={`Marvin Messenzehl · Blog · ${post.title}`}
           name="twitter:title"
           key="og:image"
@@ -49,7 +44,7 @@ export default function BlogView(props) {
 
       <div style={{ padding: "16px" }} />
 
-      {/*<Markdown>{post.description}</Markdown> */}
+      <Markdown>{post.content}</Markdown>
 
       {/*<PostShareButtons post={post} /> */}
       {/*<Divider />*/}

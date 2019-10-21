@@ -11,6 +11,7 @@
     "next": "9.0.6",
     "react": "16.9.0",
     "react-dom": "16.9.0",
+    "react-markdown": "^4.2.2",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
