@@ -5,6 +5,6 @@ export default {
   slug: "100-days-of-code",
   createdAt: "April 30, 2017",
   description: "My journey and learnings",
-  category: "life",
+  category: "code",
   content
 };
