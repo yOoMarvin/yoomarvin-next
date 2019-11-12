@@ -1,4 +1,4 @@
 import helloWorld from "./helloWorld";
-import secondPost from "./secondPost";
+import DaysOfCode from "./DaysOfCode";
 
-export default [helloWorld, secondPost].reverse();
+export default [DaysOfCode, helloWorld].reverse();
