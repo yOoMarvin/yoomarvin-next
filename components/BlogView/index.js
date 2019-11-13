@@ -56,7 +56,7 @@ export default function BlogView(props) {
       <SectionHeading>
         <Heading>Recent blog posts</Heading>
       </SectionHeading>
-      <BlogGrid truncated={false} />
+      <BlogGrid truncated={true} />
     </Container>
   );
 }
