@@ -14,6 +14,13 @@ import MovieMining from "./MovieMining";
 import BeingBack from "./BeingBack";
 import GettingSomeHeadspace from "./GettingSomeHeadspace";
 import StartYourDayRight from "./StartYourDayRight";
+import UpdateAlert from "./UpdateAlert";
+import MorningMagic from "./MorningMagic";
+import GetStuffDone from "./GetStuffDone";
+import Pseudo from "./Pseudo";
+import SideprojectsIncoming from "./SideprojectsIncoming";
+import MoreQuality from "./MoreQuality";
+import Shifting from "./Shifting";
 
 export default [
   DaysOfCode,
@@ -31,5 +38,12 @@ export default [
   MovieMining,
   BeingBack,
   GettingSomeHeadspace,
-  StartYourDayRight
+  StartYourDayRight,
+  UpdateAlert,
+  MorningMagic,
+  GetStuffDone,
+  Pseudo,
+  SideprojectsIncoming,
+  MoreQuality,
+  Shifting
 ].reverse();
