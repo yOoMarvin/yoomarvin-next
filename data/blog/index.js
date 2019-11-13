@@ -21,6 +21,7 @@ import Pseudo from "./Pseudo";
 import SideprojectsIncoming from "./SideprojectsIncoming";
 import MoreQuality from "./MoreQuality";
 import Shifting from "./Shifting";
+import PaintingImages from "./PaintingImages";
 
 export default [
   DaysOfCode,
@@ -45,5 +46,6 @@ export default [
   Pseudo,
   SideprojectsIncoming,
   MoreQuality,
-  Shifting
+  Shifting,
+  PaintingImages
 ].reverse();
