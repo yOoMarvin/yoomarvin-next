@@ -22,6 +22,14 @@ import SideprojectsIncoming from "./SideprojectsIncoming";
 import MoreQuality from "./MoreQuality";
 import Shifting from "./Shifting";
 import PaintingImages from "./PaintingImages";
+import ItsLaunchDay from "./ItsLaunchDay";
+import DaysOfReading from "./DaysOfReading";
+import TinyHabits from "./TinyHabits";
+import AllInOnVoice from "./AllInVoice";
+import CaliforniaFreedom from "./CaliforniaFreedom";
+import NeedYourHelp from "./NeedYourHelp";
+import CrushIt from "./CrushIt";
+import IndieHackers from "./IndieHackers";
 
 export default [
   DaysOfCode,
@@ -47,5 +55,13 @@ export default [
   SideprojectsIncoming,
   MoreQuality,
   Shifting,
-  PaintingImages
+  PaintingImages,
+  ItsLaunchDay,
+  DaysOfReading,
+  TinyHabits,
+  AllInOnVoice,
+  CaliforniaFreedom,
+  NeedYourHelp,
+  CrushIt,
+  IndieHackers
 ].reverse();
