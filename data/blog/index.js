@@ -37,6 +37,17 @@ import Journaling from "./Journaling";
 import EveryThought from "./EveryThought";
 import LearningWriting from "./LearningWriting";
 import Medium from "./Medium";
+import RecordingPodcasts from "./RecordingPodcasts";
+import SmallSteps from "./SmallSteps";
+import Calendar from "./Calendar";
+import AgileLearning from "./AgileLearning";
+import Documenting from "./Documenting";
+import UpdateReading from "./UpdateReading";
+import Homescreen from "./Homescreen";
+import Insurathon2018 from "./Insurathon2018";
+import HookModel from "./HookModel";
+import Summer from "./Summer";
+import OnRunning from "./OnRunning";
 
 export default [
   DaysOfCode,
@@ -77,5 +88,16 @@ export default [
   Journaling,
   EveryThought,
   LearningWriting,
-  Medium
+  Medium,
+  RecordingPodcasts,
+  SmallSteps,
+  Calendar,
+  AgileLearning,
+  Documenting,
+  UpdateReading,
+  Homescreen,
+  Insurathon2018,
+  HookModel,
+  Summer,
+  OnRunning
 ].reverse();
