@@ -251,4 +251,9 @@ export const GlobalStyles = createGlobalStyle`
     margin-top: 16px;
     width: 100%;
   }
+
+  img[src*="#blogimage"] {
+    width:100%;
+    height:auto;
+ }
 `;

@@ -22,7 +22,7 @@ export const Title = styled.p`
 `;
 
 // currently not used...need an idea for the content here
-export const DateContainer = styled.span`
+export const IconContainer = styled.span`
   background: ${theme.bg.default};
   width: 64px;
   height: 64px;

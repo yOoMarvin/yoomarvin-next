@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { hexa, tint } from "../globals";
 import { theme } from "../theme";
 
 const base = css`
@@ -47,5 +48,25 @@ export const OutlineButton = styled.button`
 
   &:active {
     border: 1px solid ${theme.text.placeholder};
+  }
+`;
+
+export const GhostButton = styled.button`
+  ${base}
+  border: none;
+  color: ${theme.text.secondary};
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+
+  &:hover {
+    background: ${tint(theme.bg.wash, -3)};
+    color: ${theme.text.default};
+    box-shadow: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px ${theme.bg.default},
+      0 0 0 3px ${hexa(theme.text.tertiary, 0.08)};
   }
 `;
