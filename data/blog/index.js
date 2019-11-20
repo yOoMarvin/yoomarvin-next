@@ -29,7 +29,14 @@ import AllInOnVoice from "./AllInVoice";
 import CaliforniaFreedom from "./CaliforniaFreedom";
 import NeedYourHelp from "./NeedYourHelp";
 import CrushIt from "./CrushIt";
+import BuildingProducts from "./BuildingProducts";
 import IndieHackers from "./IndieHackers";
+import MoreWithLess from "./MoreWithLess";
+import CrowdCoding from "./CrowdCoding";
+import Journaling from "./Journaling";
+import EveryThought from "./EveryThought";
+import LearningWriting from "./LearningWriting";
+import Medium from "./Medium";
 
 export default [
   DaysOfCode,
@@ -63,5 +70,12 @@ export default [
   CaliforniaFreedom,
   NeedYourHelp,
   CrushIt,
-  IndieHackers
+  BuildingProducts,
+  IndieHackers,
+  MoreWithLess,
+  CrowdCoding,
+  Journaling,
+  EveryThought,
+  LearningWriting,
+  Medium
 ].reverse();

@@ -1,5 +1,5 @@
 export default {
-  title: "Indie hackers",
+  title: "The indie way",
   slug: "indie-hackers",
   createdAt: "March 22, 2018",
   description: "Huge inspiration!",
