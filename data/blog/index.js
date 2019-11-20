@@ -48,6 +48,14 @@ import Insurathon2018 from "./Insurathon2018";
 import HookModel from "./HookModel";
 import Summer from "./Summer";
 import OnRunning from "./OnRunning";
+import FOM from "./FOM";
+import DesignThinking from "./DesignThinking";
+import IdeasTrello from "./IdeasTrello";
+import Symbioticon2018 from "./Symbioticon2018";
+import TodoTrello from "./TodoTrello";
+import MachineUI from "./MachineUI";
+import Review2018 from "./Review2018";
+import Components from "./Components";
 
 export default [
   DaysOfCode,
@@ -99,5 +107,13 @@ export default [
   Insurathon2018,
   HookModel,
   Summer,
-  OnRunning
+  OnRunning,
+  FOM,
+  DesignThinking,
+  IdeasTrello,
+  Symbioticon2018,
+  TodoTrello,
+  MachineUI,
+  Review2018,
+  Components
 ].reverse();
