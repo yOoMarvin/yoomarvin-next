@@ -56,6 +56,16 @@ import TodoTrello from "./TodoTrello";
 import MachineUI from "./MachineUI";
 import Review2018 from "./Review2018";
 import Components from "./Components";
+import Vim from "./Vim";
+import Security from "./Security";
+import CreativityMode from "./CreativityMode";
+import DaysOfPushups from "./DaysOfPushUps";
+import Nudges from "./Nudges";
+import ShortUpdate from "./ShortUpdate";
+import OnYearPodcasts from "./OnYearPodcasts";
+import SummerBreaks from "./SummerBreaks";
+import Bits19 from "./Bits19";
+import TwoHackathons from "./TwoHackathons";
 
 export default [
   DaysOfCode,
@@ -115,5 +125,15 @@ export default [
   TodoTrello,
   MachineUI,
   Review2018,
-  Components
+  Components,
+  Vim,
+  Security,
+  CreativityMode,
+  DaysOfPushups,
+  Nudges,
+  ShortUpdate,
+  OnYearPodcasts,
+  SummerBreaks,
+  Bits19,
+  TwoHackathons
 ].reverse();
