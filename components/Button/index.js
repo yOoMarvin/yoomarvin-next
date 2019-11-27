@@ -4,5 +4,14 @@
 
 import OutlineButton from "./OutlineButton";
 import GhostButton from "./GhostButton";
+import FacebookButton from "./FacebookButton";
+import TwitterButton from "./TwitterButton";
+import CopyLinkButton from "./CopyLinkButton";
 
-export { OutlineButton, GhostButton };
+export {
+  OutlineButton,
+  GhostButton,
+  FacebookButton,
+  TwitterButton,
+  CopyLinkButton
+};

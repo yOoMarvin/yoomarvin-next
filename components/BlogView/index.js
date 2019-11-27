@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { blog } from "../../data";
 import {
   LargeHeading,
   LargeSubheading,
@@ -9,7 +8,7 @@ import {
   Heading
 } from "../Page";
 import BlogGrid from "../BlogGrid";
-//import PostShareButtons from "../PostShareButtons";
+import PostShareButtons from "../PostShareButtons";
 import Markdown from "../Markdown";
 import { Container, HeadingContainer, Divider } from "./style";
 
@@ -44,13 +43,13 @@ export default function BlogView(props) {
 
       <div style={{ padding: "16px" }} />
 
-      {/*<PostShareButtons post={post} /> */}
+      <PostShareButtons post={post} />
 
       <div style={{ padding: "16px" }} />
 
       <Markdown>{post.content}</Markdown>
 
-      {/*<PostShareButtons post={post} /> */}
+      <PostShareButtons post={post} />
       <Divider />
 
       <SectionHeading>
