@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   @media (max-width: 968px) {
     padding: 8px 16px;
+    background-color: ${theme.bg.wash};
   }
 `;
 
