@@ -12,6 +12,7 @@ import {
   LargeSubheading,
   InnerContainer
 } from "./style";
+import Footer from "../Footer";
 
 // export to use it in pages/index.js
 export {
@@ -29,6 +30,7 @@ export default function Page(props) {
       <Container>
         <Header />
         <InnerContainer>{props.children}</InnerContainer>
+        <Footer />
       </Container>
     </ThemeProvider>
   );
