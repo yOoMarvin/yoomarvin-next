@@ -49,6 +49,8 @@ export default function BlogView(props) {
 
       <Markdown>{post.content}</Markdown>
 
+      <div style={{ padding: "16px" }} />
+
       <PostShareButtons post={post} />
       <Divider />
 
@@ -56,6 +58,8 @@ export default function BlogView(props) {
         <Heading>Recent blog posts</Heading>
       </SectionHeading>
       <BlogGrid truncated={true} />
+
+      <div style={{ padding: "16px" }} />
     </Container>
   );
 }
