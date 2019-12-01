@@ -60,9 +60,21 @@ export default [
     artworkUrl: "/static/img/music/trance-frendz"
   },
   {
+    name: "Coloring Book",
+    url:
+      "https://open.spotify.com/album/71QyofYesSsRMwFOTafnhB?si=GKhyTqISQGmhl0DEgrE5jQ",
+    artworkUrl: "/static/img/music/coloring-book"
+  },
+  {
     name: "SOLACE",
     url:
       "https://open.spotify.com/album/5Jazpq8mEgSgQs06mdwkQd?si=IArDNF1zQnuZSA3Zv5dlaQ",
     artworkUrl: "/static/img/music/solace"
+  },
+  {
+    name: "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+    url:
+      "https://open.spotify.com/album/0S0KGZnfBGSIssfF54WSJh?si=x58VfgJkQOSGJLTl6n-Qyw",
+    artworkUrl: "/static/img/music/fall-asleep"
   }
 ].reverse();
