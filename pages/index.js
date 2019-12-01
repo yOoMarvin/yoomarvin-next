@@ -4,6 +4,7 @@ import Page, { SectionHeading, Heading, Subheading } from "../components/Page";
 
 import BlogGrid from "../components/BlogGrid";
 import OpenSourceGrid from "../components/OpenSourceGrid";
+import BooksGrid from "../components/BooksGrid";
 
 // uses the Page component as global page structure
 // headings are references from the styles of the Page component
@@ -40,6 +41,9 @@ function Home() {
         </Link>
         <Subheading>What I'm reading</Subheading>
       </SectionHeading>
+
+      <BooksGrid />
+
       <SectionHeading>
         <Link href="/music">
           <a>
