@@ -66,6 +66,7 @@ import OnYearPodcasts from "./OnYearPodcasts";
 import SummerBreaks from "./SummerBreaks";
 import Bits19 from "./Bits19";
 import TwoHackathons from "./TwoHackathons";
+import SiteNextLevel from "./SiteNextLevel";
 
 export default [
   DaysOfCode,
@@ -135,5 +136,6 @@ export default [
   OnYearPodcasts,
   SummerBreaks,
   Bits19,
-  TwoHackathons
+  TwoHackathons,
+  SiteNextLevel
 ].reverse();
