@@ -67,6 +67,7 @@ import SummerBreaks from "./SummerBreaks";
 import Bits19 from "./Bits19";
 import TwoHackathons from "./TwoHackathons";
 import SiteNextLevel from "./SiteNextLevel";
+import Backendlessconf2019 from "./Backendlessconf2019";
 
 export default [
   DaysOfCode,
@@ -137,5 +138,6 @@ export default [
   SummerBreaks,
   Bits19,
   TwoHackathons,
-  SiteNextLevel
+  SiteNextLevel,
+  Backendlessconf2019
 ].reverse();

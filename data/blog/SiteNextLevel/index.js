@@ -3,7 +3,7 @@ export default {
   slug: "next-level",
   createdAt: "December 12, 2019",
   description: "Rebuilding my site from the ground up",
-  category: "code",
+  category: "design",
   content: `
 **tl;dr** learned a ton of stuff by building my personal site new from the ground up
 
