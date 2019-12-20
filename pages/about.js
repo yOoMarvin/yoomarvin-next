@@ -27,16 +27,50 @@ export default function About() {
         <div style={{ padding: "8px" }} />
 
         <Paragraph>
-          I’m a digital creator based in Mannheim, Germany. Currently doing my
-          Master's Degree at the University of Mannheim and working for the
-          innovation lab of the Sparkasse Versicherungen. I mainly work on
-          digital products from start to finish and solve problems with the help
-          of technology and design.
+          👋 I'm a product designer, podcaster and writer living in Mannheim,
+          Germany.
         </Paragraph>
 
         <Paragraph>
-          Before that I’ve studied Business Informatics at the DHBW in Mannheim
-          and developed my own little projects.
+          Currently doing my master's degree at the{" "}
+          <a
+            href="https://www.uni-mannheim.de/en/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            University of Mannheim
+          </a>
+          , writing my{" "}
+          <a
+            href="https://github.com/yOoMarvin/master-thesis-nudges"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            thesis
+          </a>
+          . Besides that I'm building a tech innovation team at{" "}
+          <a
+            href="https://www.sparkassenversicherung.de/"
+            taget="_blank"
+            rel="noopener noreferrer"
+          >
+            SparkassenVersicherung
+          </a>
+          . I mainly work on digital products in the insurtech domain from start
+          to finish and solve problems with the help of technology and design.
+        </Paragraph>
+
+        <Paragraph>
+          Before that I’ve studied business informatics at the DHBW in Mannheim
+          and developed my own little{" "}
+          <a
+            href="https://www.github.com/yoomarvin"
+            taget="_blank"
+            rel="noopener noreferrer"
+          >
+            projects
+          </a>
+          .
         </Paragraph>
 
         <Paragraph>
@@ -46,7 +80,7 @@ export default function About() {
         </Paragraph>
 
         <Paragraph>
-          In my spare time I am a passionate yogi and runner. I also like to
+          In my spare time I am a passionate endurance athlete. I also like to
           visit awesome places with awesome people. A dog and some human friends
           are also involved in my life. Both groups are very nice to me.
         </Paragraph>
