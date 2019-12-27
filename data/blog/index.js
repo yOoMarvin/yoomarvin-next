@@ -68,6 +68,7 @@ import Bits19 from "./Bits19";
 import TwoHackathons from "./TwoHackathons";
 import SiteNextLevel from "./SiteNextLevel";
 import Backendlessconf2019 from "./Backendlessconf2019";
+import Review2019 from "./Review2019";
 
 export default [
   DaysOfCode,
@@ -139,5 +140,6 @@ export default [
   Bits19,
   TwoHackathons,
   SiteNextLevel,
-  Backendlessconf2019
+  Backendlessconf2019,
+  Review2019
 ].reverse();
