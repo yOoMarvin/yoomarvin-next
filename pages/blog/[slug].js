@@ -34,8 +34,8 @@ class Blog extends React.Component {
     return (
       <Page>
         <SectionHeading>
-          <Heading>Design Details</Heading>
-          <Subheading>A visual exploration of digital products</Subheading>
+          <Heading>Blog</Heading>
+          <Subheading>Short updates about tech and life</Subheading>
         </SectionHeading>
 
         <BlogGrid truncated={false} />
