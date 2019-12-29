@@ -5,7 +5,7 @@ The code that powers [marvinmessenzehl.com](https://marvinmessenzehl.com) in the
 ## Development
 
 Clone the repository:
-`git clone git@github.com:brianlovin/yoomarvin-next.git`
+`git clone git@github.com:yOoMarvin/yoomarvin-next.git`
 
 `cd` into the directory:
 `cd yoomarvin-next`
