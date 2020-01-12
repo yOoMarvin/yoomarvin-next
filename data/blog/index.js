@@ -69,6 +69,7 @@ import TwoHackathons from "./TwoHackathons";
 import SiteNextLevel from "./SiteNextLevel";
 import Backendlessconf2019 from "./Backendlessconf2019";
 import Review2019 from "./Review2019";
+import LessonsExperiment from "./LessonsExperiment";
 
 export default [
   DaysOfCode,
@@ -141,5 +142,6 @@ export default [
   TwoHackathons,
   SiteNextLevel,
   Backendlessconf2019,
-  Review2019
+  Review2019,
+  LessonsExperiment
 ].reverse();
