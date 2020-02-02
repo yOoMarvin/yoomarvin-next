@@ -76,5 +76,17 @@ export default [
     url:
       "https://open.spotify.com/album/0S0KGZnfBGSIssfF54WSJh?si=x58VfgJkQOSGJLTl6n-Qyw",
     artworkUrl: "/static/img/music/fall-asleep"
+  },
+  {
+    name: "JESUS IS KING",
+    url:
+      "https://open.spotify.com/album/0FgZKfoU2Br5sHOfvZKTI9?si=kLe2SQ6lRoCet2t2AoigYw",
+    artworkUrl: "/static/img/music/jesus-is-king"
+  },
+  {
+    name: "Circles",
+    url:
+      "https://open.spotify.com/album/5sY6UIQ32GqwMLAfSNEaXb?si=2Q99FSuKRCia2pHh0nnM_A",
+    artworkUrl: "/static/img/music/circles"
   }
 ].reverse();

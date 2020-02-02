@@ -53,5 +53,10 @@ export default [
     name: "Start With Why",
     url: "https://amzn.to/2suDJSQ",
     artworkUrl: "/static/img/books/startwithwhy"
+  },
+  {
+    name: "The Ride of a Lifetime",
+    url: "https://amzn.to/2GJ6ZZY",
+    artworkUrl: "/static/img/books/rideofalifetime"
   }
 ].reverse();
