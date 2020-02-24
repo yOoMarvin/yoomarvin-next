@@ -3,7 +3,7 @@ export default {
   slug: "january-2020",
   createdAt: "February 02, 2020",
   description: "A review about the first month from 2020",
-  category: "life",
+  category: "other",
   content: `
   **tl;dr** The first month of the new year is already over. I've made a lot of progress on my thesis and started new ideas and projects.
 

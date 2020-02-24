@@ -3,7 +3,7 @@ export default {
   slug: "2019-review",
   createdAt: "December 27, 2019",
   description: "My personal recap of my 2019",
-  category: "life",
+  category: "other",
   content: `
   **tl;dr** 2019 was a super productive year that has thought me many great things
 

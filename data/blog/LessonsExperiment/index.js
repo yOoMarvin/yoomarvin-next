@@ -3,7 +3,7 @@ export default {
   slug: "lessons-experiment",
   createdAt: "January 10, 2020",
   description: "Lessons from conducting my first real experiment",
-  category: "life",
+  category: "work",
   content: `
   **tl;dr** conducting a field experiment has taught me many things. Learning through failures and testing as often as possible are only some of them.
 

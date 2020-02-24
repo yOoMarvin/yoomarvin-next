@@ -16,6 +16,7 @@ export default function BlogCard(props) {
             {category == "life" ? <img src="/static/img/life.png" /> : null}
             {category == "code" ? <img src="/static/img/code.png" /> : null}
             {category == "design" ? <img src="/static/img/design.png" /> : null}
+            {category == "other" ? <img src="/static/img/other.png" /> : null}
           </IconContainer>
           <CardContent>
             <Title>{title}</Title>
