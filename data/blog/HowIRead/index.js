@@ -5,7 +5,7 @@ export default {
   description: "My story with books and how I read them",
   category: "life",
   content: `
-  **tl;dr** life is too short to read every book out there. That's why you have to make some sacrifices. Now I'm putting books away consistently, not giving you any added value.
+  **tl;dr** life is too short to read every book out there. That's why you have to make some sacrifices. Now I'm putting books away consistently, that are not giving you any added value.
 
 ### My hate/love story with books
 In the past few years, something beautiful has happened. I really fell in love with reading! The funny thing here is: I've never been much of a reader. During school and the start of college, I've actually hated reading. It did just not work for me. Well, okay, maybe I wasn't also that interested in books. But somehow that magically changed. After school time, I rarely picked up a book. Someday, I got [Stephen King's ES](https://amzn.to/381Udkq) as a present, and I devoured that book like nothing! I was totally hooked and read some more Stephen King books (btw. I'm still a huge fan). So somehow, I've gained some momentum and read more and more. Still, actually, there was not a specific routine or even habit... But all that has changed!
