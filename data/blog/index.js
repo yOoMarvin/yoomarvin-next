@@ -70,8 +70,9 @@ import SiteNextLevel from "./SiteNextLevel";
 import Backendlessconf2019 from "./Backendlessconf2019";
 import Review2019 from "./Review2019";
 import LessonsExperiment from "./LessonsExperiment";
-import January2020 from "./January2020";
+import ReviewJanuary2020 from "./ReviewJanuary2020";
 import HowIRead from "./HowIRead";
+import ReviewFebruary2020 from "./ReviewFebruary2020";
 
 export default [
   DaysOfCode,
@@ -146,6 +147,7 @@ export default [
   Backendlessconf2019,
   Review2019,
   LessonsExperiment,
-  January2020,
-  HowIRead
+  ReviewJanuary2020,
+  HowIRead,
+  ReviewFebruary2020
 ].reverse();

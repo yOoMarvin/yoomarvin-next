@@ -1,5 +1,5 @@
 export default {
-  title: "Monthly Review: 01-2020",
+  title: "January 2020",
   slug: "january-2020",
   createdAt: "February 02, 2020",
   description: "A review about the first month from 2020",
