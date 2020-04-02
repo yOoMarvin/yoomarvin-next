@@ -58,5 +58,10 @@ export default [
     name: "The Ride of a Lifetime",
     url: "https://amzn.to/2GJ6ZZY",
     artworkUrl: "/static/img/books/rideofalifetime"
+  },
+  {
+    name: "Indistractible",
+    url: "https://www.goodreads.com/book/show/44595007-indistractable",
+    artworkUrl: "/static/img/books/indistractible"
   }
 ].reverse();
