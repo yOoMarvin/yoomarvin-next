@@ -63,5 +63,10 @@ export default [
     name: "Indistractible",
     url: "https://www.goodreads.com/book/show/44595007-indistractable",
     artworkUrl: "/static/img/books/indistractible"
+  },
+  {
+    name: "Company of One",
+    url: "https://www.goodreads.com/book/show/37570605-company-of-one",
+    artworkUrl: "/static/img/books/company"
   }
 ].reverse();
