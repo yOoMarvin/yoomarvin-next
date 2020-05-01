@@ -75,6 +75,7 @@ import HowIRead from "./HowIRead";
 import ReviewFebruary2020 from "./ReviewFebruary2020";
 import InsuranceInnovate from "./InsuranceInnovate";
 import ReviewMarch2020 from "./ReviewMarch2020";
+import ReviewApril2020 from "./ReviewApril2020";
 
 export default [
   DaysOfCode,
@@ -153,5 +154,6 @@ export default [
   HowIRead,
   ReviewFebruary2020,
   InsuranceInnovate,
-  ReviewMarch2020
+  ReviewMarch2020,
+  ReviewApril2020
 ].reverse();
