@@ -15,7 +15,7 @@ export default function Home() {
 
                         <div className="flex flex-col space-y-2 md:space-x-4 md:flex-row md:space-y-0 md:items-center md:justify-center">
                             <Link
-                                href="/https://www.linkedin.com/in/marvin-messenzehl"
+                                href="https://www.linkedin.com/in/marvin-messenzehl"
                                 passHref
                             >
                                 <a>
