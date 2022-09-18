@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 /* custom styles */
-html {
-    @apply bg-slate-50 dark:bg-slate-900;
+body {
+    @apply bg-white dark:bg-black;
+}
+body {
+    @apply text-black dark:text-white;
 }
 
 /* Write your own custom component styles here */
 @layer components {
-    h1 {
-        @apply text-slate-900 dark:text-slate-50;
-    }
 }
 
 /* Your own custom utilities */
