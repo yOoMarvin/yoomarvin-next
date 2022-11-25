@@ -1,4 +1,6 @@
-const Header = () => {
+'use client'
+
+export default function Header() {
     function toggleMode() {
         let darkModeMediaQuery = window.matchMedia(
             '(prefers-color-scheme: dark)'
@@ -41,5 +43,3 @@ const Header = () => {
         </div>
     )
 }
-
-export default Header

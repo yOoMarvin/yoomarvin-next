@@ -1,3 +1,4 @@
+import Header from '../components/Header'
 import '../styles/globals.css'
 
 export default function RootLayout({ children }) {
@@ -5,7 +6,10 @@ export default function RootLayout({ children }) {
     // This will be populated with nested layouts or pages
     return (
         <html lang="en">
-            <body className="mx-auto max-w-screen-lg">{children}</body>
+            <body className="mx-auto max-w-screen-lg">
+                <Header />
+                {children}
+            </body>
         </html>
     )
 }
