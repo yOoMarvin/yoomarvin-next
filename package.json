@@ -3,11 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbo",
+        "dev": "next dev",
         "build": "next build",
         "start": "next start"
     },
     "dependencies": {
+        "@heroicons/react": "^2.0.14",
         "eslint-config-next": "^13.1.6",
         "next": "^13.1.6",
         "react": "^18.2.0",

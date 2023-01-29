@@ -5,7 +5,9 @@ module.exports = {
         './src/components/**/*.{js,ts,jsx,tsx}',
     ],
     darkMode: 'class', // 'media' or 'class'
-    theme: {},
+    theme: {
+        extend: {},
+    },
     variants: {},
     plugins: [
         require('@tailwindcss/typography'),
