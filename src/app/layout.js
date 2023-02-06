@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import NavLink from '../components/NavLink'
 import ToggleModeButton from '../components/ToggleModeButton'
 import Image from 'next/image'
-import Link from 'next/Link'
+import Link from 'next/link'
 
 export default function RootLayout({ children }) {
     //Layouts must accept a children prop.
