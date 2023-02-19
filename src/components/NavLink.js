@@ -11,8 +11,8 @@ export default function NavLink({ href, children }) {
         <Link
             className={
                 active
-                    ? 'rounded-md bg-white px-4 py-2 text-black dark:bg-neutral-900 dark:text-white'
-                    : 'transition-base rounded-md px-4 py-2 text-neutral-500  hover:text-black  dark:hover:text-white'
+                    ? 'rounded-md bg-neutrals-default px-4 py-2 text-text-primary'
+                    : 'transition-base rounded-md px-4 py-2 text-text-secondary  hover:text-text-primary'
             }
             href={href}
         >

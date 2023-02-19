@@ -4,10 +4,10 @@
 
 /* custom styles */
 body {
-    @apply bg-white dark:bg-black;
+    @apply bg-neutrals-default;
 }
 body {
-    @apply text-black dark:text-white;
+    @apply text-text-primary;
 }
 
 /* Write your own custom component styles here */

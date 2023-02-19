@@ -22,14 +22,14 @@ export default function ToggleThemeButton() {
         if (currentTheme === 'dark') {
             return (
                 <SunIcon
-                    className="transition-base h-6 text-neutral-500 hover:text-white "
+                    className="transition-base h-6 text-neutrals-500 hover:text-text-primary"
                     onClick={() => setTheme('light')}
                 />
             )
         } else {
             return (
                 <MoonIcon
-                    className="transition-base h-6 text-neutral-500 hover:text-black "
+                    className="transition-base h-6 text-neutrals-500 hover:text-text-primary "
                     onClick={() => setTheme('dark')}
                 />
             )

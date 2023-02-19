@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
                     <header>
                         <div className="top-0 mb-8 flex flex-row items-center justify-between py-2 backdrop-blur-lg">
                             <Link href="/">
-                                <div className="h-10 w-10 rounded-full bg-neutral-500" />
+                                <div className="h-10 w-10 rounded-full bg-neutrals-500" />
                             </Link>
                             <div className="flex flex-row items-center space-x-2">
                                 <NavLink href="/about">About</NavLink>
