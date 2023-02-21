@@ -11,14 +11,16 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="en">
-            <body className="mx-auto max-w-screen-lg p-2">
+            <body className="mx-auto max-w-screen-md p-2">
                 <Provider>
                     <header>
                         <div className="top-0 mb-8 flex flex-row items-center justify-between py-2 backdrop-blur-lg">
                             <Link href="/">
-                                <div className="h-10 w-10 rounded-full bg-neutrals-500" />
+                                <div className="flex h-10 w-10 flex-row items-center justify-center rounded-xl bg-neutrals-100 text-lg font-bold text-text-primary transition">
+                                    M
+                                </div>
                             </Link>
-                            <div className="flex flex-row items-center space-x-2">
+                            <div className="flex flex-row items-center space-x-2 rounded-xl border border-neutrals-50 px-2">
                                 <NavLink href="/about">About</NavLink>
                                 <NavLink href="/blog">Blog</NavLink>
                                 <NavLink href="/work">Work</NavLink>

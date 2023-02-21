@@ -15,6 +15,7 @@ const light = {
             primary: '#000000',
             secondary: '#3c3c4399',
             tertiary: '#3c3c434d',
+            action: '#ffffff',
         },
         action: {
             primary: '#1c1c1e',
@@ -38,6 +39,7 @@ const dark = {
             primary: '#ffffff',
             secondary: '#ebebf599',
             tertiary: '#ebebf54d',
+            action: '#000000',
         },
         action: {
             primary: '#ffffff',
