@@ -16,11 +16,14 @@ body {
 
 /* Write your own custom component styles here */
 @layer components {
+    .link-basic {
+        @apply transition-base text-text-primary hover:underline hover:decoration-wavy;
+    }
+    .transition-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
 }
 
 /* Your own custom utilities */
 @layer utilities {
-    .transition-base {
-        @apply transition-all duration-300 ease-in-out;
-    }
 }

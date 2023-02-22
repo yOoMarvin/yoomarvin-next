@@ -37,7 +37,7 @@ export default function ToggleThemeButton() {
     }
 
     return (
-        <div
+        <button
             className="flex h-10 w-16 cursor-pointer flex-row justify-start rounded-full border border-neutrals-50 p-1"
             data-ison={isOn}
             onClick={toggleSwitch}
@@ -49,6 +49,6 @@ export default function ToggleThemeButton() {
             >
                 {renderKnob()}
             </motion.div>
-        </div>
+        </button>
     )
 }

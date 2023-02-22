@@ -13,8 +13,8 @@ const light = {
         },
         text: {
             primary: '#000000',
-            secondary: '#3c3c4399',
-            tertiary: '#3c3c434d',
+            secondary: 'hsla(0, 0%, 0%, 0.7)',
+            tertiary: 'hsla(0, 0%, 0%, 0.5)',
             action: '#ffffff',
         },
         action: {
@@ -37,8 +37,8 @@ const dark = {
         },
         text: {
             primary: '#ffffff',
-            secondary: '#ebebf599',
-            tertiary: '#ebebf54d',
+            secondary: 'hsla(0, 100%, 100%, 0.7)',
+            tertiary: 'hsla(0, 100%, 100%, 0.5)',
             action: '#000000',
         },
         action: {
