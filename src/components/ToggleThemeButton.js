@@ -21,6 +21,9 @@ export default function ToggleThemeButton() {
         damping: 30,
     }
 
+    //avoid hydration mismatch
+    const [mounted, setMounted] = useState(false)
+
     useEffect(() => {
         setMounted(true)
     }, [])
