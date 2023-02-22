@@ -66,13 +66,13 @@ module.exports = {
             themes: [
                 {
                     name: 'base',
-                    selectors: ['.light'],
-                    theme: light,
-                },
-                {
-                    name: 'dark',
                     selectors: ['.dark'],
                     theme: dark,
+                },
+                {
+                    name: 'light',
+                    selectors: ['.light'],
+                    theme: light,
                 },
             ],
         }),

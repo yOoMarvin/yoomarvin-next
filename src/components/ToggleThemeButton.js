@@ -6,13 +6,28 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function ToggleThemeButton() {
-    const { systemTheme, theme, setTheme } = useTheme()
+    const { theme, setTheme, resolvedTheme } = useTheme()
     const [isOn, setIsOn] = useState(false)
+
+    //avoid hydration mismatch
+    const [mounted, setMounted] = useState(false)
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     const toggleSwitch = () => {
         setIsOn(!isOn)
-        const currentTheme = theme === 'system' ? systemTheme : theme
-        currentTheme === 'dark' ? setTheme('light') : setTheme('dark')
+        resolvedTheme === 'dark' ? setTheme('light') : setTheme('dark')
+    }
+
+    const renderKnob = () => {
+        if (!mounted) return null
+
+        if (resolvedTheme == 'dark') {
+            return <MoonIcon className="ml-1.5 mt-1.5 h-5 text-text-primary" />
+        } else {
+            return <SunIcon className="ml-1.5 mt-1.5 h-5 text-text-primary" />
+        }
     }
 
     const spring = {
@@ -21,35 +36,19 @@ export default function ToggleThemeButton() {
         damping: 30,
     }
 
-    //avoid hydration mismatch
-    const [mounted, setMounted] = useState(false)
-
-    useEffect(() => {
-        setMounted(true)
-    }, [])
-
     return (
-        <div>
-            {/* <button type="button" className="p-2">
-                {themeChanger()}
-            </button> */}
-            <div
-                className="flex h-10 w-16 cursor-pointer flex-row justify-start rounded-full border border-neutrals-50 p-1"
-                data-isOn={isOn}
-                onClick={toggleSwitch}
+        <div
+            className="flex h-10 w-16 cursor-pointer flex-row justify-start rounded-full border border-neutrals-50 p-1"
+            data-ison={isOn}
+            onClick={toggleSwitch}
+        >
+            <motion.div
+                className="h-8 w-8 rounded-full bg-neutrals-default"
+                layout
+                transition={spring}
             >
-                <motion.div
-                    className="h-8 w-8 rounded-full bg-neutrals-default"
-                    layout
-                    transition={spring}
-                >
-                    {theme === 'dark' ? (
-                        <MoonIcon className="ml-1.5 mt-1.5 h-5 text-text-primary" />
-                    ) : (
-                        <SunIcon className="ml-1.5 mt-1.5 h-5 text-text-primary" />
-                    )}
-                </motion.div>
-            </div>
+                {renderKnob()}
+            </motion.div>
         </div>
     )
 }

@@ -10,7 +10,7 @@ body {
     @apply text-text-primary;
 }
 
-[data-isOn='true'] {
+[data-ison='true'] {
     @apply justify-end;
 }
 
