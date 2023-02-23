@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Placeholder from '../../components/Placeholder'
+import Job from '../../components/Job'
 
 export default function AboutPage() {
     return (
@@ -61,7 +61,7 @@ export default function AboutPage() {
                             target="_blank"
                             className="link-basic"
                         >
-                            bitesizes design knowledge
+                            bitesized design knowledge
                         </Link>{' '}
                         in the form of short videos.
                     </p>
@@ -118,6 +118,21 @@ export default function AboutPage() {
             </section>
             <section className="mb-12">
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
+                <div>
+                    <Job
+                        title="Designer at Acme Inc."
+                        time="2020-today"
+                        description="I've designed a very cool app"
+                    />
+                    <Job
+                        title="Designer at Acme Inc."
+                        time="2020-today"
+                        description="I've designed a very cool app"
+                    />
+                </div>
+            </section>
+            <section className="mb-12">
+                <h2 className="mb-4 text-2xl  font-bold">Appearances</h2>
             </section>
         </>
     )
