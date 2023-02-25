@@ -22,6 +22,16 @@ body {
     .transition-base {
         @apply transition-all duration-300 ease-in-out;
     }
+
+    .btn {
+        @apply transition-base rounded-2xl px-5 py-4 text-center font-bold;
+    }
+    .btn--filled {
+        @apply bg-action-primary text-text-action hover:bg-action-secondary;
+    }
+    .btn--outlined {
+        @apply border border-action-primary bg-neutrals-default text-text-primary hover:border-action-secondary hover:bg-neutrals-100;
+    }
 }
 
 /* Your own custom utilities */

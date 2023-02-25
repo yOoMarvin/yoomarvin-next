@@ -6,7 +6,7 @@ export default function Placeholder() {
             </h1>
             <p className="text-text-secondary">
                 I'm currently in the progress of rebuilding my complete web
-                presence and such a think takes time besides a full-time job.
+                presence and such a thing takes time besides a full-time job.
                 But since I love to{' '}
                 <a
                     className="link-basic"
