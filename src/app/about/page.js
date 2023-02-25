@@ -121,6 +121,12 @@ export default function AboutPage() {
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
                 <div>
                     <Job
+                        title="UX / UI Teacher"
+                        time="2022-today"
+                        description="Teaching the next generation of designers in interactive and remote live classes."
+                        src="/memorisely-logo.svg"
+                    />
+                    <Job
                         title="Freelance Product Designer"
                         time="2021-today"
                         description="Helping companies to design, build and launch world-class products. Such as ONVY, Enduco, Notch, RTL+ and many more."
@@ -146,37 +152,37 @@ export default function AboutPage() {
                     <Appearance
                         href="https://www.youtube.com/watch?v=FfhjolsHIBY&t=363s&ab_channel=yasoon"
                         title="Dev & Donuts Keynote: Building interfaces"
-                        date="Jan ' 23"
+                        date="Jan '23"
                     />
                     <Appearance
                         href="https://www.youtube.com/watch?v=g77e9fYGWKI&t=2s&ab_channel=SSSDECA"
                         title="Behind the Hustle Podcast"
-                        date="Nov ' 22"
+                        date="Nov '22"
                     />
                     <Appearance
                         href="https://open.spotify.com/episode/6IOrTtcboauY5K6a4Ff7yb?si=59269495327a4004"
                         title="IT-Lab Insurtech Podcast"
-                        date="Jul ' 22"
+                        date="Jul '22"
                     />
                     <Appearance
                         href="https://www.thinc.de/thincubator"
                         title="Thincubator Mentor"
-                        date="Apr ' 22"
+                        date="Apr '22"
                     />
                     <Appearance
                         href="https://blog.memorisely.com/article/marvin-messenzehl"
                         title="Memorisely Unmute Blog"
-                        date="Mar ' 22"
+                        date="Mar '22"
                     />
                     <Appearance
                         href="https://open.spotify.com/episode/0gWOCyhUxqCIkxAeor2p6G?si=27aa62a29e104386"
                         title="Stacking Snacks Podcast"
-                        date="Nov ' 21"
+                        date="Nov '21"
                     />
                     <Appearance
                         href="https://www.youtube.com/watch?v=xQJQt6wnd-w"
-                        title="Symbioticon Hackathon: 1st place in the category insurance"
-                        date="Oct ' 19"
+                        title="Symbioticon Hackathon 1st place"
+                        date="Oct '19"
                     />
                     <Appearance title="TEDx Uni Mannheim" date="Oct ' 19" />
                 </div>

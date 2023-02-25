@@ -14,6 +14,10 @@ body {
     @apply justify-end;
 }
 
+section {
+    @apply mb-16;
+}
+
 /* Write your own custom component styles here */
 @layer components {
     .link-basic {
