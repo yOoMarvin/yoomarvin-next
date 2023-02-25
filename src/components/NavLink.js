@@ -12,7 +12,7 @@ export default function NavLink({ href, children }) {
             className={
                 active
                     ? 'rounded-xl bg-neutrals-50 bg-opacity-90 px-4 py-2 font-medium text-text-primary'
-                    : 'transition-base rounded-md px-4 py-2 text-text-secondary  hover:text-text-primary'
+                    : 'transition-base rounded-xl px-4 py-2 text-text-secondary  hover:bg-neutrals-50 hover:bg-opacity-60 hover:text-text-primary'
             }
             href={href}
         >
