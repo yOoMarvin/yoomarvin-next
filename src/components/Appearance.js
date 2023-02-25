@@ -16,7 +16,9 @@ export default function Appearance(props) {
             )}
 
             <div className="h-1 w-auto grow border-b border-dashed border-neutrals-200" />
-            <p className="text-text-secondary">{props.date}</p>
+            <div>
+                <p className="text-left text-text-secondary">{props.date}</p>
+            </div>
         </div>
     )
 }
