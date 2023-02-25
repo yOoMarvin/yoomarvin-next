@@ -124,16 +124,19 @@ export default function AboutPage() {
                         title="Freelance Product Designer"
                         time="2021-today"
                         description="Helping companies to design, build and launch world-class products. Such as ONVY, Enduco, Notch, RTL+ and many more."
+                        src="/freelance-logo.svg"
                     />
                     <Job
                         title="Innovation Lab Lead at SV Informatik"
                         time="2016-2021"
                         description="After building the first concept, I've took over as a lead of the inhouse innovation lab in 2019 to design and build several apps in the realm of insurtech."
+                        src="/itlab-logo.svg"
                     />
                     <Job
                         title="Software Engineer at SV Informatik"
                         time="2013-2016"
                         description="Development of a series of webapps with smaller utility purposes."
+                        src="/sv-logo.svg"
                     />
                 </div>
             </section>
@@ -151,6 +154,16 @@ export default function AboutPage() {
                         date="Nov ' 22"
                     />
                     <Appearance
+                        href="https://open.spotify.com/episode/6IOrTtcboauY5K6a4Ff7yb?si=59269495327a4004"
+                        title="IT-Lab Insurtech Podcast"
+                        date="Jul ' 22"
+                    />
+                    <Appearance
+                        href="https://www.thinc.de/thincubator"
+                        title="Thincubator Mentor"
+                        date="Apr ' 22"
+                    />
+                    <Appearance
                         href="https://blog.memorisely.com/article/marvin-messenzehl"
                         title="Memorisely Unmute Blog"
                         date="Mar ' 22"
@@ -161,10 +174,11 @@ export default function AboutPage() {
                         date="Nov ' 21"
                     />
                     <Appearance
-                        href="#"
-                        title="TEDx Uni Mannheim"
-                        date="Oct ' 2019"
+                        href="https://www.youtube.com/watch?v=xQJQt6wnd-w"
+                        title="Symbioticon Hackathon: 1st place in the category insurance"
+                        date="Oct ' 19"
                     />
+                    <Appearance title="TEDx Uni Mannheim" date="Oct ' 19" />
                 </div>
             </section>
         </>
