@@ -18,17 +18,48 @@ export default function Homepage() {
                         I help companies design, build and launch world-class
                         digital products.
                     </h2>
-                    <p className="text-lg text-text-secondary">
-                        I should write a bit more stuff about myself here
-                    </p>
+                    <div className="flex flex-col space-y-4 text-lg text-text-secondary">
+                        <p>
+                            I love working in the realm between design and code.
+                            Some things that make me excited are CSS,
+                            Interaction design, Javascript and making interfaces
+                            feel fun and human.
+                        </p>
+                        <p>
+                            Currenly I'm designing & building interfaces for the
+                            podcast app of{' '}
+                            <Link
+                                className="link-basic"
+                                href="https://plus.rtl.de"
+                                target="_blank"
+                            >
+                                RTL +
+                            </Link>
+                            . Besides that I'm teaching UX and UI design at{' '}
+                            <Link
+                                href="https://memorisely.com"
+                                target="_blank"
+                                className="link-basic"
+                            >
+                                Memorisely.
+                            </Link>
+                        </p>
+                    </div>
                 </div>
                 <Link type="button" href="/about" className="btn btn--filled">
                     More about me
                 </Link>
             </section>
+
+            {/* Companies */}
             <section>
                 <Companies />
             </section>
+
+            {/* In the Spotlight */}
+            {/* <section>
+                <h1 className="mb-8 text-2xl font-bold">In the Spotlight.</h1>
+            </section> */}
         </>
     )
 }
