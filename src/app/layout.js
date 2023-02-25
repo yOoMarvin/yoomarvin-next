@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import ToggleThemeButton from '../components/ToggleThemeButton'
-import Provider from './Provider'
+import Provider from '../components/Provider'
 import Image from 'next/image'
 import Navigation from '../components/Navigation'
 
