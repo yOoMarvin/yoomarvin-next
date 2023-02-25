@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Appearance from '../../components/Appearance'
 import Job from '../../components/Job'
 
 export default function AboutPage() {
     return (
         <>
-            <section className="mb-12">
+            <section className="mb-16">
                 <h1 className="mb-4 text-2xl font-bold">About me</h1>
 
                 <div class="text-text-secondary">
@@ -80,7 +81,7 @@ export default function AboutPage() {
                     />
                 </div>
             </section>
-            <section className="mb-12">
+            <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Connect</h2>
                 <div className="grid grid-cols-1 gap-4 sm:flex sm:flex-row">
                     <Link
@@ -116,23 +117,55 @@ export default function AboutPage() {
                     </Link>
                 </div>
             </section>
-            <section className="mb-12">
+            <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
                 <div>
                     <Job
-                        title="Designer at Acme Inc."
-                        time="2020-today"
-                        description="I've designed a very cool app"
+                        title="Freelance Product Designer"
+                        time="2021-today"
+                        description="Helping companies to design, build and launch world-class products. Such as ONVY, Enduco, Notch, RTL+ and many more."
                     />
                     <Job
-                        title="Designer at Acme Inc."
-                        time="2020-today"
-                        description="I've designed a very cool app"
+                        title="Innovation Lab Lead at SV Informatik"
+                        time="2016-2021"
+                        description="After building the first concept, I've took over as a lead of the inhouse innovation lab in 2019 to design and build several apps in the realm of insurtech."
+                    />
+                    <Job
+                        title="Software Engineer at SV Informatik"
+                        time="2013-2016"
+                        description="Development of a series of webapps with smaller utility purposes."
                     />
                 </div>
             </section>
-            <section className="mb-12">
+            <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Appearances</h2>
+                <div className="flex flex-col space-y-4">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=FfhjolsHIBY&t=363s&ab_channel=yasoon"
+                        title="Dev & Donuts Keynote: Building interfaces"
+                        date="Jan ' 23"
+                    />
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=g77e9fYGWKI&t=2s&ab_channel=SSSDECA"
+                        title="Behind the Hustle Podcast"
+                        date="Nov ' 22"
+                    />
+                    <Appearance
+                        href="https://blog.memorisely.com/article/marvin-messenzehl"
+                        title="Memorisely Unmute Blog"
+                        date="Mar ' 22"
+                    />
+                    <Appearance
+                        href="https://open.spotify.com/episode/0gWOCyhUxqCIkxAeor2p6G?si=27aa62a29e104386"
+                        title="Stacking Snacks Podcast"
+                        date="Nov ' 21"
+                    />
+                    <Appearance
+                        href="#"
+                        title="TEDx Uni Mannheim"
+                        date="Oct ' 2019"
+                    />
+                </div>
             </section>
         </>
     )
