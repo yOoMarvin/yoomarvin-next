@@ -8,7 +8,7 @@ export default function Job(props) {
                     src={props.src}
                     width={48}
                     height={48}
-                    className="rounded-full border-neutrals-400"
+                    className="rounded-full border border-neutrals-100"
                 />
                 <div>
                     <p className="font-bold">{props.title}</p>

@@ -11,16 +11,16 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="en">
-            <body className="mx-auto max-w-screen-md p-2">
+            <body className="mx-auto">
                 <Provider>
-                    <header>
-                        <div className="top-0 mb-8 flex flex-row items-center justify-between py-2 backdrop-blur-lg">
+                    <header className="fixed top-0 z-50 w-screen bg-neutrals-default bg-opacity-60 backdrop-blur-md">
+                        <div className="mx-auto flex w-[768px] flex-row items-center justify-between py-2">
                             <Link href="/">
-                                <div className="flex h-10 w-10 flex-row items-center justify-center rounded-xl bg-neutrals-100 text-lg font-bold text-text-primary transition">
+                                <div className="flex h-10 w-10 flex-row items-center justify-center rounded-xl bg-neutrals-100 bg-opacity-80 text-lg font-bold text-text-primary transition">
                                     M
                                 </div>
                             </Link>
-                            <div className="flex flex-row items-center space-x-2 rounded-xl border border-neutrals-50 px-2">
+                            <div className="flex flex-row items-center space-x-2 rounded-xl px-2">
                                 <NavLink href="/about">About</NavLink>
                                 <NavLink href="/blog">Blog</NavLink>
                                 <NavLink href="/work">Work</NavLink>
@@ -28,7 +28,9 @@ export default function RootLayout({ children }) {
                             <ToggleThemeButton />
                         </div>
                     </header>
-                    {children}
+                    <main className="mx-auto mt-24 max-w-screen-md p-2">
+                        {children}
+                    </main>
                 </Provider>
             </body>
         </html>
