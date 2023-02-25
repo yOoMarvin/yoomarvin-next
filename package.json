@@ -8,6 +8,7 @@
         "start": "next start"
     },
     "dependencies": {
+        "@headlessui/react": "^1.7.12",
         "@heroicons/react": "^2.0.14",
         "eslint-config-next": "^13.1.6",
         "framer-motion": "^9.0.7",
