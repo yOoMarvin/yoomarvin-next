@@ -24,7 +24,7 @@ section {
         @apply transition-base text-text-primary hover:underline hover:decoration-wavy;
     }
     .link-blog {
-        @apply transition-base text-text-primary underline decoration-wavy hover:text-blue-500;
+        @apply transition-base text-text-primary underline decoration-wavy hover:opacity-50;
     }
     .transition-base {
         @apply transition-all duration-300 ease-in-out;

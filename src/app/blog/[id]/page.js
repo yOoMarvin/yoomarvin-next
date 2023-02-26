@@ -40,6 +40,13 @@ function renderBlock(block) {
                     <Text text={value.rich_text} />
                 </h3>
             )
+        case 'callout':
+            return (
+                <div className="flex flex-row items-center space-x-2 rounded-xl border border-neutrals-200 bg-neutrals-50 p-2 text-base">
+                    <p className="text-lg">{value.icon.emoji}</p>
+                    <Text text={value.rich_text} />
+                </div>
+            )
         case 'bulleted_list_item':
         case 'numbered_list_item':
             return (
