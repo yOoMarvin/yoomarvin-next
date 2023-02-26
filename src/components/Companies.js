@@ -51,7 +51,7 @@ export default function Companies() {
                 />
 
                 <Image
-                    className="max-h-4 w-full object-contain contrast-200 grayscale filter"
+                    className="max-h-4 w-full object-contain grayscale filter"
                     style={{
                         filter:
                             resolvedTheme == 'dark'
@@ -78,12 +78,12 @@ export default function Companies() {
                     width={80}
                 />
                 <Image
-                    className="max-h-6 w-full object-contain brightness-0 grayscale filter"
+                    className="max-h-6 w-full object-contain grayscale filter"
                     style={{
                         filter:
                             resolvedTheme == 'dark'
-                                ? 'grayscale(100%) invert(100%)'
-                                : 'grayscale(100%) invert(0)',
+                                ? 'grayscale(100%) invert(100%) brightness(200%)'
+                                : 'grayscale(100%) invert(0) brightness(0)',
                     }}
                     src="/companies/tedx.png"
                     alt="TEDx"
