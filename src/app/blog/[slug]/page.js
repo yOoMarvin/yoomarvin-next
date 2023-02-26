@@ -76,8 +76,8 @@ function renderBlock(block) {
 }
 
 export default async function PostPage({ params, page, blocks }) {
-    page = await getPage(params.id)
-    blocks = await getBlocks(params.id)
+    page = await getPage(params.slug)
+    blocks = await getBlocks(params.slug)
 
     return (
         <article className="mx-auto mt-8 max-w-screen-sm">
