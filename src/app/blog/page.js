@@ -1,29 +1,28 @@
 import Link from 'next/link'
-import { getDatabase } from '../../lib/notion'
+import { compareDesc, format, parseISO } from 'date-fns'
+import { allPosts } from 'contentlayer/generated'
 
-export const databaseId = process.env.NOTION_DATABASE_ID
-
-async function getBlogPosts() {
-    const database = await getDatabase(databaseId)
-
-    return database
+export async function getPosts() {
+    const posts = allPosts.sort((a, b) => {
+        return compareDesc(new Date(a.date), new Date(b.date))
+    })
+    return posts
 }
+
 export default async function BlogPage() {
-    const posts = await getBlogPosts()
+    const posts = await getPosts()
+
     return (
         <>
+            {console.log(posts)}
             <section>
                 <h1 className="mb-8 text-2xl font-bold">Blog</h1>
             </section>
-            <ol>
-                {posts.map((post) => (
-                    <li key={post.id}>
-                        <Link href={`/blog/${post.id}`} className="link-basic">
-                            {post.properties.Name.title[0].plain_text}
-                        </Link>
-                    </li>
+            <ul>
+                {posts.map((post, idx) => (
+                    <li key={idx}>{post.title}</li>
                 ))}
-            </ol>
+            </ul>
         </>
     )
 }
