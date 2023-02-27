@@ -14,7 +14,6 @@ export default async function BlogPage() {
 
     return (
         <>
-            {console.log(posts)}
             <section>
                 <h1 className="mb-8 text-2xl font-bold">Blog</h1>
             </section>

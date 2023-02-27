@@ -3,6 +3,12 @@ import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import { ArrowLongLeftIcon } from '@heroicons/react/24/solid'
 
+export async function generateStaticParams() {
+    return allPosts.map((post) => ({
+        slug: post.slug,
+    }))
+}
+
 export async function getPost(slug) {
     return allPosts.find((post) => post.slug == slug)
 }
