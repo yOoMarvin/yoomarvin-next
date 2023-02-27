@@ -18,11 +18,17 @@ export default async function BlogPage() {
             <section>
                 <h1 className="mb-8 text-2xl font-bold">Blog</h1>
             </section>
-            <ul>
+            <div className="flex flex-col space-y-4">
                 {posts.map((post, idx) => (
-                    <li key={idx}>{post.title}</li>
+                    <Link
+                        key={idx}
+                        href={`/blog/${post.slug}`}
+                        className="link-basic"
+                    >
+                        {post.title}
+                    </Link>
                 ))}
-            </ul>
+            </div>
         </>
     )
 }
