@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
+const getSlug = (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, '')
+
 export const Post = defineDocumentType(() => ({
     name: 'Post',
     filePathPattern: `**/*.mdx`,
@@ -14,16 +16,19 @@ export const Post = defineDocumentType(() => ({
             description: 'The date of the post',
             required: true,
         },
-        slug: {
-            type: 'string',
-            description: 'The identifier of each post',
-            required: true,
-        },
     },
     computedFields: {
-        url: {
+        slug: {
             type: 'string',
-            resolve: (post) => `/data/blog/${post._raw.flattenedPath}`,
+            resolve: (doc) => getSlug(doc),
+        },
+        image: {
+            type: 'string',
+            resolve: (doc) => `/blog/${getSlug(doc)}/image.png`,
+        },
+        og: {
+            type: 'string',
+            resolve: (doc) => `/blog/${getSlug(doc)}/og.jpg`,
         },
     },
 }))
