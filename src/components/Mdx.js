@@ -22,7 +22,7 @@ const CustomLink = (props) => {
 }
 
 function RoundedImage(props) {
-    return <Image alt={props.alt} className="rounded-2x" {...props} />
+    return <Image alt={props.alt} className="rounded-2xl" {...props} />
 }
 
 const components = {
@@ -34,6 +34,7 @@ export function Mdx({ code }) {
     const Component = useMDXComponent(code)
 
     return (
+        // Refactor styling of links, headings and images
         <article className="prose prose-pre:border prose-pre:border-neutrals-100 dark:prose-invert">
             <Component components={components} />
         </article>
