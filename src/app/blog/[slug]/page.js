@@ -1,7 +1,9 @@
 import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { ArrowLongLeftIcon } from '@heroicons/react/24/solid'
+import { Mdx } from 'src/components/Mdx'
 
 export async function generateStaticParams() {
     return allPosts.map((post) => ({
@@ -16,6 +18,10 @@ export async function getPost(slug) {
 export default async function PostPage({ params }) {
     const post = await getPost(params.slug)
 
+    if (!post) {
+        notFound()
+    }
+
     return (
         <article className="mx-auto max-w-screen-sm">
             <Link
@@ -28,10 +34,7 @@ export default async function PostPage({ params }) {
             <time dateTime={post.date} className="text-sm text-text-tertiary">
                 {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
-            <section
-                className=" cl-post-body mt-8"
-                dangerouslySetInnerHTML={{ __html: post.body.html }}
-            />
+            <Mdx code={post.body.code} />
         </article>
     )
 }
