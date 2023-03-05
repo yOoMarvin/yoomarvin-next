@@ -37,7 +37,7 @@ export default async function PostPage({ params }) {
                     alt={`${post.title} post image`}
                     width={700}
                     height={350}
-                    className="mb-4 w-[calc(100%+32px)] max-w-none rounded-2xl"
+                    className="mb-12 w-full rounded-2xl"
                     priority
                 />
 

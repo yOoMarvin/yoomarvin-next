@@ -6,7 +6,7 @@ export default function PostCard(props) {
     return (
         <Link
             href={props.href}
-            className="transition-base mb-4 flex w-full flex-row space-x-16"
+            className="transition-base mb-4 flex w-full flex-row space-x-12 sm:space-x-16"
             {...props}
         >
             <p className="text-text-secondary">
