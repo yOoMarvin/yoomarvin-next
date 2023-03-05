@@ -121,7 +121,7 @@ export default function AboutPage() {
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
                 <div>
                     <Job
-                        title="UX / UI Teacher"
+                        title="UX / UI Teacher at Memorisely"
                         time="2022-today"
                         description="Teaching the next generation of designers in interactive and remote live classes."
                         src="/memorisely-logo.svg"
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 <div className="flex flex-col space-y-4">
                     <Appearance
                         href="https://www.youtube.com/watch?v=FfhjolsHIBY&t=363s&ab_channel=yasoon"
-                        title="Dev & Donuts Keynote: Building interfaces"
+                        title="Dev & Donuts Keynote"
                         date="Jan '23"
                     />
                     <Appearance
