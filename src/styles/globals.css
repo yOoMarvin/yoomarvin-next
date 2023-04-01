@@ -4,10 +4,7 @@
 
 /* custom styles */
 body {
-    @apply bg-neutrals-default;
-}
-body {
-    @apply text-text-primary;
+    @apply h-full bg-neutrals-default text-text-primary;
 }
 
 [data-ison='true'] {
@@ -38,6 +35,12 @@ section {
     }
     .btn--outlined {
         @apply border border-action-primary bg-neutrals-default text-text-primary hover:border-action-secondary hover:bg-neutrals-100;
+    }
+    .section__title {
+        @apply mb-8 text-2xl font-bold;
+    }
+    .section__subtitle {
+        @apply mb-4 text-lg text-text-secondary;
     }
 }
 

@@ -3,7 +3,7 @@ import HomeButton from './HomeButton'
 
 export default function Footer() {
     return (
-        <footer className="mt-16 mb-4 flex w-full flex-col justify-between border-t border-neutrals-50 py-8 text-text-secondary sm:flex-row">
+        <footer className="mt-16 mb-4 flex w-full flex-col justify-between border-t border-neutrals-50 py-8 text-text-secondary sm:flex-row mx-auto max-w-screen-md px-2 sm:px-4 md:px-2">
             <div className="mb-4">
                 <HomeButton />
             </div>
