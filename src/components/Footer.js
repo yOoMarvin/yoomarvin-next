@@ -3,7 +3,7 @@ import HomeButton from './HomeButton'
 
 export default function Footer() {
     return (
-        <footer className="mt-16 mb-4 flex w-full flex-col justify-between border-t border-neutrals-50 py-8 text-text-secondary sm:flex-row mx-auto max-w-screen-md px-2 sm:px-4 md:px-2">
+        <footer className="mx-auto mb-4 mt-16 flex w-full max-w-screen-md flex-col justify-between border-t border-neutrals-50 px-2 py-8 text-text-secondary sm:flex-row sm:px-4 md:px-2">
             <div className="mb-4">
                 <HomeButton />
             </div>
@@ -20,8 +20,8 @@ export default function Footer() {
                     </a>
                 </p>
                 <p className="mb-4">
-                    The website uses no cookies, no tracking. Just simple,
-                    privacy focused analytics
+                    The website uses no cookies, no tracking. Everything was
+                    built by a human.
                 </p>
 
                 {/* Footer Links, Legal Stuff */}

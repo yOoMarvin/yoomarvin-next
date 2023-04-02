@@ -4,7 +4,7 @@
 
 /* custom styles */
 body {
-    @apply h-full bg-neutrals-default text-text-primary;
+    @apply min-h-full bg-neutrals-default text-text-primary;
 }
 
 [data-ison='true'] {
