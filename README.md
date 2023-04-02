@@ -23,6 +23,7 @@ In early 2023, I refactored my site to use the new `app/` directory in Next.js 1
 -   [ ] Add a `/uses` site
 -   [ ] Add a Hacker News Reader as a fun little side project
 -   [ ] Making all links blue?!
+-   [ ] Fix a bug on Safari that causes problems in the logos when switching the theme
 
 ## Running locally
 

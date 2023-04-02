@@ -24,7 +24,7 @@ export default async function PostPage({ params }) {
     }
 
     return (
-        <div className="mx-auto mb-16 max-w-screen-sm">
+        <div className="mx-auto max-w-screen-sm">
             <section className="mb-8">
                 <Link
                     href="/blog"
