@@ -3,16 +3,49 @@
 @tailwind utilities;
 
 /* custom styles */
-body {
-    @apply min-h-full bg-neutrals-default text-text-primary;
-}
+@layer base {
+    :root {
+        --color-neutrals-50: #f2f2f7;
+        --color-neutrals-100: #e5e5ea;
+        --color-neutrals-200: #d1d1d6;
+        --color-neutrals-300: #c7c7cc;
+        --color-neutrals-400: #aeaeb2;
+        --color-neutrals-500: #8e8e93;
+        --color-neutrals-default: #ffffff;
+        --color-text-primary: #000000;
+        --color-text-secondary: hsla(0, 0%, 0%, 0.7);
+        --color-text-tertiary: hsla(0, 0%, 0%, 0.5);
+        --color-text-action: #ffffff;
+        --color-action-primary: #1c1c1e;
+        --color-action-secondary: #2c2c2e;
+    }
+    .dark-theme {
+        --color-neutrals-50: #1c1c1e;
+        --color-neutrals-100: #2c2c2e;
+        --color-neutrals-200: #3a3a3c;
+        --color-neutrals-300: #48484a;
+        --color-neutrals-400: #636366;
+        --color-neutrals-500: #8e8e93;
+        --color-neutrals-default: #000000;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: hsla(0, 100%, 100%, 0.7);
+        --color-text-tertiary: hsla(0, 100%, 100%, 0.5);
+        --color-text-action: #000000;
+        --color-action-primary: #ffffff;
+        --color-action-secondary: #f2f2f7;
+    }
 
-[data-ison='true'] {
-    @apply justify-end;
-}
+    body {
+        @apply min-h-full bg-neutrals-default text-text-primary;
+    }
 
-section {
-    @apply mb-16;
+    [data-ison='true'] {
+        @apply justify-end;
+    }
+
+    section {
+        @apply mb-16;
+    }
 }
 
 /* Write your own custom component styles here */
