@@ -16,8 +16,8 @@ export default function Provider({ children }) {
         <ThemeProvider
             attribute="class"
             value={{
-                light: 'light-theme',
-                dark: 'dark-theme',
+                light: 'light',
+                dark: 'dark',
             }}
             defaultTheme="system"
         >

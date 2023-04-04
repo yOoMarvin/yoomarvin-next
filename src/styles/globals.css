@@ -19,7 +19,7 @@
         --color-action-primary: #1c1c1e;
         --color-action-secondary: #2c2c2e;
     }
-    .dark-theme {
+    .dark {
         --color-neutrals-50: #1c1c1e;
         --color-neutrals-100: #2c2c2e;
         --color-neutrals-200: #3a3a3c;
