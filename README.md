@@ -13,7 +13,7 @@ The code that powers [marvinmessenzehl.com](https://marvinmessenzehl.com).
 In early 2023, I refactored my site to use the new `app/` directory in Next.js 13. I went ahead and shipped it, but there are still a few things I want to do:
 
 -   [ ] Adding analytics with Fathom
--   [ ] Adding a footer
+-   [x] Adding a footer
 -   [ ] Migrating over my portfolio
 -   [ ] Adding the `/work` site with services like crits and other things
 -   [ ] RSS Feed for the blog
