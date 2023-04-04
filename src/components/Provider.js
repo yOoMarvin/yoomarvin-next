@@ -13,7 +13,14 @@ export default function Provider({ children }) {
     if (!mounted) return null
 
     return (
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+            attribute="class"
+            value={{
+                light: 'light',
+                dark: 'dark',
+            }}
+            defaultTheme="system"
+        >
             {children}
         </ThemeProvider>
     )
