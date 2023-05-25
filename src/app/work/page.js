@@ -1,6 +1,5 @@
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import Placeholder from '../../components/Placeholder'
 
 const selectedProjects = [
     {
@@ -40,7 +39,7 @@ export default function WorkPage() {
                     </Link>
                 </div>
 
-                <div className="mb-8 grid grid-cols-3 gap-4">
+                <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
                     {selectedProjects.map((el) => (
                         <Link
                             key={el.title}
