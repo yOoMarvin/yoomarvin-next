@@ -1,5 +1,8 @@
 import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
+import { BoltIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import Service from 'src/components/Testimonial'
+import Testimonial from 'src/components/Testimonial'
 
 const selectedProjects = [
     {
@@ -29,6 +32,7 @@ export default function WorkPage() {
             <section>
                 <div className="flex flex-row items-baseline justify-between">
                     <h2 className="section__subtitle">Selected Projects</h2>
+
                     <Link
                         href="/work"
                         target={'_blank'}
@@ -38,6 +42,10 @@ export default function WorkPage() {
                         <ArrowUpRightIcon className="h-4 w-4" />
                     </Link>
                 </div>
+                <p className="mb-8 text-text-secondary">
+                    I should add some text here to explain a bit what these case
+                    studies are
+                </p>
 
                 <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
                     {selectedProjects.map((el) => (
@@ -60,11 +68,57 @@ export default function WorkPage() {
                     ))}
                 </div>
             </section>
+
             <section>
                 <h2 className="section__subtitle">Services</h2>
+                <p className="mb-8 text-text-secondary">
+                    I should add some text here to explain a bit what these case
+                    studies are.
+                </p>
+                {/* SERVICES */}
+                <div className="mb-8 flex w-full flex-col space-y-8">
+                    <div>
+                        <div className="mb-1 flex flex-row items-center space-x-2">
+                            <BoltIcon className="h-5 w-5 text-text-primary" />
+                            <h4 className="text-lg font-bold">Title</h4>
+                        </div>
+                        <p className="text-sm text-text-secondary">
+                            I'll add a short description about the service here.
+                            It won't get too long, just a few lines of text.
+                        </p>
+                    </div>
+                    <div>
+                        <div className="mb-1 flex flex-row items-center space-x-2">
+                            <BoltIcon className="h-5 w-5 text-text-primary" />
+                            <h4 className="text-lg font-bold">Title</h4>
+                        </div>
+                        <p className="text-sm text-text-secondary">
+                            I'll add a short description about the service here.
+                            It won't get too long, just a few lines of text.
+                        </p>
+                    </div>
+                    <div>
+                        <div className="mb-1 flex flex-row items-center space-x-2">
+                            <BoltIcon className="h-5 w-5 text-text-primary" />
+                            <h4 className="text-lg font-bold">Title</h4>
+                        </div>
+                        <p className="text-sm text-text-secondary">
+                            I'll add a short description about the service here.
+                            It won't get too long, just a few lines of text.
+                        </p>
+                    </div>
+                </div>
+                <Link
+                    type="button"
+                    href="mailto:hello@marvinmessenzehl.com"
+                    className="btn btn--filled"
+                >
+                    Contact me
+                </Link>
             </section>
+
             <section>
-                <h2 className="section__subtitle">Side Projects</h2>
+                <Testimonial />
             </section>
         </>
     )
