@@ -1,4 +1,9 @@
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
+import {
+    ArrowTrendingUpIcon,
+    ArrowUpRightIcon,
+    MagnifyingGlassIcon,
+    RocketLaunchIcon,
+} from '@heroicons/react/24/outline'
 import { BoltIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import Service from 'src/components/Testimonial'
@@ -43,8 +48,8 @@ export default function WorkPage() {
                     </Link>
                 </div>
                 <p className="mb-8 text-text-secondary">
-                    I should add some text here to explain a bit what these case
-                    studies are
+                    Here, you'll find my favorite projects and in-depth case
+                    studies.
                 </p>
 
                 <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -72,39 +77,50 @@ export default function WorkPage() {
             <section>
                 <h2 className="section__subtitle">Services</h2>
                 <p className="mb-8 text-text-secondary">
-                    I should add some text here to explain a bit what these case
-                    studies are.
+                    Reimagine the norm. As a one-man band (dogs aside!), no
+                    agency overhead - just direct, personal service. All your
+                    pennies go straight to work, no surprises. Now, let's dive
+                    into how I can serve you.
                 </p>
                 {/* SERVICES */}
                 <div className="mb-8 flex w-full flex-col space-y-8">
                     <div>
                         <div className="mb-1 flex flex-row items-center space-x-2">
-                            <BoltIcon className="h-5 w-5 text-text-primary" />
-                            <h4 className="text-lg font-bold">Title</h4>
+                            <MagnifyingGlassIcon className="h-5 w-5 text-text-primary" />
+                            <h4 className="text-lg font-bold">Crits</h4>
                         </div>
                         <p className="text-sm text-text-secondary">
-                            I'll add a short description about the service here.
-                            It won't get too long, just a few lines of text.
+                            Let's pinpoint your product's strengths and
+                            weaknesses together and uncover the steps to take
+                            your user experience from good to outstanding.
                         </p>
                     </div>
                     <div>
                         <div className="mb-1 flex flex-row items-center space-x-2">
-                            <BoltIcon className="h-5 w-5 text-text-primary" />
-                            <h4 className="text-lg font-bold">Title</h4>
+                            <RocketLaunchIcon className="h-5 w-5 text-text-primary" />
+                            <h4 className="text-lg font-bold">
+                                Hands-on Product Design
+                            </h4>
                         </div>
                         <p className="text-sm text-text-secondary">
-                            I'll add a short description about the service here.
-                            It won't get too long, just a few lines of text.
+                            ogether, we can shape your vision into a
+                            user-friendly, captivating product that not only
+                            looks great but also feels natural and intuitive to
+                            your users.
                         </p>
                     </div>
                     <div>
                         <div className="mb-1 flex flex-row items-center space-x-2">
-                            <BoltIcon className="h-5 w-5 text-text-primary" />
-                            <h4 className="text-lg font-bold">Title</h4>
+                            <ArrowTrendingUpIcon className="h-5 w-5 text-text-primary" />
+                            <h4 className="text-lg font-bold">
+                                Product Advisory
+                            </h4>
                         </div>
                         <p className="text-sm text-text-secondary">
-                            I'll add a short description about the service here.
-                            It won't get too long, just a few lines of text.
+                            I'm here to offer tailored, strategic advice that
+                            will help steer your product design journey towards
+                            success, making the most out of industry insights
+                            and best practices.
                         </p>
                     </div>
                 </div>
@@ -113,12 +129,21 @@ export default function WorkPage() {
                     href="mailto:hello@marvinmessenzehl.com"
                     className="btn btn--filled"
                 >
-                    Contact me
+                    Slide in my inbox
                 </Link>
             </section>
 
             <section>
-                <Testimonial />
+                <Testimonial
+                    src="/daniel.jpeg"
+                    alt="Daniel Szymkowiak"
+                    quote={[
+                        'Marvin combines different fields of expertise including development, design, and leadership which makes him a valuable team member for any project. His great and positive mindset boosts productivity and makes goals reachable that I thought would have never been.',
+                        'I am glad to have been working with Marvin and I am looking forward to any further collaborations!',
+                    ]}
+                    name="Daniel Szymkowiak"
+                    role="Co-Founder Future Next"
+                />
             </section>
         </>
     )
