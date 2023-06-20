@@ -12,20 +12,20 @@ import Testimonial from 'src/components/Testimonial'
 const selectedProjects = [
     {
         title: 'Basecamp Mobile To-dos',
-        href: '/work',
-        emoji: '🏕️',
+        href: 'https://marvinmessenzehl.super.site/case-studies/basecamp-mobile',
+        img: '/app-icons/basecamp-icon.png',
         description: 'A conceptual case studies to redesign mobile to-dos.',
     },
     {
         title: 'UOK Wellbeing',
-        href: '/work',
-        emoji: '🧘‍♂️',
+        href: 'https://marvinmessenzehl.super.site/case-studies/uok-wellbeing',
+        img: '/app-icons/uok-icon.png',
         description: 'Designing a mobile wellbeing app for students.',
     },
     {
         title: 'Enduco Design System',
-        href: '/work',
-        emoji: '🏃‍♂️',
+        href: 'https://marvinmessenzehl.super.site/other-projects/enduco-design-system',
+        img: '/app-icons/enduco-icon.png',
         description: 'Relaunching a scalable design system for a startup.',
     },
 ]
@@ -58,9 +58,13 @@ export default function WorkPage() {
                             key={el.title}
                             className="transition-base rounded-2xl bg-neutrals-50 p-4 hover:bg-neutrals-100"
                             href={el.href}
+                            target="_blank"
                         >
-                            <div className="mb-8 flex h-12 w-12 flex-row items-center justify-center rounded-full border border-neutrals-100 p-2 text-xl">
-                                {el.emoji}
+                            <div className="mb-8 h-12 w-12 rounded-full border border-neutrals-100 p-1.5">
+                                <img
+                                    src={el.img}
+                                    className="h-full w-full rounded-full object-cover"
+                                />
                             </div>
                             <h4 className="mb-4 font-bold">{el.title}</h4>
                             <p className="text-sm text-text-secondary">
