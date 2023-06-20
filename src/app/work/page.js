@@ -13,19 +13,19 @@ const selectedProjects = [
     {
         title: 'Basecamp Mobile To-dos',
         href: '/work',
-        img: 'https://play-lh.googleusercontent.com/Kzl0tRihUiiaX2H3a_zb8iQMTKfEuG-MZr3yx4E90-vTRBKfgUQM8bVmd6r7oAHAIQ',
+        emoji: '🏕️',
         description: 'A conceptual case studies to redesign mobile to-dos.',
     },
     {
         title: 'UOK Wellbeing',
         href: '/work',
-        img: 'https://play-lh.googleusercontent.com/Kzl0tRihUiiaX2H3a_zb8iQMTKfEuG-MZr3yx4E90-vTRBKfgUQM8bVmd6r7oAHAIQ',
+        emoji: '🧘‍♂️',
         description: 'Designing a mobile wellbeing app for students.',
     },
     {
         title: 'Enduco Design System',
         href: '/work',
-        img: 'https://play-lh.googleusercontent.com/Kzl0tRihUiiaX2H3a_zb8iQMTKfEuG-MZr3yx4E90-vTRBKfgUQM8bVmd6r7oAHAIQ',
+        emoji: '🏃‍♂️',
         description: 'Relaunching a scalable design system for a startup.',
     },
 ]
@@ -59,11 +59,8 @@ export default function WorkPage() {
                             className="transition-base rounded-2xl bg-neutrals-50 p-4 hover:bg-neutrals-100"
                             href={el.href}
                         >
-                            <div className="mb-8 h-12 w-12 rounded-full border border-neutrals-100 p-2">
-                                <img
-                                    src={el.img}
-                                    className="h-full w-full rounded-full object-cover"
-                                />
+                            <div className="mb-8 flex h-12 w-12 flex-row items-center justify-center rounded-full border border-neutrals-100 p-2 text-xl">
+                                {el.emoji}
                             </div>
                             <h4 className="mb-4 font-bold">{el.title}</h4>
                             <p className="text-sm text-text-secondary">
