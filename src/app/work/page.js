@@ -75,7 +75,7 @@ export default function WorkPage() {
             </section>
 
             <section>
-                <h2 className="section__subtitle">Services</h2>
+                <h2 className="section__title">Services</h2>
                 <p className="mb-8 text-text-secondary">
                     Reimagine the norm. As a one-man band (dogs aside!), no
                     agency overhead - just direct, personal service. All your
@@ -124,22 +124,13 @@ export default function WorkPage() {
                         </p>
                     </div>
                 </div>
-                <div className="flex w-full flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                    <Link
-                        type="button"
-                        href="mailto:hello@marvinmessenzehl.com"
-                        className="btn btn--filled"
-                    >
-                        Slide in my inbox
-                    </Link>
-                    <Link
-                        type="button"
-                        href="/work/working-with-marvin"
-                        className="btn btn--outlined"
-                    >
-                        Working with Marvin
-                    </Link>
-                </div>
+                <Link
+                    type="button"
+                    href="mailto:hello@marvinmessenzehl.com"
+                    className="btn btn--filled"
+                >
+                    Slide in my inbox
+                </Link>
             </section>
 
             <section>
@@ -153,6 +144,13 @@ export default function WorkPage() {
                     name="Daniel Szymkowiak"
                     role="Co-Founder Future Next"
                 />
+                <Link
+                    type="button"
+                    href="/work/working-with-marvin"
+                    className="btn btn--outlined mt-8"
+                >
+                    Working with Marvin
+                </Link>
             </section>
         </>
     )
