@@ -61,7 +61,10 @@
     }
 
     .btn {
-        @apply transition-base rounded-2xl px-5 py-4 text-center font-bold;
+        @apply transition-base rounded-2xl px-5 py-4 text-center font-medium;
+    }
+    .btn--small {
+        @apply rounded-xl px-4 py-2 text-sm;
     }
     .btn--filled {
         @apply bg-action-primary text-text-action hover:bg-action-secondary;
@@ -69,11 +72,14 @@
     .btn--outlined {
         @apply border border-action-primary bg-neutrals-default text-text-primary hover:border-action-secondary hover:bg-neutrals-100;
     }
+    .btn--ghost {
+        @apply text-text-primary hover:bg-neutrals-50;
+    }
     .section__title {
         @apply mb-8 text-2xl font-bold;
     }
     .section__subtitle {
-        @apply mb-4 text-lg text-text-secondary;
+        @apply mb-2 text-xl text-text-primary;
     }
 }
 
