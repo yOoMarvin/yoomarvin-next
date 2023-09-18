@@ -39,8 +39,8 @@ export default function WorkPage() {
                     <h2 className="section__subtitle">Selected Projects</h2>
 
                     <Link
-                        href="/work"
-                        target={'_blank'}
+                        href="https://marvinmessenzehl.super.site/"
+                        target="_blank"
                         className="transition-base flex flex-row items-center space-x-1 text-sm font-medium text-text-secondary hover:text-text-primary"
                     >
                         <span>Visit Portfolio</span>
