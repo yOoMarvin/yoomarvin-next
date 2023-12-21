@@ -6,13 +6,13 @@ export default function PostCard(props) {
     return (
         <Link
             href={props.href}
-            className="transition-base mb-4 flex w-full flex-row space-x-12 sm:space-x-16"
+            className="transition-base mb-4 grid w-full grid-cols-3 gap-12 sm:gap-16"
             {...props}
         >
-            <p className="text-text-secondary">
+            <p className="col-auto text-text-secondary">
                 {format(parseISO(props.date), 'LLLL d, yyyy')}
             </p>
-            <h3 className="link-basic transition-base text-text-primary">
+            <h3 className="link-basic transition-base col-span-2 text-text-primary">
                 {props.title}
             </h3>
         </Link>
