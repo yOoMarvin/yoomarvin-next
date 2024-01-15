@@ -13,8 +13,8 @@
         --color-neutrals-500: #8e8e93;
         --color-neutrals-default: #ffffff;
         --color-text-primary: #000000;
-        --color-text-secondary: hsla(0, 0%, 0%, 0.85);
-        --color-text-tertiary: hsla(0, 0%, 0%, 0.5);
+        --color-text-secondary: hsla(0, 0%, 0%, 0.8);
+        --color-text-tertiary: hsla(0, 0%, 0%, 0.6);
         --color-text-action: #ffffff;
         --color-action-primary: #1c1c1e;
         --color-action-secondary: #2c2c2e;
@@ -28,8 +28,8 @@
         --color-neutrals-500: #8e8e93;
         --color-neutrals-default: #000000;
         --color-text-primary: #ffffff;
-        --color-text-secondary: hsla(0, 100%, 100%, 0.85);
-        --color-text-tertiary: hsla(0, 100%, 100%, 0.5);
+        --color-text-secondary: hsla(0, 100%, 100%, 0.8);
+        --color-text-tertiary: hsla(0, 100%, 100%, 0.6);
         --color-text-action: #000000;
         --color-action-primary: #ffffff;
         --color-action-secondary: #f2f2f7;
