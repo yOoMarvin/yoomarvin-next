@@ -22,7 +22,7 @@ export default function Homepage() {
                         <p>
                             I love working in the realm between design and code.
                             Some things that make me excited are CSS,
-                            Interaction design, Javascript and making interfaces
+                            interaction design, Javascript and making interfaces
                             feel fun and human.
                         </p>
                         <p>

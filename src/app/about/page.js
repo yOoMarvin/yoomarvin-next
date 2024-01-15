@@ -37,7 +37,66 @@ export default function AboutPage() {
                     <p className="mb-4">
                         Afterwards, I focused on designing and developing
                         interfaces and have been supporting great companies and
-                        projects for some time now as a freelancer.
+                        projects as a freelacer. Here, I had the pleasure to
+                        work with a bunch of outstanding people, ranging from
+                        small startups to big corporates. Examples from these
+                        are the{' '}
+                        <a
+                            href="https://www.lbs.de/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            LBS group
+                        </a>
+                        ,{' '}
+                        <a
+                            href="https://www.notch.so/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            Notch.so
+                        </a>
+                        ,{' '}
+                        <a
+                            href="https://enduco.app/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            enduco
+                        </a>
+                        ,{' '}
+                        <a
+                            href="https://www.onvy.health/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            ONVY
+                        </a>
+                        ,{' '}
+                        <a
+                            href="https://www.hellodesign.de/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            Hello Design
+                        </a>
+                        ,{' '}
+                        <a
+                            href="https://www.sas.com/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            SAS
+                        </a>{' '}
+                        and{' '}
+                        <a
+                            href="https://www.instaffo.com/"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            Instaffo
+                        </a>
+                        .
                     </p>
                     <p className="mb-4">
                         I love working in the realm between design and code.
@@ -121,6 +180,12 @@ export default function AboutPage() {
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
                 <div>
                     <Job
+                        title="Senior Product Designer at RTL+"
+                        time="2023-today"
+                        description="Building the biggest entertainment app in Germany by combining video streaming, music, podcasts, audiobooks, magazines and podcasts."
+                        src="/rtl-logo.svg"
+                    />
+                    <Job
                         title="UX / UI Teacher at Memorisely"
                         time="2022-today"
                         description="Teaching the next generation of designers in interactive and remote live classes."
@@ -129,7 +194,7 @@ export default function AboutPage() {
                     <Job
                         title="Freelance Product Designer"
                         time="2021-today"
-                        description="Helping companies to design, build and launch world-class products. Such as ONVY, Enduco, Notch, RTL+ and many more."
+                        description="Helping companies to design, build and launch world-class products. Such as ONVY, Enduco, Notch, SAS and many more."
                         src="/freelance-logo.svg"
                     />
                     <Job
@@ -149,6 +214,11 @@ export default function AboutPage() {
             <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Appearances</h2>
                 <div className="flex flex-col space-y-4">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=QGWD6EhhKYE"
+                        title="Figma: In The File at RTL+"
+                        date="Sep '23"
+                    />
                     <Appearance
                         href="https://www.youtube.com/watch?v=FfhjolsHIBY&t=363s&ab_channel=yasoon"
                         title="Dev & Donuts Keynote"
