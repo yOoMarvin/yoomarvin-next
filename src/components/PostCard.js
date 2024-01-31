@@ -6,7 +6,7 @@ export default function PostCard(props) {
     return (
         <Link
             href={props.href}
-            className="transition-base mb-4 grid w-full grid-cols-3 gap-12 sm:gap-16"
+            className="transition-base mb-2 grid w-full grid-cols-3 gap-12 sm:gap-16"
             {...props}
         >
             <p className="col-auto text-text-secondary">
