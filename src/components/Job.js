@@ -12,12 +12,13 @@ export default function Job(props) {
                 />
                 <div>
                     <p className="font-bold">{props.title}</p>
+                    <p className="text-text-primary sm:hidden">{props.time}</p>
                     <p className="max-w-xl text-text-secondary">
                         {props.description}
                     </p>
                 </div>
             </div>
-            <p className=" text-text-primary">{props.time}</p>
+            <p className="hidden text-text-primary sm:block">{props.time}</p>
         </div>
     )
 }
