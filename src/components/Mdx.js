@@ -43,7 +43,7 @@ export function Mdx({ code }) {
     const Component = useMDXComponent(code)
 
     return (
-        <article className="prose prose-headings:mt-0 prose-headings:mb-2 prose-headings:font-bold prose-h1:text-3xl prose-a:font-normal prose-a:decoration-wavy prose-pre:border prose-pre:border-neutrals-100 dark:prose-invert">
+        <article className="prose dark:prose-invert prose-headings:mb-2 prose-headings:mt-0 prose-headings:font-bold prose-h1:text-3xl prose-a:font-medium prose-a:text-special-link hover:prose-a:text-special-linkHover prose-pre:border prose-pre:border-ui-neutral">
             <Component components={components} />
         </article>
     )

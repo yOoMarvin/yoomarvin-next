@@ -35,11 +35,11 @@
         --color-special-white: #ffffff;
         --color-special-black: #000000;
         --color-blue-200: #bfdbfe;
-        --color-blue-300: #bfdbfe;
-        --color-blue-400: #bfdbfe;
-        --color-blue-500: #bfdbfe;
-        --color-blue-600: #bfdbfe;
-        --color-blue-700: #bfdbfe;
+        --color-blue-300: #93c5fd;
+        --color-blue-400: #60a5fa;
+        --color-blue-500: #3b82f6;
+        --color-blue-600: #2563eb;
+        --color-blue-700: #1d4ed8;
 
         /* Color Semantics */
         --color-background-default: var(--color-special-white);
@@ -98,8 +98,8 @@
         --color-on-ui-highlight-low: var(--color-grey-500);
         --color-on-ui-highlight-medium: var(--color-grey-700);
         --color-on-ui-highlight-high: var(--color-grey-950);
-        --color-group-special-link: var(--color-blue-500);
-        --color-group-special-link-hover: var(--color-blue-400);
+        --color-special-link: var(--color-blue-500);
+        --color-special-link-hover: var(--color-blue-400);
     }
 
     body {

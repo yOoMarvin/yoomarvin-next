@@ -4,7 +4,7 @@ export default function Placeholder() {
             <h1 className="mb-4 text-xl font-bold">
                 🤞 I'm working on it. Pinky Promise
             </h1>
-            <p className="text-text-secondary">
+            <p className="text-onBackground-medium">
                 I'm currently in the progress of rebuilding my complete web
                 presence and such a thing takes time besides a full-time job.
                 But since I love to{' '}

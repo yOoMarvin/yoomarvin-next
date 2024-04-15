@@ -19,7 +19,7 @@ export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <header className="fixed top-0 z-10 w-screen bg-neutrals-default bg-opacity-60 px-2 backdrop-blur-md sm:px-4">
+        <header className="fixed top-0 z-10 w-screen bg-background-default bg-opacity-5 px-2 backdrop-blur-md sm:px-4">
             <nav className="mx-auto flex flex-row items-center justify-between py-4 md:w-[768px]">
                 {/* Home Button. Always visible */}
                 <HomeButton />
@@ -27,7 +27,7 @@ export default function Navigation() {
                 <div className="md:hidden">
                     <button
                         type="button"
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-4 text-text-primary"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-4 text-onBackground-high"
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -55,13 +55,13 @@ export default function Navigation() {
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-20" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto overflow-x-hidden bg-neutrals-default bg-opacity-80 px-2 py-4 backdrop-blur-lg sm:px-4">
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto overflow-x-hidden bg-background-default bg-opacity-80 px-2 py-4 backdrop-blur-lg sm:px-4">
                     <div className="flex items-center justify-between">
                         <HomeButton />
 
                         <button
                             type="button"
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-4 text-text-primary"
+                            className="text-onBackground-default -m-2.5 inline-flex items-center justify-center rounded-md p-4"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>

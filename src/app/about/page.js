@@ -9,7 +9,7 @@ export default function AboutPage() {
             <section className="mb-16">
                 <h1 className="mb-4 text-2xl font-bold">About me</h1>
 
-                <div class="text-text-secondary">
+                <div class="text-onBackground-medium">
                     <p className="mb-4">
                         Before I left for the world of design and development, I
                         did my master's degree in business informatics at the{' '}
