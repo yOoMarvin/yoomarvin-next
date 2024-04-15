@@ -60,8 +60,8 @@
         --color-on-ui-highlight-low: var(--color-grey-500);
         --color-on-ui-highlight-medium: var(--color-grey-300);
         --color-on-ui-highlight-high: var(--color-grey-50);
-        --color-group-special-link: var(--color-blue-600);
-        --color-group-special-link-hover: var(--color-blue-700);
+        --color-special-link: var(--color-blue-600);
+        --color-special-link-hover: var(--color-blue-700);
     }
     .dark {
         /* Old Colors */
@@ -103,7 +103,7 @@
     }
 
     body {
-        @apply min-h-full bg-neutrals-default text-text-primary;
+        @apply min-h-full bg-background-default text-onBackground-high;
     }
 
     [data-ison='true'] {
@@ -117,16 +117,15 @@
 
 /* Write your own custom component styles here */
 @layer components {
+    .transition-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
     .link-basic {
-        @apply transition-base text-text-primary hover:underline hover:decoration-wavy;
+        @apply transition-base font-medium text-special-link hover:text-special-linkHover hover:underline;
     }
     .link-blog {
         @apply transition-base text-text-primary underline decoration-wavy hover:opacity-50;
     }
-    .transition-base {
-        @apply transition-all duration-300 ease-in-out;
-    }
-
     .btn {
         @apply transition-base rounded-2xl px-5 py-4 text-center font-medium;
     }
@@ -134,19 +133,19 @@
         @apply rounded-xl px-4 py-2 text-sm;
     }
     .btn--filled {
-        @apply bg-action-primary text-text-action hover:bg-action-secondary;
+        @apply bg-ui-highlight text-onUiHighlight-high hover:bg-ui-highlightHover;
     }
     .btn--outlined {
-        @apply border border-action-primary bg-neutrals-default text-text-primary hover:border-action-secondary hover:bg-neutrals-100;
+        @apply border border-ui-highlight bg-background-default text-onBackground-high hover:border-ui-highlightHover hover:bg-ui-low hover:text-onUi-high;
     }
     .btn--ghost {
-        @apply text-text-primary hover:bg-neutrals-50;
+        @apply text-onBackground-high hover:bg-ui-low hover:text-onUi-high;
     }
     .section__title {
         @apply mb-8 text-2xl font-bold;
     }
     .section__subtitle {
-        @apply mb-2 text-xl text-text-primary;
+        @apply mb-2 text-xl text-onBackground-medium;
     }
 }
 

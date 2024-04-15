@@ -44,7 +44,7 @@ module.exports = {
                     medium: 'var(--color-ui-medium)',
                     high: 'var(--color-ui-high)',
                     highlight: 'var(--color-ui-highlight)',
-                    highlightHover: 'var(--color-ui-dhighlight-hover)',
+                    highlightHover: 'var(--color-ui-highlight-hover)',
                 },
                 onUi: {
                     low: 'var(--color-on-ui-low)',
