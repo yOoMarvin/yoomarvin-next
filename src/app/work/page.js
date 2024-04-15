@@ -41,13 +41,13 @@ export default function WorkPage() {
                     <Link
                         href="https://marvinmessenzehl.super.site/"
                         target="_blank"
-                        className="transition-base flex flex-row items-center space-x-1 text-sm font-medium text-text-secondary hover:text-text-primary"
+                        className="transition-base flex flex-row items-center space-x-1 text-sm font-medium text-ui-highlight hover:text-ui-high"
                     >
                         <span>Visit Portfolio</span>
                         <ArrowUpRightIcon className="h-4 w-4" />
                     </Link>
                 </div>
-                <p className="mb-8 text-text-secondary">
+                <p className="mb-8 text-onBackground-medium">
                     Here, you'll find my favorite projects and in-depth case
                     studies.
                 </p>
@@ -67,7 +67,7 @@ export default function WorkPage() {
                                 />
                             </div>
                             <h4 className="mb-4 font-bold">{el.title}</h4>
-                            <p className="text-sm text-text-secondary">
+                            <p className="text-sm text-onBackground-medium">
                                 {el.description}
                             </p>
                         </Link>
@@ -77,7 +77,7 @@ export default function WorkPage() {
 
             <section>
                 <h2 className="section__title">Services</h2>
-                <p className="mb-8 text-text-secondary">
+                <p className="mb-8 text-onBackground-medium">
                     Reimagine the norm. As a one-man band (dogs aside!), no
                     agency overhead - just direct, personal service. All your
                     pennies go straight to work, no surprises. Now, let's dive
@@ -90,7 +90,7 @@ export default function WorkPage() {
                             <MagnifyingGlassIcon className="h-5 w-5 text-text-primary" />
                             <h4 className="text-lg font-bold">Crits</h4>
                         </div>
-                        <p className="text-sm text-text-secondary">
+                        <p className="text-sm text-onBackground-medium">
                             Let's pinpoint your product's strengths and
                             weaknesses together and uncover the steps to take
                             your user experience from good to outstanding.
@@ -103,7 +103,7 @@ export default function WorkPage() {
                                 Hands-on Product Design
                             </h4>
                         </div>
-                        <p className="text-sm text-text-secondary">
+                        <p className="text-sm text-onBackground-medium">
                             ogether, we can shape your vision into a
                             user-friendly, captivating product that not only
                             looks great but also feels natural and intuitive to
@@ -117,7 +117,7 @@ export default function WorkPage() {
                                 Product Advisory
                             </h4>
                         </div>
-                        <p className="text-sm text-text-secondary">
+                        <p className="text-sm text-onBackground-medium">
                             I'm here to offer tailored, strategic advice that
                             will help steer your product design journey towards
                             success, making the most out of industry insights

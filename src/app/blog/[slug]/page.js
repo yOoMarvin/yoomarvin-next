@@ -28,7 +28,7 @@ export default async function PostPage({ params }) {
             <section className="mb-8">
                 <Link
                     href="/blog"
-                    className="transition-base mb-8 flex flex-row space-x-2 py-2 text-text-secondary hover:-translate-x-1 hover:text-text-primary"
+                    className="transition-base mb-8 flex flex-row space-x-2 py-2 text-onBackground-medium hover:-translate-x-1 hover:text-onBackground-high"
                 >
                     <ArrowLongLeftIcon className="h-6 w-6" /> <span>Back</span>
                 </Link>
@@ -44,7 +44,7 @@ export default async function PostPage({ params }) {
                 <h1 className="mb-2 text-3xl font-bold">{post.title}</h1>
                 <time
                     dateTime={post.date}
-                    className="text-sm text-text-tertiary"
+                    className="text-sm text-onBackground-low"
                 >
                     {format(parseISO(post.date), 'LLLL d, yyyy')}
                 </time>
