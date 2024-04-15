@@ -5,21 +5,6 @@
 /* custom styles */
 @layer base {
     :root {
-        /* Old Styles */
-        --color-neutrals-50: #f2f2f7;
-        --color-neutrals-100: #e5e5ea;
-        --color-neutrals-200: #d1d1d6;
-        --color-neutrals-300: #c7c7cc;
-        --color-neutrals-400: #aeaeb2;
-        --color-neutrals-500: #8e8e93;
-        --color-neutrals-default: #ffffff;
-        --color-text-primary: #000000;
-        --color-text-secondary: hsla(0, 0%, 0%, 0.8);
-        --color-text-tertiary: hsla(0, 0%, 0%, 0.6);
-        --color-text-action: #ffffff;
-        --color-action-primary: #1c1c1e;
-        --color-action-secondary: #2c2c2e;
-
         /* Color Primitives */
         --color-grey-50: #fafafa;
         --color-grey-100: #f5f5f5;
@@ -64,21 +49,6 @@
         --color-special-link-hover: var(--color-blue-700);
     }
     .dark {
-        /* Old Colors */
-        --color-neutrals-50: #1c1c1e;
-        --color-neutrals-100: #2c2c2e;
-        --color-neutrals-200: #3a3a3c;
-        --color-neutrals-300: #48484a;
-        --color-neutrals-400: #636366;
-        --color-neutrals-500: #8e8e93;
-        --color-neutrals-default: #000000;
-        --color-text-primary: #ffffff;
-        --color-text-secondary: hsla(0, 100%, 100%, 0.8);
-        --color-text-tertiary: hsla(0, 100%, 100%, 0.6);
-        --color-text-action: #000000;
-        --color-action-primary: #ffffff;
-        --color-action-secondary: #f2f2f7;
-
         /* Color Semantics dark mode */
         --color-background-default: var(--color-special-black);
         --color-background-variant: var(--color-grey-900);
