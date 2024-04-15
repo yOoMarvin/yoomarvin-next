@@ -5,6 +5,7 @@
 /* custom styles */
 @layer base {
     :root {
+        /* Old Styles */
         --color-neutrals-50: #f2f2f7;
         --color-neutrals-100: #e5e5ea;
         --color-neutrals-200: #d1d1d6;
@@ -18,8 +19,52 @@
         --color-text-action: #ffffff;
         --color-action-primary: #1c1c1e;
         --color-action-secondary: #2c2c2e;
+
+        /* Color Primitives */
+        --color-grey-50: #fafafa;
+        --color-grey-100: #f5f5f5;
+        --color-grey-200: #e5e5e5;
+        --color-grey-300: #d4d4d4;
+        --color-grey-400: #a3a3a3;
+        --color-grey-500: #737373;
+        --color-grey-600: #525252;
+        --color-grey-700: #404040;
+        --color-grey-800: #262626;
+        --color-grey-900: #171717;
+        --color-grey-950: #0a0a0a;
+        --color-special-white: #ffffff;
+        --color-special-black: #000000;
+        --color-blue-200: #bfdbfe;
+        --color-blue-300: #bfdbfe;
+        --color-blue-400: #bfdbfe;
+        --color-blue-500: #bfdbfe;
+        --color-blue-600: #bfdbfe;
+        --color-blue-700: #bfdbfe;
+
+        /* Color Semantics */
+        --color-background-default: var(--color-special-white);
+        --color-background-variant: var(--color-grey-100);
+        --color-background-highlight: var(--color-grey-200);
+        --color-on-background-high: var(--var-grey-950);
+        --color-on-background-medium: var(--color-grey-800);
+        --color-on-background-low: var(--color-grey-600);
+        --color-ui-low: var(--color-grey-100);
+        --color-ui-neutral: var(--color-grey-200);
+        --color-ui-medium: var(--color-grey-300);
+        --color-ui-high: var(--color-grey-600);
+        --color-ui-highlight: var(--color-grey-950);
+        --color-ui-highlight-hover: var(--color-grey-800);
+        --color-on-ui-low: var(--color-grey-500);
+        --color-on-ui-medium: var(--color-grey-700);
+        --color-on-ui-high: var(--color-grey-950);
+        --color-on-ui-highlight-low: var(--color-grey-500);
+        --color-on-ui-highlight-medium: var(--color-grey-300);
+        --color-on-ui-highlight-high: var(--color-grey-50);
+        --color-group-special-link: var(--color-blue-600);
+        --color-group-special-link-hover: var(--color-blue-700);
     }
     .dark {
+        /* Old Colors */
         --color-neutrals-50: #1c1c1e;
         --color-neutrals-100: #2c2c2e;
         --color-neutrals-200: #3a3a3c;
@@ -33,6 +78,28 @@
         --color-text-action: #000000;
         --color-action-primary: #ffffff;
         --color-action-secondary: #f2f2f7;
+
+        /* Color Semantics dark mode */
+        --color-background-default: var(--color-special-black);
+        --color-background-variant: var(--color-grey-900);
+        --color-background-highlight: var(--color-grey-800);
+        --color-on-background-high: var(--var-grey-50);
+        --color-on-background-medium: var(--color-grey-200);
+        --color-on-background-low: var(--color-grey-400);
+        --color-ui-low: var(--color-grey-900);
+        --color-ui-neutral: var(--color-grey-800);
+        --color-ui-medium: var(--color-grey-700);
+        --color-ui-high: var(--color-grey-400);
+        --color-ui-highlight: var(--color-grey-50);
+        --color-ui-highlight-hover: var(--color-grey-200);
+        --color-on-ui-low: var(--color-grey-500);
+        --color-on-ui-medium: var(--color-grey-300);
+        --color-on-ui-high: var(--color-grey-50);
+        --color-on-ui-highlight-low: var(--color-grey-500);
+        --color-on-ui-highlight-medium: var(--color-grey-700);
+        --color-on-ui-highlight-high: var(--color-grey-950);
+        --color-group-special-link: var(--color-blue-500);
+        --color-group-special-link-hover: var(--color-blue-400);
     }
 
     body {
