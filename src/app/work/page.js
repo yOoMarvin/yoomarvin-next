@@ -56,11 +56,11 @@ export default function WorkPage() {
                     {selectedProjects.map((el) => (
                         <Link
                             key={el.title}
-                            className="transition-base rounded-2xl bg-neutrals-50 p-4 hover:bg-neutrals-100"
+                            className="transition-base rounded-2xl bg-ui-low p-4 hover:bg-ui-neutral"
                             href={el.href}
                             target="_blank"
                         >
-                            <div className="mb-8 h-12 w-12 rounded-full border border-neutrals-100 p-1.5">
+                            <div className="mb-8 h-12 w-12 rounded-full border border-ui-neutral p-1.5">
                                 <img
                                     src={el.img}
                                     className="h-full w-full rounded-full object-cover"
@@ -87,7 +87,7 @@ export default function WorkPage() {
                 <div className="mb-8 flex w-full flex-col space-y-8">
                     <div>
                         <div className="mb-1 flex flex-row items-center space-x-2">
-                            <MagnifyingGlassIcon className="h-5 w-5 text-text-primary" />
+                            <MagnifyingGlassIcon className="text-text-primary h-5 w-5" />
                             <h4 className="text-lg font-bold">Crits</h4>
                         </div>
                         <p className="text-sm text-onBackground-medium">
@@ -98,7 +98,7 @@ export default function WorkPage() {
                     </div>
                     <div>
                         <div className="mb-1 flex flex-row items-center space-x-2">
-                            <RocketLaunchIcon className="h-5 w-5 text-text-primary" />
+                            <RocketLaunchIcon className="text-text-primary h-5 w-5" />
                             <h4 className="text-lg font-bold">
                                 Hands-on Product Design
                             </h4>
@@ -112,7 +112,7 @@ export default function WorkPage() {
                     </div>
                     <div>
                         <div className="mb-1 flex flex-row items-center space-x-2">
-                            <ArrowTrendingUpIcon className="h-5 w-5 text-text-primary" />
+                            <ArrowTrendingUpIcon className="text-text-primary h-5 w-5" />
                             <h4 className="text-lg font-bold">
                                 Product Advisory
                             </h4>
