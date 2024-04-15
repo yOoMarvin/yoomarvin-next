@@ -11,8 +11,8 @@ export default function NavLink({ href, children }) {
         <Link
             className={
                 active
-                    ? 'rounded-xl bg-neutrals-50 bg-opacity-90 px-4 py-2 text-lg font-medium text-text-primary sm:text-base'
-                    : 'transition-base rounded-xl px-4 py-2 text-lg text-text-secondary hover:bg-neutrals-50  hover:bg-opacity-60 hover:text-text-primary sm:text-base'
+                    ? 'rounded-xl bg-ui-neutral px-4 py-2 text-lg font-medium text-onUi-high sm:text-base'
+                    : 'transition-base rounded-xl px-4 py-2 text-lg text-onUi-medium hover:bg-ui-low hover:text-onUi-high sm:text-base'
             }
             href={href}
         >
@@ -28,8 +28,8 @@ export function MobileNavLink({ href, children }) {
         <a
             className={
                 active
-                    ? 'rounded-xl bg-neutrals-50 bg-opacity-90 px-4 py-2 text-lg font-medium text-text-primary sm:text-base'
-                    : 'transition-base rounded-xl px-4 py-2 text-lg text-text-secondary hover:bg-neutrals-50  hover:bg-opacity-60 hover:text-text-primary sm:text-base'
+                    ? 'rounded-xl bg-ui-neutral px-4 py-2 text-lg font-medium text-onUi-high sm:text-base'
+                    : 'transition-base rounded-xl px-4 py-2 text-lg text-onUi-medium hover:bg-ui-low hover:text-onUi-high sm:text-base'
             }
             href={href}
         >

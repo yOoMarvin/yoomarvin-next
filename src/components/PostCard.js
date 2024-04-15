@@ -9,10 +9,10 @@ export default function PostCard(props) {
             className="transition-base mb-2 grid w-full grid-cols-3 gap-12 sm:gap-16"
             {...props}
         >
-            <p className="col-auto text-text-secondary">
+            <p className="col-auto text-onBackground-medium">
                 {format(parseISO(props.date), 'LLLL d, yyyy')}
             </p>
-            <h3 className="link-basic transition-base col-span-2 text-text-primary">
+            <h3 className="link-basic transition-base col-span-2 text-onBackground-high">
                 {props.title}
             </h3>
         </Link>

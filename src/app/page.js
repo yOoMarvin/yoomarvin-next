@@ -18,7 +18,7 @@ export default function Homepage() {
                         I help companies design, build and launch world-class
                         digital products.
                     </h2>
-                    <div className="flex flex-col space-y-4 text-lg text-text-secondary">
+                    <div className="flex flex-col space-y-4 text-lg text-onBackground-medium">
                         <p>
                             I love working in the realm between design and code.
                             Some things that make me excited are CSS,

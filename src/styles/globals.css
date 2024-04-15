@@ -5,38 +5,75 @@
 /* custom styles */
 @layer base {
     :root {
-        --color-neutrals-50: #f2f2f7;
-        --color-neutrals-100: #e5e5ea;
-        --color-neutrals-200: #d1d1d6;
-        --color-neutrals-300: #c7c7cc;
-        --color-neutrals-400: #aeaeb2;
-        --color-neutrals-500: #8e8e93;
-        --color-neutrals-default: #ffffff;
-        --color-text-primary: #000000;
-        --color-text-secondary: hsla(0, 0%, 0%, 0.8);
-        --color-text-tertiary: hsla(0, 0%, 0%, 0.6);
-        --color-text-action: #ffffff;
-        --color-action-primary: #1c1c1e;
-        --color-action-secondary: #2c2c2e;
+        /* Color Primitives */
+        --color-grey-50: #fafafa;
+        --color-grey-100: #f5f5f5;
+        --color-grey-200: #e5e5e5;
+        --color-grey-300: #d4d4d4;
+        --color-grey-400: #a3a3a3;
+        --color-grey-500: #737373;
+        --color-grey-600: #525252;
+        --color-grey-700: #404040;
+        --color-grey-800: #262626;
+        --color-grey-900: #171717;
+        --color-grey-950: #0a0a0a;
+        --color-special-white: #ffffff;
+        --color-special-black: #000000;
+        --color-blue-200: #bfdbfe;
+        --color-blue-300: #93c5fd;
+        --color-blue-400: #60a5fa;
+        --color-blue-500: #3b82f6;
+        --color-blue-600: #2563eb;
+        --color-blue-700: #1d4ed8;
+
+        /* Color Semantics */
+        --color-background-default: var(--color-special-white);
+        --color-background-variant: var(--color-grey-100);
+        --color-background-highlight: var(--color-grey-200);
+        --color-on-background-high: var(--var-grey-950);
+        --color-on-background-medium: var(--color-grey-800);
+        --color-on-background-low: var(--color-grey-600);
+        --color-ui-low: var(--color-grey-100);
+        --color-ui-neutral: var(--color-grey-200);
+        --color-ui-medium: var(--color-grey-300);
+        --color-ui-high: var(--color-grey-600);
+        --color-ui-highlight: var(--color-grey-950);
+        --color-ui-highlight-hover: var(--color-grey-800);
+        --color-on-ui-low: var(--color-grey-500);
+        --color-on-ui-medium: var(--color-grey-700);
+        --color-on-ui-high: var(--color-grey-950);
+        --color-on-ui-highlight-low: var(--color-grey-500);
+        --color-on-ui-highlight-medium: var(--color-grey-300);
+        --color-on-ui-highlight-high: var(--color-grey-50);
+        --color-special-link: var(--color-blue-600);
+        --color-special-link-hover: var(--color-blue-700);
     }
     .dark {
-        --color-neutrals-50: #1c1c1e;
-        --color-neutrals-100: #2c2c2e;
-        --color-neutrals-200: #3a3a3c;
-        --color-neutrals-300: #48484a;
-        --color-neutrals-400: #636366;
-        --color-neutrals-500: #8e8e93;
-        --color-neutrals-default: #000000;
-        --color-text-primary: #ffffff;
-        --color-text-secondary: hsla(0, 100%, 100%, 0.8);
-        --color-text-tertiary: hsla(0, 100%, 100%, 0.6);
-        --color-text-action: #000000;
-        --color-action-primary: #ffffff;
-        --color-action-secondary: #f2f2f7;
+        /* Color Semantics dark mode */
+        --color-background-default: var(--color-special-black);
+        --color-background-variant: var(--color-grey-900);
+        --color-background-highlight: var(--color-grey-800);
+        --color-on-background-high: var(--var-grey-50);
+        --color-on-background-medium: var(--color-grey-200);
+        --color-on-background-low: var(--color-grey-400);
+        --color-ui-low: var(--color-grey-900);
+        --color-ui-neutral: var(--color-grey-800);
+        --color-ui-medium: var(--color-grey-700);
+        --color-ui-high: var(--color-grey-400);
+        --color-ui-highlight: var(--color-grey-50);
+        --color-ui-highlight-hover: var(--color-grey-200);
+        --color-on-ui-low: var(--color-grey-500);
+        --color-on-ui-medium: var(--color-grey-300);
+        --color-on-ui-high: var(--color-grey-50);
+        --color-on-ui-highlight-low: var(--color-grey-500);
+        --color-on-ui-highlight-medium: var(--color-grey-700);
+        --color-on-ui-highlight-high: var(--color-grey-950);
+        --color-special-link: var(--color-blue-500);
+        --color-special-link-hover: var(--color-blue-400);
     }
 
     body {
-        @apply min-h-full bg-neutrals-default text-text-primary;
+        @apply min-h-full bg-background-default text-onBackground-high;
     }
 
     [data-ison='true'] {
@@ -50,16 +87,15 @@
 
 /* Write your own custom component styles here */
 @layer components {
+    .transition-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
     .link-basic {
-        @apply transition-base text-text-primary hover:underline hover:decoration-wavy;
+        @apply transition-base font-medium text-special-link hover:text-special-linkHover hover:underline;
     }
     .link-blog {
         @apply transition-base text-text-primary underline decoration-wavy hover:opacity-50;
     }
-    .transition-base {
-        @apply transition-all duration-300 ease-in-out;
-    }
-
     .btn {
         @apply transition-base rounded-2xl px-5 py-4 text-center font-medium;
     }
@@ -67,19 +103,19 @@
         @apply rounded-xl px-4 py-2 text-sm;
     }
     .btn--filled {
-        @apply bg-action-primary text-text-action hover:bg-action-secondary;
+        @apply bg-ui-highlight text-onUiHighlight-high hover:bg-ui-highlightHover;
     }
     .btn--outlined {
-        @apply border border-action-primary bg-neutrals-default text-text-primary hover:border-action-secondary hover:bg-neutrals-100;
+        @apply border border-ui-highlight bg-background-default text-onBackground-high hover:border-ui-highlightHover hover:bg-ui-low hover:text-onUi-high;
     }
     .btn--ghost {
-        @apply text-text-primary hover:bg-neutrals-50;
+        @apply text-onBackground-high hover:bg-ui-low hover:text-onUi-high;
     }
     .section__title {
         @apply mb-8 text-2xl font-bold;
     }
     .section__subtitle {
-        @apply mb-2 text-xl text-text-primary;
+        @apply mb-2 text-xl text-onBackground-medium;
     }
 }
 

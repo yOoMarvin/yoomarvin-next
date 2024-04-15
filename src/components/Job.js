@@ -8,17 +8,21 @@ export default function Job(props) {
                     src={props.src}
                     width={48}
                     height={48}
-                    className="rounded-full border border-neutrals-100"
+                    className="rounded-full border border-ui-neutral"
                 />
                 <div>
                     <p className="font-bold">{props.title}</p>
-                    <p className="text-text-primary sm:hidden">{props.time}</p>
-                    <p className="max-w-xl text-text-secondary">
+                    <p className="text-onBackground-highj sm:hidden">
+                        {props.time}
+                    </p>
+                    <p className="max-w-xl text-onBackground-medium">
                         {props.description}
                     </p>
                 </div>
             </div>
-            <p className="hidden text-text-primary sm:block">{props.time}</p>
+            <p className="hidden text-onBackground-high sm:block">
+                {props.time}
+            </p>
         </div>
     )
 }

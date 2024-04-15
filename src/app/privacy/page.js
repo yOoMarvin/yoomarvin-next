@@ -1,6 +1,6 @@
 export default function PrivacyPage() {
     return (
-        <section className="prose dark:prose-invert prose-headings:mb-2 prose-headings:mt-0 prose-headings:font-bold prose-h1:text-3xl prose-a:font-normal prose-a:decoration-wavy prose-pre:border prose-pre:border-neutrals-100">
+        <section className="prose dark:prose-invert prose-headings:mb-2 prose-headings:mt-0 prose-headings:font-bold prose-h1:text-3xl prose-a:font-medium prose-pre:border prose-pre:border-ui-neutral">
             <h1>Datenschutz&shy;erkl&auml;rung</h1>
             <h2>1. Datenschutz auf einen Blick</h2>
             <h3>Allgemeine Hinweise</h3>{' '}

@@ -17,7 +17,7 @@ export default async function BlogPage() {
         <>
             <section>
                 <h1 className="mb-2 text-2xl font-bold">Blog</h1>
-                <p className="mb-8 text-text-secondary">
+                <p className="mb-8 text-onBackground-medium">
                     I write about product design, css and software development.{' '}
                     <br />
                     One day it will maybe be enough for a search bar.

@@ -5,8 +5,8 @@ export default function NotFound() {
         <div>
             <h1 className="section__title">Page not found</h1>
             <p>
-                Either you made a type or Marvin did forget to set up the link
-                (more likely).
+                Either you made a typo or Marvin forgot to set up the link (more
+                likely).
             </p>
             <p>
                 Go{' '}

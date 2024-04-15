@@ -12,7 +12,7 @@ export default function Service(props) {
             />
             <div className="max-w-lg">
                 <svg
-                    className="mb-2 text-neutrals-100"
+                    className="mb-2 text-ui-neutral"
                     width="38"
                     height="30"
                     viewBox="0 0 38 30"
@@ -25,16 +25,16 @@ export default function Service(props) {
                         fill="#D5D3C6"
                     ></path>
                 </svg>
-                <div className="mb-4 flex flex-col space-y-2 text-lg text-text-primary">
+                <div className="mb-4 flex flex-col space-y-2 text-lg text-onBackground-high">
                     {props.quote.map((line, i) => (
                         <p key={i}>{line}</p>
                     ))}
                 </div>
                 <div>
-                    <p className="mb-0 text-sm font-medium uppercase tracking-wide text-text-secondary">
+                    <p className="mb-0 text-sm font-medium uppercase tracking-wide text-onBackground-medium">
                         {props.name}
                     </p>
-                    <p className="text-sm uppercase tracking-wide text-text-secondary">
+                    <p className="text-sm uppercase tracking-wide text-onBackground-medium">
                         {props.role}
                     </p>
                 </div>

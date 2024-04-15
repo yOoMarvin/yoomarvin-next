@@ -12,12 +12,14 @@ export default function Appearance(props) {
                     {props.title}
                 </Link>
             ) : (
-                <p className="text-text-primary">{props.title}</p>
+                <p className="text-onBackground-high">{props.title}</p>
             )}
 
-            <div className="h-1 w-auto grow border-b border-dashed border-neutrals-200" />
+            <div className="h-1 w-auto grow border-b border-dashed border-ui-medium" />
             <div>
-                <p className="text-left text-text-secondary">{props.date}</p>
+                <p className="text-left text-onBackground-medium">
+                    {props.date}
+                </p>
             </div>
         </div>
     )
