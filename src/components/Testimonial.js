@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Service(props) {
     return (
-        <div className="flex w-full flex-col justify-between sm:flex-row-reverse sm:items-center">
+        <div className="mb-8 flex w-full flex-col justify-between sm:flex-row-reverse sm:items-center">
             <Image
                 src={props.src}
                 alt={props.alt}

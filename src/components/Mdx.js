@@ -1,7 +1,6 @@
-import * as React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 
 const CustomLink = (props) => {
     const href = props.href
@@ -39,12 +38,11 @@ const components = {
     a: CustomLink,
 }
 
-export function Mdx({ code }) {
-    const Component = useMDXComponent(code)
-
+export function Mdx(props) {
     return (
-        <article className="prose dark:prose-invert prose-headings:mb-2 prose-headings:mt-0 prose-headings:font-bold prose-h1:text-3xl prose-a:font-medium prose-a:text-special-link hover:prose-a:text-special-linkHover prose-pre:border prose-pre:border-ui-neutral">
-            <Component components={components} />
-        </article>
+        <MDXRemote
+            {...props}
+            components={{ ...components, ...(props.components || {}) }}
+        />
     )
 }
