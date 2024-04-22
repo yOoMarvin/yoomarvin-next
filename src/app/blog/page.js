@@ -1,17 +1,9 @@
-import Link from 'next/link'
 import { compareDesc } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
 import PostCard from 'src/components/PostCard'
+import { getBlogPosts } from 'src/db/blog'
 
-export async function getPosts() {
-    const posts = allPosts.sort((a, b) => {
-        return compareDesc(new Date(a.date), new Date(b.date))
-    })
-    return posts
-}
-
-export default async function BlogPage() {
-    const posts = await getPosts()
+export default function BlogPage() {
+    let allBlogs = getBlogPosts()
 
     return (
         <>
@@ -25,15 +17,22 @@ export default async function BlogPage() {
             </section>
             {/* Add a blog card here */}
             <div className="flex flex-col space-y-4">
-                {posts.map((post, idx) => (
-                    <PostCard
-                        key={idx}
-                        href={`/blog/${post.slug}`}
-                        title={post.title}
-                        date={post.date}
-                        src={post.image}
-                    />
-                ))}
+                {allBlogs
+                    .sort((a, b) => {
+                        return compareDesc(
+                            new Date(a.metadata.date),
+                            new Date(b.metadata.date)
+                        )
+                    })
+                    .map((post) => (
+                        <PostCard
+                            key={post.slug}
+                            href={`/blog/${post.slug}`}
+                            title={post.metadata.title}
+                            date={post.metadata.date}
+                            src={`/blog/${post.slug}/image.png`}
+                        />
+                    ))}
             </div>
         </>
     )

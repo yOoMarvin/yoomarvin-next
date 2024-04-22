@@ -1,6 +1,6 @@
 import Footer from 'src/components/Footer'
-import Navigation from '../components/Navigation'
-import Provider from '../components/Provider'
+import Navigation from 'src/components/Navigation'
+import Provider from 'src/components/Provider'
 import '../styles/globals.css'
 
 export default function RootLayout({ children }) {
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
                     <main className="mx-auto mt-24 min-h-full max-w-screen-md px-2 sm:px-4 md:px-2">
                         {children}
                     </main>
-                     <Footer />
+                    <Footer />
                 </Provider>
             </body>
         </html>

@@ -1,23 +1,20 @@
 import { format, parseISO } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLongLeftIcon } from '@heroicons/react/24/solid'
 import { Mdx } from 'src/components/Mdx'
 import Image from 'next/image'
+import { getBlogPosts } from 'src/db/blog'
 
-export async function generateStaticParams() {
-    return allPosts.map((post) => ({
-        slug: post.slug,
-    }))
-}
+// export async function generateStaticParams() {
+//     let posts = getBlogPosts()
+//     return posts.map((post) => ({
+//         slug: post.slug,
+//     }))
+// }
 
-export async function getPost(slug) {
-    return allPosts.find((post) => post.slug == slug)
-}
-
-export default async function PostPage({ params }) {
-    const post = await getPost(params.slug)
+export default function PostPage({ params }) {
+    let post = getBlogPosts().find((post) => post.slug === params.slug)
 
     if (!post) {
         notFound()
@@ -33,24 +30,28 @@ export default async function PostPage({ params }) {
                     <ArrowLongLeftIcon className="h-6 w-6" /> <span>Back</span>
                 </Link>
                 <Image
-                    src={post.image}
-                    alt={`${post.title} post image`}
+                    src={`/blog/${post.slug}/image.png`}
+                    alt={`${post.metadata.title} post image`}
                     width={700}
                     height={350}
                     className="mb-12 w-full rounded-2xl"
                     priority
                 />
 
-                <h1 className="mb-2 text-3xl font-bold">{post.title}</h1>
+                <h1 className="mb-2 text-3xl font-bold">
+                    {post.metadata.title}
+                </h1>
                 <time
-                    dateTime={post.date}
+                    dateTime={post.metadata.date}
                     className="text-sm text-onBackground-low"
                 >
-                    {format(parseISO(post.date), 'LLLL d, yyyy')}
+                    {format(parseISO(post.metadata.date), 'LLLL d, yyyy')}
                 </time>
             </section>
 
-            <Mdx code={post.body.code} />
+            <article className="prose dark:prose-invert prose-headings:mb-2 prose-headings:mt-0 prose-headings:font-bold prose-h1:text-3xl prose-a:font-medium prose-a:text-special-link hover:prose-a:text-special-linkHover prose-pre:border prose-pre:border-ui-neutral">
+                <Mdx source={post.content} />
+            </article>
         </div>
     )
 }
