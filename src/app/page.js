@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Companies from '../components/Companies'
+import PromotionButton from 'src/components/PromotionButton'
 
 export default function Homepage() {
     return (
@@ -16,7 +17,7 @@ export default function Homepage() {
                 <div className="my-8 grid grid-cols-2 grid-rows-4 gap-4 sm:grid-cols-3 sm:grid-rows-3">
                     <div className="relative h-40">
                         <Image
-                            src="/bento/profile.png"
+                            src="/bento/work-min.JPG"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -25,7 +26,7 @@ export default function Homepage() {
                     </div>
                     <div className="relative row-span-1 sm:row-span-2">
                         <Image
-                            src="/about-me-min.png"
+                            src="/bento/profile-min.jpg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -34,7 +35,7 @@ export default function Homepage() {
                     </div>
                     <div className="relative">
                         <Image
-                            src="/about-me-min.png"
+                            src="/bento/desk-min.jpg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -43,7 +44,7 @@ export default function Homepage() {
                     </div>
                     <div className="relative row-span-2">
                         <Image
-                            src="/about-me-min.png"
+                            src="/bento/laptop-min.jpg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -52,7 +53,7 @@ export default function Homepage() {
                     </div>
                     <div className="relative row-span-2">
                         <Image
-                            src="/about-me-min.png"
+                            src="/bento/lbs-min.jpg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -61,11 +62,11 @@ export default function Homepage() {
                     </div>
                     <div className="relative h-40">
                         <Image
-                            src="/about-me-min.png"
+                            src="/bento/memfam-min.jpeg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
-                            className="rounded-lg object-cover"
+                            className="rounded-lg object-cover object-bottom"
                         />
                     </div>
                 </div>
@@ -102,7 +103,25 @@ export default function Homepage() {
                 </p>
             </section>
 
-            {/* Social Buttons */}
+            {/* Promotion Buttons */}
+            <section>
+                <div className="grid grid-cols-2 gap-4">
+                    <PromotionButton
+                        title="@yoomarvin"
+                        src="/linkedin.png"
+                        alt="Marvin Messenzehl's Profilbild"
+                        detail="7.000 subscribers"
+                        href="https://www.linkedin.com/in/marvin-messenzehl/"
+                    />
+                    <PromotionButton
+                        title="@memorisely"
+                        src="memorisely-logo.svg"
+                        alt="Memorisely Logo"
+                        detail="Learn UX • UI Design"
+                        href="https://memorisely.com"
+                    />
+                </div>
+            </section>
 
             {/* In the Spotlight */}
             {/* <section>
