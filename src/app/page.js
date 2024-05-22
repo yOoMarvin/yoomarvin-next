@@ -72,7 +72,7 @@ export default function Homepage() {
                 </div>
             </section>
 
-            <section className="flex flex-col space-y-4">
+            <section className="flex flex-col space-y-8">
                 <p>
                     I love working in the realm between design and code. Some
                     things that make me excited are CSS, interaction design,
@@ -105,7 +105,7 @@ export default function Homepage() {
 
             {/* Promotion Buttons */}
             <section>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <PromotionButton
                         title="@yoomarvin"
                         src="/linkedin.png"
@@ -121,6 +121,16 @@ export default function Homepage() {
                         href="https://memorisely.com"
                     />
                 </div>
+            </section>
+
+            <section>
+                <p>
+                    In the past years, I've written content on my blog and
+                    newsletter. I try to keep things simple. You'll find writing
+                    about design and technologies I'm interested in at the time,
+                    or how I'm learning and growing in my career, sharing
+                    knowledge along the way.
+                </p>
             </section>
 
             {/* In the Spotlight */}
