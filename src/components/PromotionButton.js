@@ -10,13 +10,16 @@ export default function PromotionButton(props) {
             className="group flex flex-row justify-between space-x-4 rounded-xl border border-ui-neutral bg-ui-low p-4 transition-all duration-300 ease-in-out hover:bg-ui-neutral"
         >
             <div className="flex flex-row items-center space-x-2">
-                <Image
-                    src={props.src}
-                    alt={props.alt}
-                    height={64}
-                    width={64}
-                    className="h-16 w-16 rounded-full border border-ui-medium"
-                />
+                {props.src ? (
+                    <Image
+                        src={props.src}
+                        alt={props.alt}
+                        height={64}
+                        width={64}
+                        className="h-16 w-16 rounded-full border border-ui-medium"
+                    />
+                ) : null}
+
                 <div className="text-left">
                     <p className="text-onUi-medium">{props.title}</p>
                     <p className="text-onUi-low">{props.detail}</p>

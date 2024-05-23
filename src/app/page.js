@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Companies from '../components/Companies'
 import PromotionButton from 'src/components/PromotionButton'
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
 
 export default function Homepage() {
     return (
@@ -124,19 +125,57 @@ export default function Homepage() {
             </section>
 
             <section>
-                <p>
+                <p className="mb-8">
                     In the past years, I've written content on my blog and
                     newsletter. I try to keep things simple. You'll find writing
                     about design and technologies I'm interested in at the time,
                     or how I'm learning and growing in my career, sharing
                     knowledge along the way.
                 </p>
+                <div className="grid grid-cols-1 gap-4">
+                    <PromotionButton
+                        title="Navigating two versions of the future"
+                        detail="February 2024"
+                        href="/blog/navigating-two-versions"
+                    />
+                    <PromotionButton
+                        title="Book Bites April 2024"
+                        detail="April 2024"
+                        href="/blog/books-apr-2024"
+                    />
+                    <PromotionButton
+                        Button
+                        title="2023 My year in review"
+                        detail="December 2023"
+                        href="/blog/2023-review"
+                    />
+                </div>
             </section>
 
-            {/* In the Spotlight */}
-            {/* <section>
-                <h1 className="mb-8 text-2xl font-bold">In the Spotlight.</h1>
-            </section> */}
+            <section>
+                <p className="mb-8">
+                    I’m also sharing a weekly newsletter & share bitesized
+                    design knowledge on Instagram and LinkedIn
+                </p>
+                <div className="flex flex-row space-x-4">
+                    <Link
+                        className="flex flex-row items-center space-x-2 text-onBackground-low transition-all duration-300 ease-in-out hover:text-onBackground-high"
+                        href="https://world.hey.com/mrvn"
+                        target="_blank"
+                    >
+                        <ArrowUpRightIcon className="h-4 w-4" />
+                        <span>Get email updates</span>
+                    </Link>
+                    <Link
+                        className="flex flex-row items-center space-x-2 text-onBackground-low transition-all duration-300 ease-in-out hover:text-onBackground-high"
+                        href="https://www.linkedin.com/in/marvin-messenzehl/"
+                        target="_blank"
+                    >
+                        <ArrowUpRightIcon className="h-4 w-4" />
+                        <span>Follow me</span>
+                    </Link>
+                </div>
+            </section>
         </>
     )
 }
