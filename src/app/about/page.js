@@ -134,16 +134,16 @@ export default function AboutPage() {
                 <div className="my-8 grid grid-cols-2 grid-rows-4 gap-4 sm:grid-cols-3 sm:grid-rows-3">
                     <div className="relative h-40">
                         <Image
-                            src="/bento/work-min.JPG"
+                            src="/bento/aperol-min.jpg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
-                            className="rounded-lg object-cover"
+                            className="rounded-lg object-cover object-top"
                         />
                     </div>
                     <div className="relative row-span-1 sm:row-span-2">
                         <Image
-                            src="/bento/profile-min.jpg"
+                            src="/bento/pointing-min.jpeg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -152,7 +152,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative">
                         <Image
-                            src="/bento/desk-min.jpg"
+                            src="/bento/memfamnew-min.jpeg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -161,7 +161,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative row-span-2">
                         <Image
-                            src="/bento/laptop-min.jpg"
+                            src="/bento/memstorming-min.jpeg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -170,7 +170,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative row-span-2">
                         <Image
-                            src="/bento/lbs-min.jpg"
+                            src="/bento/cyclingprofile-min.jpg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
@@ -179,11 +179,11 @@ export default function AboutPage() {
                     </div>
                     <div className="relative h-40">
                         <Image
-                            src="/bento/memfam-min.jpeg"
+                            src="/bento/running-min.jpeg"
                             fill
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
-                            className="rounded-lg object-cover object-bottom"
+                            className="rounded-lg object-cover"
                         />
                     </div>
                 </div>
