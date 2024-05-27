@@ -130,14 +130,62 @@ export default function AboutPage() {
                         spending time outside with my family and friends.
                     </p>
                 </div>
-                <div class="h-64 w-full sm:h-96">
-                    <Image
-                        src={'/about-me-min.png'}
-                        width={800}
-                        height={585}
-                        alt="Author of the website standing in front of a whiteboard and thinking"
-                        className="h-full w-full rounded-2xl object-cover object-top grayscale-0 filter"
-                    />
+                {/* Bento Grid */}
+                <div className="my-8 grid grid-cols-2 grid-rows-4 gap-4 sm:grid-cols-3 sm:grid-rows-3">
+                    <div className="relative h-40">
+                        <Image
+                            src="/bento/aperol-min.jpg"
+                            fill
+                            sizes="(max-width: 768px) 213px, 33vw"
+                            priority
+                            className="rounded-lg object-cover object-top"
+                        />
+                    </div>
+                    <div className="relative row-span-1 sm:row-span-2">
+                        <Image
+                            src="/bento/pointing-min.jpeg"
+                            fill
+                            sizes="(max-width: 768px) 213px, 33vw"
+                            priority
+                            className="rounded-lg object-cover object-top sm:object-center"
+                        />
+                    </div>
+                    <div className="relative">
+                        <Image
+                            src="/bento/memfamnew-min.jpeg"
+                            fill
+                            sizes="(max-width: 768px) 213px, 33vw"
+                            priority
+                            className="rounded-lg object-cover"
+                        />
+                    </div>
+                    <div className="relative row-span-2">
+                        <Image
+                            src="/bento/memstorming-min.jpeg"
+                            fill
+                            sizes="(max-width: 768px) 213px, 33vw"
+                            priority
+                            className="rounded-lg object-cover sm:object-center"
+                        />
+                    </div>
+                    <div className="relative row-span-2">
+                        <Image
+                            src="/bento/cyclingprofile-min.jpg"
+                            fill
+                            sizes="(max-width: 768px) 213px, 33vw"
+                            priority
+                            className="rounded-lg object-cover"
+                        />
+                    </div>
+                    <div className="relative h-40">
+                        <Image
+                            src="/bento/running-min.jpeg"
+                            fill
+                            sizes="(max-width: 768px) 213px, 33vw"
+                            priority
+                            className="rounded-lg object-cover"
+                        />
+                    </div>
                 </div>
             </section>
             <section className="mb-16">
@@ -214,6 +262,11 @@ export default function AboutPage() {
             <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Appearances</h2>
                 <div className="flex flex-col space-y-4">
+                    <Appearance
+                        href="https://www.intodesignsystems.com/"
+                        title="The Search for the Perfect Color"
+                        date="May '24"
+                    />
                     <Appearance
                         href="https://www.youtube.com/watch?v=QGWD6EhhKYE"
                         title="Figma: In The File at RTL+"
