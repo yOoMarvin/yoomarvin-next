@@ -139,9 +139,9 @@ export default function Homepage() {
                         href="/blog/navigating-two-versions"
                     />
                     <PromotionButton
-                        title="Book Bites April 2024"
-                        detail="April 2024"
-                        href="/blog/books-apr-2024"
+                        title="Book Bites May 2024"
+                        detail="May 2024"
+                        href="/blog/books-may-2024"
                     />
                     <PromotionButton
                         Button
