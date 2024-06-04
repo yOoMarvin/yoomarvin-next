@@ -134,9 +134,9 @@ export default function Homepage() {
                 </p>
                 <div className="grid grid-cols-1 gap-4">
                     <PromotionButton
-                        title="Navigating two versions of the future"
+                        title="Navigating two visions of the future"
                         detail="February 2024"
-                        href="/blog/navigating-two-versions"
+                        href="/blog/navigating-two-visions"
                     />
                     <PromotionButton
                         title="Book Bites May 2024"

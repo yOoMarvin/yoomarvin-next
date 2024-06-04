@@ -14,7 +14,7 @@ const selectedProjects = [
         title: 'Basecamp Mobile To-dos',
         href: 'https://marvinmessenzehl.super.site/case-studies/basecamp-mobile',
         img: '/app-icons/basecamp-icon.png',
-        description: 'A conceptual case studies to redesign mobile to-dos.',
+        description: 'A conceptual case study to redesign mobile to-dos.',
     },
     {
         title: 'UOK Wellbeing',

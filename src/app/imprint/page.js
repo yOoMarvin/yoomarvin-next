@@ -6,8 +6,8 @@ export default function ImprintPage() {
             <div className="flex flex-col space-y-8">
                 <div>
                     <p>Marvin Messenzehl</p>
-                    <p>Kalthorststr. 29</p>
-                    <p>68307 Mannheim</p>
+                    <p>Talweide 11a</p>
+                    <p>67251 Freinsheim</p>
                 </div>
                 <div>
                     <p className="mb-2 font-medium">Kontakt:</p>
@@ -34,8 +34,8 @@ export default function ImprintPage() {
                         Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
                     </p>
                     <p>Marvin Messenzehl</p>
-                    <p>Kalthorststr. 29</p>
-                    <p>68307 Mannheim</p>
+                    <p>Talweide 11a</p>
+                    <p>67251 Freinsheim</p>
                 </div>
                 <div className="flex flex-col space-y-4">
                     <h3 className="section__subtitle">Haftungsausschluss:</h3>

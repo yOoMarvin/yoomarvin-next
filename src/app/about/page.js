@@ -263,7 +263,7 @@ export default function AboutPage() {
                 <h2 className="mb-4 text-2xl  font-bold">Appearances</h2>
                 <div className="flex flex-col space-y-4">
                     <Appearance
-                        href="https://www.intodesignsystems.com/"
+                        href="https://youtu.be/HZrAGctuvyI?si=SRkQ_zugWwE2Wm-o"
                         title="The Search for the Perfect Color"
                         date="May '24"
                     />

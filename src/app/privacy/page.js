@@ -139,9 +139,9 @@ export default function PrivacyPage() {
             <p>
                 Marvin Messenzehl
                 <br />
-                Kalthorststr. 29
+                Talweide 11a
                 <br />
-                68307 Mannheim
+                67251 Freinsheim
             </p>
             <p>
                 Telefon: +4917623467557
