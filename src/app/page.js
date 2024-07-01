@@ -139,9 +139,14 @@ export default function Homepage() {
                         href="/blog/navigating-two-visions"
                     />
                     <PromotionButton
-                        title="Book Bites May 2024"
-                        detail="May 2024"
-                        href="/blog/books-may-2024"
+                        title="My first experiences on twitch"
+                        detail="June 2024"
+                        href="/blog/twitch"
+                    />
+                    <PromotionButton
+                        title="Book Bites June 2024"
+                        detail="June 2024"
+                        href="/blog/books-jun-2024"
                     />
                     <PromotionButton
                         Button
