@@ -144,9 +144,9 @@ export default function Homepage() {
                         href="/blog/twitch"
                     />
                     <PromotionButton
-                        title="Book Bites July 2024"
-                        detail="July 2024"
-                        href="/blog/books-jul-2024"
+                        title="Book Bites August 2024"
+                        detail="August 2024"
+                        href="/blog/books-aug-2024"
                     />
                     <PromotionButton
                         Button
