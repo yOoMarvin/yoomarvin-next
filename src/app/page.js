@@ -84,7 +84,7 @@ export default function Homepage() {
                     More about me
                 </Link>
                 <p>
-                    Currenly I'm designing & building interfaces for the podcast
+                    Currenly I'm designing & building interfaces for the iOS
                     app of{' '}
                     <Link
                         className="link-basic"
