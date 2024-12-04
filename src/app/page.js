@@ -84,8 +84,8 @@ export default function Homepage() {
                     More about me
                 </Link>
                 <p>
-                    Currenly I'm designing & building interfaces for the iOS
-                    app of{' '}
+                    Currenly I'm designing & building interfaces for the iOS app
+                    of{' '}
                     <Link
                         className="link-basic"
                         href="https://plus.rtl.de"
@@ -134,9 +134,9 @@ export default function Homepage() {
                 </p>
                 <div className="grid grid-cols-1 gap-4">
                     <PromotionButton
-                        title="Navigating two visions of the future"
-                        detail="February 2024"
-                        href="/blog/navigating-two-visions"
+                        title="Your intelligence becomes artificial"
+                        detail="December 2024"
+                        href="/blog/intelligence"
                     />
                     <PromotionButton
                         title="My first experiences on twitch"
