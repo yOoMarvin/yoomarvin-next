@@ -150,9 +150,9 @@ export default function Homepage() {
                     />
                     <PromotionButton
                         Button
-                        title="2023 My year in review"
-                        detail="December 2023"
-                        href="/blog/2023-review"
+                        title="2024 My year in review"
+                        detail="December 2024"
+                        href="/blog/2024-review"
                     />
                 </div>
             </section>
