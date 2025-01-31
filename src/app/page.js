@@ -139,9 +139,9 @@ export default function Homepage() {
                         href="/blog/intelligence"
                     />
                     <PromotionButton
-                        title="My first experiences on twitch"
-                        detail="June 2024"
-                        href="/blog/twitch"
+                        title="Fighill - My first Figma widget"
+                        detail="February 2025"
+                        href="/blog/fighill-intro"
                     />
                     <PromotionButton
                         title="Book Bites: 2024"
