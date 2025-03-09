@@ -111,7 +111,7 @@ export default function Homepage() {
                         title="@yoomarvin"
                         src="/linkedin.png"
                         alt="Marvin Messenzehl's Profilbild"
-                        detail="7.000 subscribers"
+                        detail="8.000 subscribers"
                         href="https://www.linkedin.com/in/marvin-messenzehl/"
                     />
                     <PromotionButton

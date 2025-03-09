@@ -11,22 +11,23 @@ import Testimonial from 'src/components/Testimonial'
 
 const selectedProjects = [
     {
+        title: 'RTL+ tvOS Relaunch 2025',
+        href: 'https://marvinmessenzehl.super.site/other-projects/rtl-tvos-relaunch',
+        img: '/app-icons/rtl-icon.png',
+        description: 'Leading the design of a new tvOS app for RTL+.',
+    },
+    {
+        title: 'Fighill',
+        href: 'https://marvinmessenzehl.super.site/case-studies/fighill',
+        img: '/app-icons/fighill.png',
+        description:
+            'Making design progress visible with my first Figma widget.',
+    },
+    {
         title: 'Basecamp Mobile To-dos',
         href: 'https://marvinmessenzehl.super.site/case-studies/basecamp-mobile',
         img: '/app-icons/basecamp-icon.png',
         description: 'A conceptual case study to redesign mobile to-dos.',
-    },
-    {
-        title: 'UOK Wellbeing',
-        href: 'https://marvinmessenzehl.super.site/case-studies/uok-wellbeing',
-        img: '/app-icons/uok-icon.png',
-        description: 'Designing a mobile wellbeing app for students.',
-    },
-    {
-        title: 'Enduco Design System',
-        href: 'https://marvinmessenzehl.super.site/other-projects/enduco-design-system',
-        img: '/app-icons/enduco-icon.png',
-        description: 'Relaunching a scalable design system for a startup.',
     },
 ]
 

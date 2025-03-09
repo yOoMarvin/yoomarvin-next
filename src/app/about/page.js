@@ -11,6 +11,21 @@ export default function AboutPage() {
 
                 <div class="text-onBackground-medium">
                     <p className="mb-4">
+                        I’m a Senior Product Designer at{' '}
+                        <a
+                            className="link-basic"
+                            href="https://plus.rtl.de"
+                            target="_blank"
+                        >
+                            RTL+
+                        </a>
+                        , where I’m responsible for the iOS and tvOS apps. I
+                        originally started working on podcast and music
+                        features, but over time, I took on the full scope of our
+                        mobile and TV platforms, shaping the experience for
+                        millions of users.
+                    </p>
+                    <p className="mb-4">
                         Before I left for the world of design and development, I
                         did my master's degree in business informatics at the{' '}
                         <a
