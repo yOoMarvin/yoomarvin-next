@@ -19,6 +19,14 @@ export default function SitemapPage() {
                 - My very first Figma widget, that makes design progress
                 visible.
             </section>
+
+            <section>
+                <h2 className="section__subtitle">Pages</h2>
+                <Link href="/now" className="link-basic">
+                    Now
+                </Link>{' '}
+                - What I'm focused on right now.
+            </section>
         </>
     )
 }
