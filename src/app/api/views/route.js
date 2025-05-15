@@ -20,11 +20,11 @@ export async function POST(request) {
         path: '/' 
       });
       
-      const { data: existingData } = await supabase
+      const { data: existingData, error: fetchError } = await supabase
         .from('post_views')
         .select('view_count')
         .eq('slug', slug)
-        .single();
+        .maybeSingle(); // Use maybeSingle instead of single to handle case where no rows exist
       
       const { error } = await supabase
         .from('post_views')
@@ -43,7 +43,7 @@ export async function POST(request) {
       .from('post_views')
       .select('view_count')
       .eq('slug', slug)
-      .single();
+      .maybeSingle(); // Use maybeSingle instead of single to handle case where no rows exist
 
     if (error) throw error;
 
@@ -69,9 +69,9 @@ export async function GET(request) {
       .from('post_views')
       .select('view_count')
       .eq('slug', slug)
-      .single();
+      .maybeSingle(); // Use maybeSingle instead of single to handle case where no rows exist
 
-    if (error && error.code !== 'PGRST116') { // PGRST116 is "No rows returned" error
+    if (error) {
       throw error;
     }
 
