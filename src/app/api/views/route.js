@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase } from 'src/lib/supabase';
 import { cookies } from 'next/headers';
 
 export async function POST(request) {
@@ -20,16 +20,19 @@ export async function POST(request) {
         path: '/' 
       });
       
+      const { data: existingData } = await supabase
+        .from('post_views')
+        .select('view_count')
+        .eq('slug', slug)
+        .single();
+      
       const { error } = await supabase
         .from('post_views')
         .upsert(
-          { slug, view_count: 1 },
           { 
-            onConflict: 'slug',
-            update: { 
-              view_count: supabase.raw('post_views.view_count + 1'),
-              updated_at: new Date().toISOString()
-            } 
+            slug, 
+            view_count: existingData ? existingData.view_count + 1 : 1,
+            updated_at: new Date().toISOString()
           }
         );
 

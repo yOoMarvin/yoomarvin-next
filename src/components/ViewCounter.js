@@ -38,7 +38,7 @@ export default function ViewCounter({ slug, className = '' }) {
     <span className={`text-sm text-onBackground-low ${className}`}>
       {loading ? 
         '-- views' : 
-        `${views.toLocaleString()} view${views === 1 ? '' : 's'}`}
+        `${views ? views.toLocaleString() : 0} view${views === 1 ? '' : 's'}`}
     </span>
   );
 }
