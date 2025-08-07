@@ -84,14 +84,13 @@ export default function Homepage() {
                     More about me
                 </Link>
                 <p>
-                    Currenly I'm designing & building interfaces for the iOS app
-                    of{' '}
+                    Currenly I'm designing & building interfaces at {' '}
                     <Link
                         className="link-basic"
-                        href="https://plus.rtl.de"
+                        href="https://dayy.de"
                         target="_blank"
                     >
-                        RTL +
+                        DAYY®
                     </Link>
                     . Besides that I'm teaching UX and UI design at{' '}
                     <Link
