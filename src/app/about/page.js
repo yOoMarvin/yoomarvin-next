@@ -14,17 +14,14 @@ export default function AboutPage() {
                         I’m a Senior Product Designer at{' '}
                         <a
                             className="link-basic"
-                            href="https://plus.rtl.de"
+                            href="https://dayy.de"
                             target="_blank"
                         >
-                            RTL+
+                            DAYY®
                         </a>
-                        , where I’m responsible for the iOS and tvOS apps. I
-                        originally started working on podcast and music
-                        features, but over time, I took on the full scope of our
-                        mobile and TV platforms, shaping the experience for
-                        millions of users.
+                        , where I’m responsible shipping high quality designs througout the whole process in a variety of projects. We work with some of the biggest brands in the industry featuring Red Bull, Allianz, Volvo and Isar Aerospace and many more.
                     </p>
+                    <p className='mb-4'>Prior to that I was working at <a href="https://plus.rtl.de" target="_blank" className="link-basic">RTL+</a>, where I was responsible for the iOS and tvOS apps. I originally started working on podcast and music features, but over time, I took on the full scope of our mobile and TV platforms, shaping the experience for millions of users.</p>
                     <p className="mb-4">
                         Before I left for the world of design and development, I
                         did my master's degree in business informatics at the{' '}
@@ -242,9 +239,15 @@ export default function AboutPage() {
             <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
                 <div>
+                <Job
+                        title="Senior Product Designer at DAYY®"
+                        time="2025-today"
+                        description="Rethinking tomorrow and supporting design projects with some of the biggest brands in the world."
+                        src="/dayy-logo.svg"
+                    />
                     <Job
                         title="Senior Product Designer at RTL+"
-                        time="2023-today"
+                        time="2023-2025"
                         description="Building the biggest entertainment app in Germany by combining video streaming, music, podcasts, audiobooks, magazines and podcasts."
                         src="/rtl-logo.svg"
                     />
