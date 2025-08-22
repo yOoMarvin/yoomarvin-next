@@ -105,7 +105,7 @@ export default function WorkPage() {
                             </h4>
                         </div>
                         <p className="text-sm text-onBackground-medium">
-                            ogether, we can shape your vision into a
+                            Together, we can shape your vision into a
                             user-friendly, captivating product that not only
                             looks great but also feels natural and intuitive to
                             your users.
