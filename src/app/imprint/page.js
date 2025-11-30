@@ -6,8 +6,9 @@ export default function ImprintPage() {
             <div className="flex flex-col space-y-8">
                 <div>
                     <p>Marvin Messenzehl</p>
-                    <p>Talweide 11a</p>
-                    <p>67251 Freinsheim</p>
+                    <p>c/o IP-Management #7928</p>
+                    <p>Ludwig-Erhard-Str. 18</p>
+                    <p>20459 Hamburg</p>
                 </div>
                 <div>
                     <p className="mb-2 font-medium">Kontakt:</p>
@@ -20,7 +21,7 @@ export default function ImprintPage() {
                             hello@marvinmessenzehl.com
                         </a>
                     </p>
-                    <p>Telefon: +49176 23467557</p>
+                    <p>Telefon: +4915679744983</p>
                 </div>
                 <div>
                     <p className="mb-2 font-medium">
@@ -34,8 +35,9 @@ export default function ImprintPage() {
                         Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
                     </p>
                     <p>Marvin Messenzehl</p>
-                    <p>Talweide 11a</p>
-                    <p>67251 Freinsheim</p>
+                    <p>c/o IP-Management #7928</p>
+                    <p>Ludwig-Erhard-Str. 18</p>
+                    <p>20459 Hamburg</p>
                 </div>
                 <div className="flex flex-col space-y-4">
                     <h3 className="section__subtitle">Haftungsausschluss:</h3>

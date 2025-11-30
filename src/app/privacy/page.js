@@ -139,12 +139,14 @@ export default function PrivacyPage() {
             <p>
                 Marvin Messenzehl
                 <br />
-                Talweide 11a
+                c/o IP-Management #7928
                 <br />
-                67251 Freinsheim
+                Ludwig-Erhard-Str. 18
+                <br />
+                20459 Hamburg
             </p>
             <p>
-                Telefon: +4917623467557
+                Telefon: +4915679744983
                 <br />
                 E-Mail: hello@marvinmessenzehl.com
             </p>
