@@ -148,7 +148,7 @@ export default function PrivacyPage() {
             <p>
                 Telefon: +4915679744983
                 <br />
-                E-Mail: hello@marvinmessenzehl.com
+                E-Mail: info@marvinmessenzehl.com
             </p>
             <p>
                 Verantwortliche Stelle ist die nat&uuml;rliche oder juristische

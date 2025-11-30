@@ -15,10 +15,10 @@ export default function ImprintPage() {
                     <p>
                         Email:{' '}
                         <a
-                            href="mailto:hello@marvinmessenzehl.com"
+                            href="mailto:info@marvinmessenzehl.com"
                             className="link-basic"
                         >
-                            hello@marvinmessenzehl.com
+                            info@marvinmessenzehl.com
                         </a>
                     </p>
                     <p>Telefon: +4915679744983</p>
