@@ -33,7 +33,7 @@ module.exports = {
                 },
                 onUiHighlight: {
                     low: 'var(--color-on-ui-highlight-low)',
-                    medium: 'var(--color-on-uihighlight--medium)',
+                    medium: 'var(--color-on-ui-highlight-medium)',
                     high: 'var(--color-on-ui-highlight-high)',
                 },
                 special: {

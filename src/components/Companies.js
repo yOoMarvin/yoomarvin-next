@@ -13,7 +13,7 @@ export default function Companies() {
                     className="max-h-6 w-full object-contain brightness-0 grayscale filter"
                     style={{
                         filter:
-                            resolvedTheme == 'dark'
+                            resolvedTheme === 'dark'
                                 ? 'invert(100%)'
                                 : 'invert(0)',
                     }}
@@ -27,7 +27,7 @@ export default function Companies() {
                     className="max-h-6 w-full object-contain brightness-0 grayscale filter"
                     style={{
                         filter:
-                            resolvedTheme == 'dark'
+                            resolvedTheme === 'dark'
                                 ? 'invert(100%)'
                                 : 'invert(0)',
                     }}
@@ -40,7 +40,7 @@ export default function Companies() {
                     className="max-h-4 w-full object-contain brightness-0 grayscale filter"
                     style={{
                         filter:
-                            resolvedTheme == 'dark'
+                            resolvedTheme === 'dark'
                                 ? 'invert(100%)'
                                 : 'invert(0)',
                     }}
@@ -54,7 +54,7 @@ export default function Companies() {
                     className="max-h-4 w-full object-contain grayscale filter"
                     style={{
                         filter:
-                            resolvedTheme == 'dark'
+                            resolvedTheme === 'dark'
                                 ? 'grayscale(100%) invert(100%)'
                                 : 'grayscale(100%) invert(0)',
                     }}
@@ -68,7 +68,7 @@ export default function Companies() {
                     className="max-h-6 w-full object-contain brightness-0 grayscale filter"
                     style={{
                         filter:
-                            resolvedTheme == 'dark'
+                            resolvedTheme === 'dark'
                                 ? 'grayscale(100%) invert(100%)'
                                 : 'grayscale(100%) invert(0)',
                     }}
@@ -81,7 +81,7 @@ export default function Companies() {
                     className="max-h-6 w-full object-contain grayscale filter"
                     style={{
                         filter:
-                            resolvedTheme == 'dark'
+                            resolvedTheme === 'dark'
                                 ? 'grayscale(100%) invert(100%) brightness(200%)'
                                 : 'grayscale(100%) invert(0) brightness(0)',
                     }}

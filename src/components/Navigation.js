@@ -5,8 +5,8 @@ import NavLink, { MobileNavLink } from './NavLink'
 import ToggleThemeButton from './ToggleThemeButton'
 import HomeButton from './HomeButton'
 
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { useState } from 'react'
+import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [

@@ -9,7 +9,7 @@ export default function AboutPage() {
             <section className="mb-16">
                 <h1 className="mb-4 text-2xl font-bold">About me</h1>
 
-                <div class="text-onBackground-medium">
+                <div className="text-onBackground-medium">
                     <p className="mb-4">
                         I’m a Senior Product Designer at{' '}
                         <a
@@ -21,7 +21,7 @@ export default function AboutPage() {
                         </a>
                         , where I’m responsible shipping high quality designs througout the whole process in a variety of projects. We work with some of the biggest brands in the industry featuring Red Bull, Allianz, Volvo and Isar Aerospace and many more.
                     </p>
-                    <p className='mb-4'>Prior to that I was working at <a href="https://plus.rtl.de" target="_blank" className="link-basic">RTL+</a>, where I was responsible for the iOS and tvOS apps. I originally started working on podcast and music features, but over time, I took on the full scope of our mobile and TV platforms, shaping the experience for millions of users.</p>
+                    <p className="mb-4">Prior to that I was working at <a href="https://plus.rtl.de" target="_blank" className="link-basic">RTL+</a>, where I was responsible for the iOS and tvOS apps. I originally started working on podcast and music features, but over time, I took on the full scope of our mobile and TV platforms, shaping the experience for millions of users.</p>
                     <p className="mb-4">
                         Before I left for the world of design and development, I
                         did my master's degree in business informatics at the{' '}
@@ -204,14 +204,12 @@ export default function AboutPage() {
                 <h2 className="mb-4 text-2xl  font-bold">Connect</h2>
                 <div className="grid grid-cols-1 gap-4 sm:flex sm:flex-row">
                     <Link
-                        type="button"
                         href="mailto:hello@marvinmessenzehl.com"
                         className="btn btn--filled"
                     >
                         Slide in my inbox
                     </Link>
                     <Link
-                        type="button"
                         href="https://www.linkedin.com/in/marvin-messenzehl/"
                         className="btn btn--outlined"
                         target="_blank"
@@ -219,18 +217,16 @@ export default function AboutPage() {
                         LinkedIn
                     </Link>
                     <Link
-                        type="button"
                         href="https://instagram.com/yoomarvin"
                         className="btn btn--outlined"
-                        target="blank"
+                        target="_blank"
                     >
                         Instagram
                     </Link>
                     <Link
-                        type="button"
                         href="https://twitter.com/yoomarvin"
                         className="btn btn--outlined"
-                        target="blank"
+                        target="_blank"
                     >
                         Twitter
                     </Link>

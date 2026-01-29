@@ -52,7 +52,6 @@ export default function FigHillManualPage() {
 
                 <div className="grid grid-cols-1 gap-4 sm:flex sm:flex-row">
                     <Link
-                        type="btn"
                         className="btn btn--filled"
                         href="https://www.figma.com/community/widget/1466711393588945290"
                         target="_blank"
@@ -60,7 +59,6 @@ export default function FigHillManualPage() {
                         Try it out
                     </Link>
                     <Link
-                        type="button"
                         href="mailto:hello@marvinmessenzehl.com"
                         className="btn btn--outlined"
                     >
@@ -90,7 +88,7 @@ export default function FigHillManualPage() {
                     </li>
                     <li>
                         <strong>Create Tasks</strong>
-                        <ul className="  list-inside list-disc">
+                        <ul className="list-inside list-disc">
                             <li>
                                 Click "Add a to-do" to create your first task.
                             </li>

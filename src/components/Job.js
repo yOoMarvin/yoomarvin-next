@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Job(props) {
     return (
         <div className="mb-8 flex w-full flex-row items-start justify-between">
-            <div class="flex flex-row items-start space-x-4">
+            <div className="flex flex-row items-start space-x-4">
                 <Image
                     src={props.src}
                     width={48}
@@ -12,7 +12,7 @@ export default function Job(props) {
                 />
                 <div>
                     <p className="font-bold">{props.title}</p>
-                    <p className="text-onBackground-highj sm:hidden">
+                    <p className="text-onBackground-high sm:hidden">
                         {props.time}
                     </p>
                     <p className="max-w-xl text-onBackground-medium">
