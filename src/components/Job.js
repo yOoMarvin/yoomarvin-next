@@ -9,6 +9,7 @@ export default function Job(props) {
                     width={48}
                     height={48}
                     className="rounded-full border border-ui-neutral"
+                    alt={props.title}
                 />
                 <div>
                     <p className="font-bold">{props.title}</p>

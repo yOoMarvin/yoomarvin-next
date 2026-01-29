@@ -48,8 +48,8 @@ export default function WorkPage() {
                     </Link>
                 </div>
                 <p className="mb-8 text-onBackground-medium">
-                    Here, you'll find my favorite projects and in-depth case
-                    studies.
+                    Here, you&apos;ll find my favorite projects and in-depth
+                    case studies.
                 </p>
 
                 <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -63,6 +63,7 @@ export default function WorkPage() {
                             <div className="mb-8 h-12 w-12 rounded-full border border-ui-neutral p-1.5">
                                 <img
                                     src={el.img}
+                                    alt={el.title}
                                     className="h-full w-full rounded-full object-cover"
                                 />
                             </div>
@@ -80,8 +81,8 @@ export default function WorkPage() {
                 <p className="mb-8 text-onBackground-medium">
                     Reimagine the norm. As a one-man band (dogs aside!), no
                     agency overhead - just direct, personal service. All your
-                    pennies go straight to work, no surprises. Now, let's dive
-                    into how I can serve you.
+                    pennies go straight to work, no surprises. Now, let&apos;s
+                    dive into how I can serve you.
                 </p>
                 {/* SERVICES */}
                 <div className="mb-8 flex w-full flex-col space-y-8">
@@ -91,9 +92,9 @@ export default function WorkPage() {
                             <h4 className="text-lg font-bold">Crits</h4>
                         </div>
                         <p className="text-sm text-onBackground-medium">
-                            Let's pinpoint your product's strengths and
-                            weaknesses together and uncover the steps to take
-                            your user experience from good to outstanding.
+                            Let&apos;s pinpoint your product&apos;s strengths
+                            and weaknesses together and uncover the steps to
+                            take your user experience from good to outstanding.
                         </p>
                     </div>
                     <div>
@@ -118,10 +119,10 @@ export default function WorkPage() {
                             </h4>
                         </div>
                         <p className="text-sm text-onBackground-medium">
-                            I'm here to offer tailored, strategic advice that
-                            will help steer your product design journey towards
-                            success, making the most out of industry insights
-                            and best practices.
+                            I&apos;m here to offer tailored, strategic advice
+                            that will help steer your product design journey
+                            towards success, making the most out of industry
+                            insights and best practices.
                         </p>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ export default function Homepage() {
     return (
         <>
             <section className="mb-4">
-                <h1 className="mb-2 text-2xl">Hi, I'm Marvin.</h1>
+                <h1 className="mb-2 text-2xl">Hi, I&apos;m Marvin.</h1>
                 <h2 className="mb-8 text-2xl font-bold">
                     I help companies design, build and launch world-class
                     digital products.
@@ -22,6 +22,7 @@ export default function Homepage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover"
+                            alt=""
                         />
                     </div>
                     <div className="relative row-span-1 sm:row-span-2">
@@ -31,6 +32,7 @@ export default function Homepage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover object-top sm:object-center"
+                            alt=""
                         />
                     </div>
                     <div className="relative">
@@ -40,6 +42,7 @@ export default function Homepage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover"
+                            alt=""
                         />
                     </div>
                     <div className="relative row-span-2">
@@ -49,6 +52,7 @@ export default function Homepage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover sm:object-center"
+                            alt=""
                         />
                     </div>
                     <div className="relative row-span-2">
@@ -58,6 +62,7 @@ export default function Homepage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover"
+                            alt=""
                         />
                     </div>
                     <div className="relative h-40">
@@ -67,6 +72,7 @@ export default function Homepage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover object-bottom"
+                            alt=""
                         />
                     </div>
                 </div>
@@ -83,7 +89,7 @@ export default function Homepage() {
                     More about me
                 </Link>
                 <p>
-                    Currenly I'm designing & building interfaces at {' '}
+                    Currenly I&apos;m designing & building interfaces at{' '}
                     <Link
                         className="link-basic"
                         href="https://dayy.de"
@@ -91,7 +97,7 @@ export default function Homepage() {
                     >
                         DAYY®
                     </Link>
-                    . Besides that I'm teaching UX and UI design at{' '}
+                    . Besides that I&apos;m teaching UX and UI design at{' '}
                     <Link
                         href="https://memorisely.com"
                         target="_blank"
@@ -124,11 +130,11 @@ export default function Homepage() {
 
             <section>
                 <p className="mb-8">
-                    In the past years, I've written content on my blog and
-                    newsletter. I try to keep things simple. You'll find writing
-                    about design and technologies I'm interested in at the time,
-                    or how I'm learning and growing in my career, sharing
-                    knowledge along the way.
+                    In the past years, I&apos;ve written content on my blog and
+                    newsletter. I try to keep things simple. You&apos;ll find
+                    writing about design and technologies I&apos;m interested in
+                    at the time, or how I&apos;m learning and growing in my
+                    career, sharing knowledge along the way.
                 </p>
                 <div className="grid grid-cols-1 gap-4">
                     <PromotionButton

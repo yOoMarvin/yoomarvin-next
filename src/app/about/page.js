@@ -19,12 +19,31 @@ export default function AboutPage() {
                         >
                             DAYY®
                         </a>
-                        , where I’m responsible shipping high quality designs througout the whole process in a variety of projects. We work with some of the biggest brands in the industry featuring Red Bull, Allianz, Volvo and Isar Aerospace and many more.
+                        , where I’m responsible shipping high quality designs
+                        througout the whole process in a variety of projects. We
+                        work with some of the biggest brands in the industry
+                        featuring Red Bull, Allianz, Volvo and Isar Aerospace
+                        and many more.
                     </p>
-                    <p className="mb-4">Prior to that I was working at <a href="https://plus.rtl.de" target="_blank" className="link-basic">RTL+</a>, where I was responsible for the iOS and tvOS apps. I originally started working on podcast and music features, but over time, I took on the full scope of our mobile and TV platforms, shaping the experience for millions of users.</p>
+                    <p className="mb-4">
+                        Prior to that I was working at{' '}
+                        <a
+                            href="https://plus.rtl.de"
+                            target="_blank"
+                            className="link-basic"
+                        >
+                            RTL+
+                        </a>
+                        , where I was responsible for the iOS and tvOS apps. I
+                        originally started working on podcast and music
+                        features, but over time, I took on the full scope of our
+                        mobile and TV platforms, shaping the experience for
+                        millions of users.
+                    </p>
                     <p className="mb-4">
                         Before I left for the world of design and development, I
-                        did my master's degree in business informatics at the{' '}
+                        did my master&apos;s degree in business informatics at
+                        the{' '}
                         <a
                             className="link-basic"
                             href="https://www.uni-mannheim.de/"
@@ -151,6 +170,7 @@ export default function AboutPage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover object-top"
+                            alt=""
                         />
                     </div>
                     <div className="relative row-span-1 sm:row-span-2">
@@ -160,6 +180,7 @@ export default function AboutPage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover object-top sm:object-center"
+                            alt=""
                         />
                     </div>
                     <div className="relative">
@@ -169,6 +190,7 @@ export default function AboutPage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover"
+                            alt=""
                         />
                     </div>
                     <div className="relative row-span-2">
@@ -178,6 +200,7 @@ export default function AboutPage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover sm:object-center"
+                            alt=""
                         />
                     </div>
                     <div className="relative row-span-2">
@@ -187,6 +210,7 @@ export default function AboutPage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover"
+                            alt=""
                         />
                     </div>
                     <div className="relative h-40">
@@ -196,6 +220,7 @@ export default function AboutPage() {
                             sizes="(max-width: 768px) 213px, 33vw"
                             priority
                             className="rounded-lg object-cover"
+                            alt=""
                         />
                     </div>
                 </div>
@@ -235,7 +260,7 @@ export default function AboutPage() {
             <section className="mb-16">
                 <h2 className="mb-4 text-2xl  font-bold">Experience</h2>
                 <div>
-                <Job
+                    <Job
                         title="Senior Product Designer at DAYY®"
                         time="2025-today"
                         description="Rethinking tomorrow and supporting design projects with some of the biggest brands in the world."

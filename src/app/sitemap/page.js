@@ -6,8 +6,8 @@ export default function SitemapPage() {
             <section>
                 <h1 className="section__title">Sitemap</h1>
                 <p>
-                    I'll chuck some links up here soon, so you can easily find
-                    those not-so-obvious pages, too.
+                    I&apos;ll chuck some links up here soon, so you can easily
+                    find those not-so-obvious pages, too.
                 </p>
             </section>
 
@@ -25,7 +25,7 @@ export default function SitemapPage() {
                 <Link href="/now" className="link-basic">
                     Now
                 </Link>{' '}
-                - What I'm focused on right now.
+                - What I&apos;m focused on right now.
             </section>
         </>
     )

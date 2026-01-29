@@ -2,10 +2,10 @@ export default function Placeholder() {
     return (
         <div>
             <h1 className="mb-4 text-xl font-bold">
-                🤞 I'm working on it. Pinky Promise
+                🤞 I&apos;m working on it. Pinky Promise
             </h1>
             <p className="text-onBackground-medium">
-                I'm currently in the progress of rebuilding my complete web
+                I&apos;m currently in the progress of rebuilding my complete web
                 presence and such a thing takes time besides a full-time job.
                 But since I love to{' '}
                 <a
