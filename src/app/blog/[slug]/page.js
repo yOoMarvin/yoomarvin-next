@@ -6,13 +6,6 @@ import { Mdx } from 'src/components/Mdx'
 import Image from 'next/image'
 import { getBlogPosts } from 'src/db/blog'
 
-// export async function generateStaticParams() {
-//     let posts = getBlogPosts()
-//     return posts.map((post) => ({
-//         slug: post.slug,
-//     }))
-// }
-
 export default function PostPage({ params }) {
     let post = getBlogPosts().find((post) => post.slug === params.slug)
 

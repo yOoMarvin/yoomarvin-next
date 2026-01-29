@@ -13,7 +13,6 @@ export default function Homepage() {
                     I help companies design, build and launch world-class
                     digital products.
                 </h2>
-                <div className="flex flex-col space-y-4 text-lg text-onBackground-medium"></div>
                 {/* Bento Grid */}
                 <div className="my-8 grid grid-cols-2 grid-rows-4 gap-4 sm:grid-cols-3 sm:grid-rows-3">
                     <div className="relative h-40">
@@ -148,7 +147,6 @@ export default function Homepage() {
                         href="/blog/books-2024"
                     />
                     <PromotionButton
-                        Button
                         title="2024 My year in review"
                         detail="December 2024"
                         href="/blog/2024-review"

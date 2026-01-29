@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function PromotionButton(props) {
     return (
         <Link
-            href={`${props.href}`}
+            href={props.href}
             target="_blank"
             className="group flex flex-row justify-between space-x-4 rounded-xl border border-ui-neutral bg-ui-low p-4 transition-all duration-300 ease-in-out hover:bg-ui-neutral"
         >

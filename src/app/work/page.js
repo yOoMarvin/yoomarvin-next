@@ -6,7 +6,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { BoltIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import Service from 'src/components/Testimonial'
 import Testimonial from 'src/components/Testimonial'
 
 const selectedProjects = [
@@ -127,7 +126,6 @@ export default function WorkPage() {
                     </div>
                 </div>
                 <Link
-                    type="button"
                     href="mailto:hello@marvinmessenzehl.com"
                     className="btn btn--filled"
                 >
@@ -147,7 +145,6 @@ export default function WorkPage() {
                     role="Co-Founder Future Next"
                 />
                 <Link
-                    type="button"
                     href="/work/working-with-marvin"
                     className="btn btn--outlined mt-8"
                 >
