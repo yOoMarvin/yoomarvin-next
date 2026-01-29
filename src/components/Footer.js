@@ -10,7 +10,7 @@ export default function Footer() {
 
             <div className="text-tertiary max-w-lg text-sm">
                 <p className="mb-4">
-                    I'm a designer and UX consultant based in Germany. For
+                    I&apos;m a designer and UX consultant based in Germany. For
                     project inquiries please email{' '}
                     <a
                         className="link-basic"

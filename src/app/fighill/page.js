@@ -21,10 +21,10 @@ export default function FigHillManualPage() {
                         className="link-basic"
                         target="_blank"
                     >
-                        Basecamp's Hill Charts
+                        Basecamp&apos;s Hill Charts
                     </Link>
-                    , Fighill helps you see whether you're still figuring things
-                    out or confidently making it happen.
+                    , Fighill helps you see whether you&apos;re still figuring
+                    things out or confidently making it happen.
                 </p>
                 <div
                     className="mb-12 rounded-2xl"
@@ -90,7 +90,8 @@ export default function FigHillManualPage() {
                         <strong>Create Tasks</strong>
                         <ul className="list-inside list-disc">
                             <li>
-                                Click "Add a to-do" to create your first task.
+                                Click &quot;Add a to-do&quot; to create your
+                                first task.
                             </li>
                             <li>
                                 New tasks start on the left side (Figuring
@@ -101,7 +102,7 @@ export default function FigHillManualPage() {
                     <li>
                         <strong>Move Tasks as You Progress</strong>
                         <p className="">
-                            You can update a task's position in two ways:
+                            You can update a task&apos;s position in two ways:
                         </p>
                         <ul className="list-inside list-disc">
                             <li>
@@ -146,7 +147,9 @@ export default function FigHillManualPage() {
                         Tasks near the bottom of the downhill side are almost
                         done.
                     </li>
-                    <li>Mark them complete once they're fully finished.</li>
+                    <li>
+                        Mark them complete once they&apos;re fully finished.
+                    </li>
                 </ul>
             </section>
 
@@ -155,8 +158,8 @@ export default function FigHillManualPage() {
                 <ul className="list-inside space-y-2 text-onBackground-medium">
                     <li>
                         💡 <strong>Better Progress Visualization</strong> – See
-                        where tasks really stand, beyond just "done" or "not
-                        done."
+                        where tasks really stand, beyond just &quot;done&quot;
+                        or &quot;not done.&quot;
                     </li>
                     <li>
                         🛠 <strong>Highlight Uncertainty</strong> – Know which
