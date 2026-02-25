@@ -6,8 +6,9 @@ import { Mdx } from 'src/components/Mdx'
 import Image from 'next/image'
 import { getBlogPosts } from 'src/db/blog'
 
-export default function PostPage({ params }) {
-    let post = getBlogPosts().find((post) => post.slug === params.slug)
+export default async function PostPage({ params }) {
+    const { slug } = await params
+    let post = getBlogPosts().find((post) => post.slug === slug)
 
     if (!post) {
         notFound()
