@@ -33,5 +33,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Contentlayer
-.contentlayer
+# Velite (generated build artifacts)
+.velite

@@ -1,124 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-/* custom styles */
-@layer base {
-    :root {
-        /* Color Primitives */
-        --color-grey-50: #fafafa;
-        --color-grey-100: #f5f5f5;
-        --color-grey-200: #e5e5e5;
-        --color-grey-300: #d4d4d4;
-        --color-grey-400: #a3a3a3;
-        --color-grey-500: #737373;
-        --color-grey-600: #525252;
-        --color-grey-700: #404040;
-        --color-grey-800: #262626;
-        --color-grey-900: #171717;
-        --color-grey-950: #0a0a0a;
-        --color-special-white: #ffffff;
-        --color-special-black: #000000;
-        --color-blue-200: #bfdbfe;
-        --color-blue-300: #93c5fd;
-        --color-blue-400: #60a5fa;
-        --color-blue-500: #3b82f6;
-        --color-blue-600: #2563eb;
-        --color-blue-700: #1d4ed8;
+@theme {
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-        /* Color Semantics */
-        --color-background-default: var(--color-special-white);
-        --color-background-variant: var(--color-grey-100);
-        --color-background-highlight: var(--color-grey-200);
-        --color-on-background-high: var(--var-grey-950);
-        --color-on-background-medium: var(--color-grey-800);
-        --color-on-background-low: var(--color-grey-600);
-        --color-ui-low: var(--color-grey-100);
-        --color-ui-neutral: var(--color-grey-200);
-        --color-ui-medium: var(--color-grey-300);
-        --color-ui-high: var(--color-grey-600);
-        --color-ui-highlight: var(--color-grey-950);
-        --color-ui-highlight-hover: var(--color-grey-800);
-        --color-on-ui-low: var(--color-grey-500);
-        --color-on-ui-medium: var(--color-grey-700);
-        --color-on-ui-high: var(--color-grey-950);
-        --color-on-ui-highlight-low: var(--color-grey-500);
-        --color-on-ui-highlight-medium: var(--color-grey-300);
-        --color-on-ui-highlight-high: var(--color-grey-50);
-        --color-special-link: var(--color-blue-600);
-        --color-special-link-hover: var(--color-blue-700);
-    }
-    .dark {
-        /* Color Semantics dark mode */
-        --color-background-default: var(--color-special-black);
-        --color-background-variant: var(--color-grey-900);
-        --color-background-highlight: var(--color-grey-800);
-        --color-on-background-high: var(--var-grey-50);
-        --color-on-background-medium: var(--color-grey-200);
-        --color-on-background-low: var(--color-grey-400);
-        --color-ui-low: var(--color-grey-900);
-        --color-ui-neutral: var(--color-grey-800);
-        --color-ui-medium: var(--color-grey-700);
-        --color-ui-high: var(--color-grey-400);
-        --color-ui-highlight: var(--color-grey-50);
-        --color-ui-highlight-hover: var(--color-grey-200);
-        --color-on-ui-low: var(--color-grey-500);
-        --color-on-ui-medium: var(--color-grey-300);
-        --color-on-ui-high: var(--color-grey-50);
-        --color-on-ui-highlight-low: var(--color-grey-500);
-        --color-on-ui-highlight-medium: var(--color-grey-700);
-        --color-on-ui-highlight-high: var(--color-grey-950);
-        --color-special-link: var(--color-blue-500);
-        --color-special-link-hover: var(--color-blue-400);
-    }
+  /* No custom font loaded for mono — system stack only.
+     Resolves to SF Mono (Mac), Consolas (Windows), system mono (Linux).
+     Use for: dates, timestamps, numbers, stats, code blocks.
+     Always pair with --text-tertiary or --text-quaternary — never primary. */
 
-    body {
-        @apply min-h-full bg-background-default text-onBackground-high;
-    }
-
-    [data-ison='true'] {
-        @apply justify-end;
-    }
-
-    section {
-        @apply mb-16;
-    }
+  /* Palette: zinc only. To switch palettes, change zinc → neutral/olive/etc.
+     here and in the .dark block below. Nothing else needs to change. */
 }
 
-/* Write your own custom component styles here */
-@layer components {
-    .transition-base {
-        @apply transition-all duration-300 ease-in-out;
-    }
-    .link-basic {
-        @apply transition-base font-medium text-special-link hover:text-special-linkHover hover:underline;
-    }
-    .link-blog {
-        @apply transition-base text-text-primary underline decoration-wavy hover:opacity-50;
-    }
-    .btn {
-        @apply transition-base rounded-2xl px-5 py-4 text-center font-medium;
-    }
-    .btn--small {
-        @apply rounded-xl px-4 py-2 text-sm;
-    }
-    .btn--filled {
-        @apply bg-ui-highlight text-onUiHighlight-high hover:bg-ui-highlightHover;
-    }
-    .btn--outlined {
-        @apply border border-ui-highlight bg-background-default text-onBackground-high hover:border-ui-highlightHover hover:bg-ui-low hover:text-onUi-high;
-    }
-    .btn--ghost {
-        @apply text-onBackground-high hover:bg-ui-low hover:text-onUi-high;
-    }
-    .section__title {
-        @apply mb-8 text-2xl font-bold;
-    }
-    .section__subtitle {
-        @apply mb-2 text-xl text-onBackground-medium;
-    }
+/* ─── Semantic color tokens ─────────────────────────────────────────── */
+/* Tailwind v4 generates CSS vars for all palette values: var(--color-zinc-900) etc. */
+:root {
+  /* Text — four levels */
+  --text-primary:    var(--color-zinc-900);   /* names, titles, body */
+  --text-secondary:  var(--color-zinc-600);   /* descriptions, bio */
+  --text-tertiary:   var(--color-zinc-400);   /* labels, timestamps, nav */
+  --text-quaternary: var(--color-zinc-300);   /* icons, arrows, disabled */
+
+  /* Backgrounds — four levels */
+  --bg-page:         var(--color-zinc-50);    /* outermost page bg */
+  --bg-surface:      var(--color-white);      /* content areas, sidebar */
+  --bg-subtle:       var(--color-zinc-100);   /* hover states */
+  --bg-moderate:     var(--color-zinc-200);   /* active/selected states */
+
+  /* Borders — two levels */
+  --border-default:  var(--color-zinc-200);   /* section dividers */
+  --border-subtle:   var(--color-zinc-100);   /* list item separators */
 }
 
-/* Your own custom utilities */
-@layer utilities {
+.dark {
+  /* Text */
+  --text-primary:    var(--color-zinc-100);
+  --text-secondary:  var(--color-zinc-400);
+  --text-tertiary:   var(--color-zinc-500);
+  --text-quaternary: var(--color-zinc-600);
+
+  /* Backgrounds */
+  --bg-page:         var(--color-zinc-950);
+  --bg-surface:      var(--color-zinc-900);
+  --bg-subtle:       var(--color-zinc-800);
+  --bg-moderate:     var(--color-zinc-700);
+
+  /* Borders */
+  --border-default:  var(--color-zinc-800);
+  --border-subtle:   var(--color-zinc-900);
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────── */
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Reduced motion support — always included */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
