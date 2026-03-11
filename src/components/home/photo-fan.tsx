@@ -96,10 +96,20 @@ export function PhotoFan() {
       const dt = now - prev.time
       const speed = Math.sqrt(dx * dx + dy * dy) / Math.max(dt, 1)
 
-      // Proximity-based detection: find card whose center is closest to cursor.
-      // This avoids flickering from overlapping hit boxes entirely.
       if (speed <= VELOCITY_THRESHOLD && containerRef.current) {
         const children = Array.from(containerRef.current.children) as HTMLElement[]
+
+        // If cursor is still within the current card's bounds (post-transform),
+        // keep it active — prevents premature switching while over the lifted card.
+        if (hoveredIndex !== null) {
+          const rect = children[hoveredIndex].getBoundingClientRect()
+          if (e.clientX >= rect.left && e.clientX <= rect.right) {
+            lastPointer.current = { x: e.clientX, y: e.clientY, time: now }
+            return
+          }
+        }
+
+        // Cursor is outside the current card — find closest by center proximity.
         let closestIndex = -1
         let closestDist = Infinity
 
@@ -118,7 +128,7 @@ export function PhotoFan() {
     }
 
     lastPointer.current = { x: e.clientX, y: e.clientY, time: now }
-  }, [])
+  }, [hoveredIndex])
 
   const handleLeave = useCallback(() => {
     setHoveredIndex(null)
