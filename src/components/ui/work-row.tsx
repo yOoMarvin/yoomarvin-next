@@ -27,12 +27,14 @@ export function WorkRow({ title, description, href, icon }: WorkRowProps) {
       href={href}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
-      className="group flex items-center gap-2 py-1"
+      className="group flex flex-col py-1 md:flex-row md:items-center md:gap-2"
     >
-      {Icon && (
-        <Icon width={24} height={24} className="shrink-0 text-[var(--text-primary)]" />
-      )}
-      <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">{title}</span>
+      <div className="flex items-center gap-2">
+        {Icon && (
+          <Icon width={24} height={24} className="shrink-0 text-[var(--text-primary)]" />
+        )}
+        <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">{title}</span>
+      </div>
       <span className="text-xl font-medium text-[var(--text-tertiary)]">{description}</span>
     </Link>
   )
