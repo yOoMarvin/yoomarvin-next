@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Figma, Mail, Atom, Code, Wrench, SelectFace3d } from 'iconoir-react'
+import { ArrowUpRight, Figma, Mail, Atom, Code, Wrench, SelectFace3d } from 'iconoir-react'
 import type { ComponentType } from 'react'
 
 const iconMap: Record<string, ComponentType<{ width?: number; height?: number; className?: string }>> = {
@@ -34,6 +34,9 @@ export function WorkRow({ title, description, href, icon }: WorkRowProps) {
           <Icon width={24} height={24} className="shrink-0 text-[var(--text-primary)]" />
         )}
         <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">{title}</span>
+        {isExternal && (
+          <ArrowUpRight width={14} height={14} strokeWidth={2} className="shrink-0 text-[var(--text-primary)]" />
+        )}
       </div>
       <span className="text-xl font-medium text-[var(--text-tertiary)]">{description}</span>
     </Link>
