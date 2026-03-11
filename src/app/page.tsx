@@ -43,8 +43,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Photo fan */}
-      <section>
+      {/* Photo fan — full-bleed, centered */}
+      <section className="w-screen relative left-1/2 -translate-x-1/2 flex justify-center">
         <PhotoFan />
       </section>
 
