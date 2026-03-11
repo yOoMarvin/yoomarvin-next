@@ -12,7 +12,7 @@ export function PostRow({ title, href, draft }: PostRowProps) {
       href={href}
       className="group flex items-center gap-2 py-1"
     >
-      <span className="text-xl font-semibold text-[var(--text-primary)] group-hover:underline">
+      <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">
         {title}
       </span>
       {draft && (

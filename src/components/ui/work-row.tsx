@@ -32,8 +32,8 @@ export function WorkRow({ title, description, href, icon }: WorkRowProps) {
       {Icon && (
         <Icon width={24} height={24} className="shrink-0 text-[var(--text-primary)]" />
       )}
-      <span className="text-xl font-semibold text-[var(--text-primary)] group-hover:underline">{title}</span>
-      <span className="text-xl font-semibold text-[var(--text-tertiary)]">{description}</span>
+      <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">{title}</span>
+      <span className="text-xl font-medium text-[var(--text-tertiary)]">{description}</span>
     </Link>
   )
 }

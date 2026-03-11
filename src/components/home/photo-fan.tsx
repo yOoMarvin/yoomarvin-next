@@ -19,7 +19,6 @@ const CARDS = [
 ]
 
 interface PhotoCardProps {
-  index: number
   isHovered: boolean
   anyHovered: boolean
   deflection: number
@@ -27,7 +26,6 @@ interface PhotoCardProps {
   color: string
   label: string
   overlap: boolean
-  onEnter?: never
 }
 
 function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, color, label, overlap }: PhotoCardProps) {
@@ -156,7 +154,6 @@ export function PhotoFan() {
         return (
           <PhotoCard
             key={i}
-            index={i}
             isHovered={isHovered}
             anyHovered={hoveredIndex !== null}
             deflection={deflection}
