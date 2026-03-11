@@ -1,12 +1,10 @@
 'use client'
 
-import { useReducedMotion } from 'motion/react'
 import { useState, useRef, useCallback, useEffect } from 'react'
-import { motion, useSpring } from 'motion/react'
+import { motion, useSpring, useReducedMotion } from 'motion/react'
 
 const SPRING = { stiffness: 200, damping: 24, mass: 1 }
 const VELOCITY_THRESHOLD = 0.8 // px/ms — ignore hovers above this speed
-const BASE_ROTATIONS = [-20, -13, -7, 0, 7, 13, 20]
 
 const CARDS = [
   { color: 'bg-zinc-300 dark:bg-zinc-600', label: "Berlin '23" },
@@ -17,6 +15,12 @@ const CARDS = [
   { color: 'bg-zinc-200 dark:bg-zinc-700', label: "NYC '25" },
   { color: 'bg-zinc-400 dark:bg-zinc-500', label: "Munich '25" },
 ]
+
+// Derived from card count so rotations and cards can never get out of sync.
+const BASE_ROTATIONS = CARDS.map((_, i) => {
+  const t = CARDS.length === 1 ? 0 : (i / (CARDS.length - 1)) * 2 - 1
+  return Math.round(t * 20)
+})
 
 interface PhotoCardProps {
   isHovered: boolean
@@ -29,7 +33,6 @@ interface PhotoCardProps {
 }
 
 function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, color, label, overlap }: PhotoCardProps) {
-
   const x = useSpring(0, SPRING)
   const y = useSpring(0, SPRING)
   const scale = useSpring(1, SPRING)
@@ -83,8 +86,12 @@ function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, color, lab
 export function PhotoFan() {
   const prefersReducedMotion = useReducedMotion()
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const hoveredIndexRef = useRef<number | null>(null)
   const lastPointer = useRef<{ x: number; y: number; time: number } | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+
+  // Keep ref in sync so handleMouseMove can read it without being in deps.
+  hoveredIndexRef.current = hoveredIndex
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const now = performance.now()
@@ -98,11 +105,12 @@ export function PhotoFan() {
 
       if (speed <= VELOCITY_THRESHOLD && containerRef.current) {
         const children = Array.from(containerRef.current.children) as HTMLElement[]
+        const current = hoveredIndexRef.current
 
         // If cursor is still within the current card's bounds (post-transform),
         // keep it active — prevents premature switching while over the lifted card.
-        if (hoveredIndex !== null) {
-          const rect = children[hoveredIndex].getBoundingClientRect()
+        if (current !== null) {
+          const rect = children[current].getBoundingClientRect()
           if (e.clientX >= rect.left && e.clientX <= rect.right) {
             lastPointer.current = { x: e.clientX, y: e.clientY, time: now }
             return
@@ -128,7 +136,7 @@ export function PhotoFan() {
     }
 
     lastPointer.current = { x: e.clientX, y: e.clientY, time: now }
-  }, [hoveredIndex])
+  }, [])
 
   const handleLeave = useCallback(() => {
     setHoveredIndex(null)

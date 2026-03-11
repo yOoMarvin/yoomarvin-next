@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { socialLinks } from '@/lib/config'
+import { isExternalHref } from '@/lib/utils'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -9,7 +10,7 @@ export function Footer() {
       <div className="max-w-2xl mx-auto px-4 md:px-8">
         <div className="flex justify-center gap-6 py-8">
           {socialLinks.map(({ label, href }) => {
-            const isExternal = href.startsWith('http') || href.startsWith('mailto')
+            const isExternal = isExternalHref(href)
             return (
               <Link
                 key={label}
