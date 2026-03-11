@@ -23,9 +23,12 @@ export default defineConfig({
       schema: s.object({
         title: s.string(),
         description: s.string(),
-        client: s.string(),
+        client: s.string().optional(),
         date: s.isodate(),
         published: s.boolean().default(true),
+        featured: s.boolean().default(false),
+        icon: s.string().optional(),
+        href: s.string().optional(),
         body: s.mdx(),
       }).transform((data, { meta }) => ({
         ...data,
