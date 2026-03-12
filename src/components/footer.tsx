@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="mt-24">
-      <div className="max-w-2xl mx-auto px-4 md:px-8">
+      <div className="max-w-2xl mx-auto px-6">
         <div className="flex justify-center gap-6 py-8">
           {socialLinks.map(({ label, href }) => {
             const isExternal = isExternalHref(href)

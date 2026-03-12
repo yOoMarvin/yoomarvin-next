@@ -21,7 +21,7 @@
 :root {
   /* Text — four levels */
   --text-primary:    var(--color-zinc-900);   /* names, titles, body */
-  --text-secondary:  var(--color-zinc-600);   /* descriptions, bio */
+  --text-secondary:  var(--color-zinc-500);   /* descriptions, bio */
   --text-tertiary:   var(--color-zinc-400);   /* labels, timestamps, nav */
   --text-quaternary: var(--color-zinc-300);   /* icons, arrows, disabled */
 
@@ -39,7 +39,7 @@
 .dark {
   /* Text */
   --text-primary:    var(--color-zinc-100);
-  --text-secondary:  var(--color-zinc-400);
+  --text-secondary:  var(--color-zinc-300);
   --text-tertiary:   var(--color-zinc-500);
   --text-quaternary: var(--color-zinc-600);
 

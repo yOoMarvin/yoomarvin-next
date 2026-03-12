@@ -23,7 +23,7 @@ export default function HomePage() {
   const recentPosts = getRecentPosts()
 
   return (
-    <main className="max-w-2xl mx-auto px-4 md:px-8 py-12 space-y-24">
+    <main className="max-w-2xl mx-auto px-6 pt-32 pb-12 space-y-24">
       <section>
         <Hero />
       </section>
