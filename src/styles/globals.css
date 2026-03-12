@@ -55,10 +55,15 @@
 }
 
 /* ─── Base styles ────────────────────────────────────────────────────── */
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--bg-page);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  font-size: 1rem;
 }
 
 /* Reduced motion support — always included */

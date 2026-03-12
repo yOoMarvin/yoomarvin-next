@@ -28,7 +28,7 @@ export default function HomePage() {
         <Hero />
       </section>
 
-      <section className="w-screen relative left-1/2 -translate-x-1/2 flex justify-center">
+      <section className="w-screen relative left-1/2 -translate-x-1/2">
         <PhotoFan />
       </section>
 

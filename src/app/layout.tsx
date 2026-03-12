@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { Providers } from '@/components/providers'
 import { Footer } from '@/components/footer'
@@ -8,6 +8,11 @@ import '../styles/globals.css'
 export const metadata: Metadata = {
   title: 'Marvin Messenzehl',
   description: 'Design engineer based in Germany.',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
