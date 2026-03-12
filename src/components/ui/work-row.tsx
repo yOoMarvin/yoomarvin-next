@@ -39,7 +39,7 @@ export function WorkRow({ title, description, href, icon }: WorkRowProps) {
           <ArrowUpRight width={14} height={14} strokeWidth={2} className="shrink-0 text-[var(--text-primary)]" />
         )}
       </div>
-      <span className="text-xl font-medium text-[var(--text-tertiary)]">{description}</span>
+      <span className="pl-8 text-xl font-medium text-[var(--text-tertiary)] md:pl-0">{description}</span>
     </Link>
   )
 }
