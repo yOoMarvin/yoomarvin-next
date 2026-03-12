@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
-import { GithubCircle, Linkedin, X } from 'iconoir-react'
+import { GitHubIcon, LinkedInIcon, XIcon } from './social-icons'
 import { NavLink } from './nav-link'
 import { NAV_ITEMS, PERSONAL_PROJECTS } from './config'
 import { isExternalHref } from '@/lib/utils'
@@ -12,9 +12,9 @@ interface SidebarProps {
 }
 
 const SOCIAL_LINKS = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/marvinmessenzehl', Icon: Linkedin },
-  { label: 'X', href: 'https://twitter.com/yoomarvin', Icon: X },
-  { label: 'GitHub', href: 'https://github.com/yoomarvin', Icon: GithubCircle },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/marvinmessenzehl', Icon: LinkedInIcon },
+  { label: 'X', href: 'https://twitter.com/yoomarvin', Icon: XIcon },
+  { label: 'GitHub', href: 'https://github.com/yoomarvin', Icon: GitHubIcon },
 ]
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
@@ -67,7 +67,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               <motion.span
                 variants={itemVariants}
                 transition={{ duration: 0.15 }}
-                className="text-sm text-[var(--text-tertiary)]"
+                className="text-sm font-medium text-[var(--text-tertiary)]"
               >
                 Personal Projects
               </motion.span>
@@ -102,7 +102,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                   transition={{ duration: 0.15 }}
                   className="text-[var(--text-secondary)] transition-colors duration-100 hover:text-[var(--text-primary)]"
                 >
-                  <Icon width={22} height={22} />
+                  <Icon size={22} />
                 </motion.a>
               ))}
             </motion.div>
