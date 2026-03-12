@@ -55,15 +55,15 @@ function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, color, lab
 
   return (
     <motion.div
-      style={{ x, y, scale, rotate, zIndex: isHovered ? 10 : 1, marginLeft: overlap ? -64 : 0 }}
-      className="relative origin-bottom shrink-0 snap-center"
+      style={{ x, y, scale, rotate, zIndex: isHovered ? 10 : 1 }}
+      className={`relative origin-bottom shrink-0 ${overlap ? '-ml-16' : ''}`}
     >
       {/* Shadow — sibling to card, not clipped by overflow-hidden */}
       <motion.div
         style={{ opacity: shadowOpacity, scaleX: shadowScaleX }}
         className="absolute -bottom-3 left-3 right-3 h-6 rounded-full bg-black/50 blur-lg pointer-events-none"
       />
-      <div className={`relative aspect-[3/4] w-36 rounded-2xl shadow-sm overflow-hidden ${color}`}>
+      <div className={`relative aspect-[3/4] w-30 md:w-36 rounded-2xl shadow-sm overflow-hidden ${color}`}>
         <motion.div
           style={{ opacity: glossOpacity }}
           className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent pointer-events-none"
@@ -173,9 +173,9 @@ export function PhotoFan() {
 
   if (prefersReducedMotion) {
     return (
-      <div className="flex gap-3 overflow-x-auto pb-1">
+      <div className="flex justify-center">
         {CARDS.map(({ color, label }, i) => (
-          <div key={i} className={`relative aspect-[3/4] w-36 shrink-0 rounded-2xl ${color}`}>
+          <div key={i} className={`relative aspect-[3/4] w-30 md:w-36 shrink-0 rounded-2xl ${color} ${i > 0 ? '-ml-16' : ''}`}>
             <p className="absolute bottom-2.5 left-3 font-mono text-xs text-white">{label}</p>
           </div>
         ))}
@@ -186,7 +186,7 @@ export function PhotoFan() {
   return (
     <div
       ref={containerRef}
-      className="flex items-end justify-center overflow-x-auto pb-10 snap-x snap-mandatory md:overflow-x-visible md:snap-none"
+      className="flex items-end justify-center pt-8 pb-8"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleLeave}
       onTouchStart={handleTouchStart}
