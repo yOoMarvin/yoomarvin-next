@@ -88,12 +88,16 @@ export function PhotoFan() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const hoveredIndexRef = useRef<number | null>(null)
   const lastPointer = useRef<{ x: number; y: number; time: number } | null>(null)
+  const lastTouchTime = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Keep ref in sync so handleMouseMove can read it without being in deps.
   hoveredIndexRef.current = hoveredIndex
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    // Ignore synthetic mouse events fired by the browser after a touch interaction.
+    if (Date.now() - lastTouchTime.current < 500) return
+
     const now = performance.now()
     const prev = lastPointer.current
 
@@ -143,6 +147,30 @@ export function PhotoFan() {
     lastPointer.current = null
   }, [])
 
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    lastTouchTime.current = Date.now()
+    if (!containerRef.current) return
+    const touch = e.touches[0]
+    const children = Array.from(containerRef.current.children) as HTMLElement[]
+
+    let closestIndex = -1
+    let closestDist = Infinity
+
+    children.forEach((child, i) => {
+      const rect = child.getBoundingClientRect()
+      const centerX = rect.left + rect.width / 2
+      const dist = Math.abs(touch.clientX - centerX)
+      if (dist < closestDist) {
+        closestDist = dist
+        closestIndex = i
+      }
+    })
+
+    if (closestIndex !== -1) {
+      setHoveredIndex((prev) => (prev === closestIndex ? null : closestIndex))
+    }
+  }, [])
+
   if (prefersReducedMotion) {
     return (
       <div className="flex gap-3 overflow-x-auto pb-1">
@@ -161,6 +189,7 @@ export function PhotoFan() {
       className="flex items-end justify-center overflow-x-auto pb-10 snap-x snap-mandatory md:overflow-x-visible md:snap-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleLeave}
+      onTouchStart={handleTouchStart}
     >
       {CARDS.map(({ color, label }, i) => {
         const isHovered = hoveredIndex === i
