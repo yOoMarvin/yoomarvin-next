@@ -55,6 +55,19 @@ Never use raw zinc classes for color — that bypasses the token system and brea
 - Page headings: `text-2xl font-semibold` — use sparingly
 - Never use: `font-bold`, `text-xs` for body content, custom font sizes
 
+### Text Wrapping
+- Apply `text-wrap: balance` to headings, short labels, and captions so text distributes evenly across lines and avoids orphaned words.
+- Apply `text-wrap: pretty` to body paragraphs as a lighter alternative (browser support permitting).
+- Never leave multi-line headlines without one of these — awkward breaks undermine visual polish.
+
+### Font Rendering
+- Apply `-webkit-font-smoothing: antialiased` at the root layout so text renders thinner and crisper on macOS. Already set in `globals.css` — do not override it on individual components.
+
+### Numbers and Counters
+- Apply `font-variant-numeric: tabular-nums` wherever digits update live (counters, stats, timestamps) to prevent layout shift as values change.
+- Pair with `font-mono` for metrics and financial-style data.
+- Note: Inter changes numeral appearance slightly when tabular-nums is applied — verify visually.
+
 ### Monospace
 - Use `font-mono` for: dates, timestamps, numbers, stats, code blocks
 - System stack only — no custom font loaded (`ui-monospace` → SF Mono / Consolas)

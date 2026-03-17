@@ -34,6 +34,28 @@ The more often an interaction occurs, the less animation it should have.
 - Background color on high-frequency interactions
 - Anything on scroll unless it directly serves spatial orientation
 
+## Icon Transitions
+When icons appear or disappear contextually (e.g. state changes, hover reveals), animate with `opacity` + `scale` + `blur` together. Spring animations feel more natural than CSS easing for appearing elements — use `motion` springs rather than CSS keyframes here.
+
+## Interruptible Animations
+Use transitions (CSS or motion springs) for all interactive state changes — not keyframe animations. Keyframes run on a fixed timeline and cannot retarget mid-way. Transitions interpolate toward the latest state, so they handle interrupted gestures gracefully.
+
+**Rule:** Keyframe animations only for staged sequences that play once (loaders, intro reveals). Everything interactive uses transitions.
+
+## Stagger Entering Elements
+Don't animate an entire section as a single block. Break it into meaningful chunks and stagger:
+- Title, description, and actions: ~100ms delay between each
+- Text split into words: ~80ms delay per word-level span
+- Use CSS custom properties (`--i`) to calculate stagger offsets
+
+Non-text elements (images, cards) stay as single blocks — only split text.
+
+## Exit Animations
+Exit animations should be smaller and faster than entrances. Departing elements don't need attention — keep movement subtle:
+- Translate: ~12px max (not full off-screen)
+- Pair with reduced opacity and light blur
+- Maintain direction cue without a jarring departure
+
 ## The Test
 Remove the animation. Does something feel missing or broken?
 - Yes → keep it

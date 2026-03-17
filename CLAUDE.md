@@ -7,6 +7,7 @@ This is a working environment maintained in public. It should feel like a produc
 - docs/design-system.md — colors, typography, spacing, component patterns
 - docs/motion-principles.md — when and how to animate
 - docs/architecture.md — stack, folder structure, conventions
+- docs/craft.md — micro-polish: border radius, shadows, optical alignment, image treatment
 
 ## Stack
 - Next.js (latest), React 19, TypeScript
