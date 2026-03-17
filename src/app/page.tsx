@@ -23,7 +23,7 @@ export default function HomePage() {
   const recentPosts = getRecentPosts()
 
   return (
-    <main className="max-w-2xl mx-auto px-6 pt-32 pb-12 space-y-24">
+    <>
       <section>
         <Hero />
       </section>
@@ -59,6 +59,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-    </main>
+    </>
   )
 }

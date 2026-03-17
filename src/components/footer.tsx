@@ -6,7 +6,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="mt-24">
+    <footer>
       <div className="max-w-2xl mx-auto px-6">
         <div className="flex justify-center gap-6 py-8">
           {socialLinks.map(({ label, href }) => {

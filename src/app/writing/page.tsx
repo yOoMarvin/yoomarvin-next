@@ -1,3 +1,3 @@
 export default function WritingPage() {
-  return <main><p>Writing — coming soon.</p></main>
+  return <p>Writing — coming soon.</p>
 }

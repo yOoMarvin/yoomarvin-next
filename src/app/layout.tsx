@@ -25,7 +25,9 @@ export default function RootLayout({
       <body>
         <Providers>
           <Nav />
-          {children}
+          <main className="max-w-2xl mx-auto px-6 pt-32 pb-12 space-y-24">
+            {children}
+          </main>
           <Footer />
           <Analytics />
         </Providers>
