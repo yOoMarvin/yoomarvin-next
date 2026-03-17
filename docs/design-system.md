@@ -60,9 +60,6 @@ Never use raw zinc classes for color — that bypasses the token system and brea
 - Apply `text-wrap: pretty` to body paragraphs as a lighter alternative (browser support permitting).
 - Never leave multi-line headlines without one of these — awkward breaks undermine visual polish.
 
-### Font Rendering
-- Apply `-webkit-font-smoothing: antialiased` at the root layout so text renders thinner and crisper on macOS. Already set in `globals.css` — do not override it on individual components.
-
 ### Numbers and Counters
 - Apply `font-variant-numeric: tabular-nums` wherever digits update live (counters, stats, timestamps) to prevent layout shift as values change.
 - Pair with `font-mono` for metrics and financial-style data.
