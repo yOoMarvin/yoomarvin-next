@@ -2,18 +2,19 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, useSpring, useReducedMotion } from 'motion/react'
+import Image from 'next/image'
 
 const SPRING = { stiffness: 200, damping: 24, mass: 1 }
 const VELOCITY_THRESHOLD = 0.8 // px/ms — ignore hovers above this speed
 
 const CARDS = [
-  { color: 'bg-zinc-300 dark:bg-zinc-600', label: "Berlin '23" },
-  { color: 'bg-zinc-200 dark:bg-zinc-700', label: "Kyoto '23" },
-  { color: 'bg-zinc-400 dark:bg-zinc-500', label: "Oslo '24" },
-  { color: 'bg-zinc-200 dark:bg-zinc-700', label: "London '24" },
-  { color: 'bg-zinc-300 dark:bg-zinc-600', label: "Lisbon '24" },
-  { color: 'bg-zinc-200 dark:bg-zinc-700', label: "NYC '25" },
-  { color: 'bg-zinc-400 dark:bg-zinc-500', label: "Munich '25" },
+  { src: '/photo-fan/cycling.webp', label: "Cylcling in summer" },
+  { src: '/photo-fan/desk.webp', label: "Where things get done" },
+  { src: '/photo-fan/laptop-min.webp', label: "Running workshops" },
+  { src: '/marvin-profile.webp', label: "My first day at DAYY" },
+  { src: '/photo-fan/memfam.webp', label: "Memorisely Fam" },
+  { src: '/photo-fan/running.webp', label: "My first Marathon" },
+  { src: '/photo-fan/work-min.webp', label: "Work in the office" },
 ]
 
 // Derived from card count so rotations and cards can never get out of sync.
@@ -27,12 +28,12 @@ interface PhotoCardProps {
   anyHovered: boolean
   deflection: number
   baseRotation: number
-  color: string
+  src: string
   label: string
   overlap: boolean
 }
 
-function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, color, label, overlap }: PhotoCardProps) {
+function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, src, label, overlap }: PhotoCardProps) {
   const x = useSpring(0, SPRING)
   const y = useSpring(0, SPRING)
   const scale = useSpring(1, SPRING)
@@ -63,7 +64,8 @@ function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, color, lab
         style={{ opacity: shadowOpacity, scaleX: shadowScaleX }}
         className="absolute -bottom-3 left-3 right-3 h-6 rounded-full bg-black/50 blur-lg pointer-events-none"
       />
-      <div className={`relative aspect-[3/4] w-30 md:w-36 rounded-2xl shadow-sm overflow-hidden ${color}`}>
+      <div className="relative aspect-[3/4] w-30 md:w-36 rounded-2xl shadow-sm overflow-hidden bg-zinc-200 dark:bg-zinc-700">
+        <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 768px) 120px, 144px" />
         <motion.div
           style={{ opacity: glossOpacity }}
           className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent pointer-events-none"
@@ -174,8 +176,9 @@ export function PhotoFan() {
   if (prefersReducedMotion) {
     return (
       <div className="flex justify-center">
-        {CARDS.map(({ color, label }, i) => (
-          <div key={i} className={`relative aspect-[3/4] w-30 md:w-36 shrink-0 rounded-2xl ${color} ${i > 0 ? '-ml-16' : ''}`}>
+        {CARDS.map(({ src, label }, i) => (
+          <div key={i} className={`relative aspect-[3/4] w-30 md:w-36 shrink-0 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-zinc-700 ${i > 0 ? '-ml-16' : ''}`}>
+            <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 768px) 120px, 144px" />
             <p className="absolute bottom-2.5 left-3 font-mono text-xs text-white">{label}</p>
           </div>
         ))}
@@ -191,7 +194,7 @@ export function PhotoFan() {
       onMouseLeave={handleLeave}
       onTouchStart={handleTouchStart}
     >
-      {CARDS.map(({ color, label }, i) => {
+      {CARDS.map(({ src, label }, i) => {
         const isHovered = hoveredIndex === i
         const distance = hoveredIndex !== null ? i - hoveredIndex : 0
         const deflection =
@@ -205,7 +208,7 @@ export function PhotoFan() {
             anyHovered={hoveredIndex !== null}
             deflection={deflection}
             baseRotation={BASE_ROTATIONS[i]}
-            color={color}
+            src={src}
             label={label}
             overlap={i > 0}
           />
