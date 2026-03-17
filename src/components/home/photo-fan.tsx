@@ -64,7 +64,7 @@ function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, src, label
         style={{ opacity: shadowOpacity, scaleX: shadowScaleX }}
         className="absolute -bottom-3 left-3 right-3 h-6 rounded-full bg-black/50 blur-lg pointer-events-none"
       />
-      <div className="relative aspect-[3/4] w-30 md:w-36 rounded-2xl shadow-sm overflow-hidden bg-zinc-200 dark:bg-zinc-700">
+      <div className="relative aspect-[3/4] w-30 md:w-36 rounded-2xl shadow-sm overflow-hidden bg-zinc-200 dark:bg-zinc-700 ring-1 ring-inset ring-black/10 dark:ring-white/10">
         <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 768px) 120px, 144px" />
         <motion.div
           style={{ opacity: glossOpacity }}
@@ -177,7 +177,7 @@ export function PhotoFan() {
     return (
       <div className="flex justify-center">
         {CARDS.map(({ src, label }, i) => (
-          <div key={i} className={`relative aspect-[3/4] w-30 md:w-36 shrink-0 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-zinc-700 ${i > 0 ? '-ml-16' : ''}`}>
+          <div key={i} className={`relative aspect-[3/4] w-30 md:w-36 shrink-0 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-zinc-700 ring-1 ring-inset ring-black/10 dark:ring-white/10 ${i > 0 ? '-ml-16' : ''}`}>
             <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 768px) 120px, 144px" />
             <p className="absolute bottom-2.5 left-3 font-mono text-xs text-white">{label}</p>
           </div>
