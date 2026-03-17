@@ -1,6 +1,6 @@
 import { posts, work } from '.velite'
-import { Hero } from '@/components/home/hero'
-import { PhotoFan } from '@/components/home/photo-fan'
+import { Hero } from '@/components/ui/hero'
+import { PhotoFan } from '@/components/ui/photo-fan'
 import { SectionHeader } from '@/components/ui/section-header'
 import { WorkRow } from '@/components/ui/work-row'
 import { PostRow } from '@/components/ui/post-row'
@@ -25,7 +25,12 @@ export default function HomePage() {
   return (
     <>
       <section>
-        <Hero />
+        <Hero>
+          <p className="text-2xl font-semibold text-[var(--text-secondary)] leading-snug text-pretty">
+            I&apos;m a design engineer living in Germany. I build products with DAYY and spend the
+            rest of my time making things I wished existed.
+          </p>
+        </Hero>
       </section>
 
       <section className="w-screen relative left-1/2 -translate-x-1/2">
