@@ -20,6 +20,6 @@ export function SectionHeader({ label, href }: SectionHeaderProps) {
   }
 
   return (
-    <span className="text-base font-normal text-[var(--text-tertiary)]">{label}</span>
+    <div className="text-base font-normal text-[var(--text-tertiary)]">{label}</div>
   )
 }
