@@ -1,5 +1,10 @@
+import type { Metadata } from 'next'
 import { getWritingPosts } from '@/lib/notion/writing'
 import { PostRow } from '@/components/ui/post-row'
+
+export const metadata: Metadata = {
+  title: 'Writing',
+}
 
 export default async function WritingPage() {
   const posts = await getWritingPosts()

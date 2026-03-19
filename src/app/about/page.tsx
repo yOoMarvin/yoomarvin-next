@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Hero } from '@/components/ui/hero'
 import { PhotoFan } from '@/components/ui/photo-fan'
 import { SectionHeader } from '@/components/ui/section-header'
@@ -5,6 +6,11 @@ import { ExperienceRow } from '@/components/ui/experience-row'
 import { AppearanceRow } from '@/components/ui/appearance-row'
 import { experience, appearances } from '@/lib/about-data'
 import { inlineLinkClass } from '@/lib/utils'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Design engineer at DAYY, previously RTL+. Based in Germany.',
+}
 
 export default function AboutPage() {
   return (

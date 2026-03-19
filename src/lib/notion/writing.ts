@@ -36,19 +36,24 @@ export async function getWritingPosts(): Promise<PostMeta[]> {
   cacheLife('hours')
   cacheTag('writing')
 
-  const dataSourceId = await getDataSourceId()
-  const response = await notion.dataSources.query({
-    data_source_id: dataSourceId,
-    filter: {
-      property: 'Status',
-      select: { does_not_equal: 'Archived' },
-    },
-    sorts: [{ property: 'Date', direction: 'descending' }],
-  })
+  try {
+    const dataSourceId = await getDataSourceId()
+    const response = await notion.dataSources.query({
+      data_source_id: dataSourceId,
+      filter: {
+        property: 'Status',
+        select: { does_not_equal: 'Archived' },
+      },
+      sorts: [{ property: 'Date', direction: 'descending' }],
+    })
 
-  return response.results.map((page) =>
-    pageToMeta(page as PageObjectResponse)
-  )
+    return response.results.map((page) =>
+      pageToMeta(page as PageObjectResponse)
+    )
+  } catch (e) {
+    console.error('Failed to fetch writing posts:', e)
+    return []
+  }
 }
 
 export async function getWritingPost(slug: string): Promise<Post | null> {
@@ -56,24 +61,29 @@ export async function getWritingPost(slug: string): Promise<Post | null> {
   cacheLife('hours')
   cacheTag('writing', `writing:${slug}`)
 
-  const dataSourceId = await getDataSourceId()
-  const response = await notion.dataSources.query({
-    data_source_id: dataSourceId,
-    filter: {
-      and: [
-        { property: 'Slug', rich_text: { equals: slug } },
-        { property: 'Status', select: { equals: 'Published' } },
-      ],
-    },
-  })
+  try {
+    const dataSourceId = await getDataSourceId()
+    const response = await notion.dataSources.query({
+      data_source_id: dataSourceId,
+      filter: {
+        and: [
+          { property: 'Slug', rich_text: { equals: slug } },
+          { property: 'Status', select: { equals: 'Published' } },
+        ],
+      },
+    })
 
-  if (!response.results.length) return null
+    if (!response.results.length) return null
 
-  const page = response.results[0] as PageObjectResponse
-  const meta = pageToMeta(page)
-  const blocks = await getBlocks(page.id)
+    const page = response.results[0] as PageObjectResponse
+    const meta = pageToMeta(page)
+    const blocks = await getBlocks(page.id)
 
-  return { ...meta, blocks }
+    return { ...meta, blocks }
+  } catch (e) {
+    console.error(`Failed to fetch writing post "${slug}":`, e)
+    return null
+  }
 }
 
 async function getBlocks(pageId: string): Promise<BlockObjectResponse[]> {

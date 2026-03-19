@@ -94,7 +94,9 @@ export function PhotoFan() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Keep ref in sync so handleMouseMove can read it without being in deps.
-  hoveredIndexRef.current = hoveredIndex
+  useEffect(() => {
+    hoveredIndexRef.current = hoveredIndex
+  }, [hoveredIndex])
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     // Ignore synthetic mouse events fired by the browser after a touch interaction.
