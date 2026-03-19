@@ -1,6 +1,7 @@
 import { getWritingPost, getWritingPosts } from '@/lib/notion/writing'
 import { renderBlocks } from '@/components/writing/render-blocks'
 import { PostRow } from '@/components/ui/post-row'
+import { SectionHeader } from '@/components/ui/section-header'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -58,7 +59,7 @@ export default async function WritingPostPage({
             {cleanDate}
           </p>
         )}
-        <h1 className="text-3xl font-bold leading-[1.2] tracking-[-0.5px] text-[var(--text-primary)]">
+        <h1 className="text-3xl font-bold leading-[1.2] -tracking-[0.64px] md:text-4xl lg:text-[2.5rem] text-[var(--text-primary)]">
           {post.title}
         </h1>
       </div>
@@ -78,9 +79,9 @@ export default async function WritingPostPage({
       </div>
 
       {related.length > 0 && (
-        <div className="border-t border-[var(--border-default)] pt-8">
-          <p className="mb-4 text-base text-[var(--text-tertiary)]">Read next</p>
-          <div>
+        <section className="space-y-4 border-t border-[var(--border-default)] pt-8">
+          <SectionHeader label="Read next" href="/writing" />
+          <div className="flex flex-col gap-4 sm:gap-1.5">
             {related.map((p) => (
               <PostRow
                 key={p.id}
@@ -89,7 +90,7 @@ export default async function WritingPostPage({
               />
             ))}
           </div>
-        </div>
+        </section>
       )}
     </>
   )
