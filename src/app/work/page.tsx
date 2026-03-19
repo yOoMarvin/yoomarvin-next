@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Work',
+    title: 'Work',
 }
 
 export default function WorkPage() {
-  return <p>Work — coming soon.</p>
+    return <p>Work — coming soon.</p>
 }
