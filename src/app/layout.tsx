@@ -6,8 +6,12 @@ import { Nav } from '@/components/nav'
 import '../styles/globals.css'
 
 export const metadata: Metadata = {
-  title: 'Marvin Messenzehl',
+  title: {
+    default: 'Marvin Messenzehl',
+    template: '%s — Marvin Messenzehl',
+  },
   description: 'Design engineer based in Germany.',
+  metadataBase: new URL('https://marvinmessenzehl.com'),
 }
 
 export const viewport: Viewport = {

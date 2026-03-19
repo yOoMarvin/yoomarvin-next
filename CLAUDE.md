@@ -12,7 +12,8 @@ This is a working environment maintained in public. It should feel like a produc
 ## Stack
 - Next.js (latest), React 19, TypeScript
 - Tailwind CSS v4 (CSS-based config, no tailwind.config.js)
-- Velite for MDX content
+- Notion API (`@notionhq/client`) for writing content
+- Static data files for work items (`src/lib/work-data.ts`)
 - Iconoir for icons (iconoir-react)
 - motion for animations
 - next-themes for dark mode (system preference only, no toggle)
