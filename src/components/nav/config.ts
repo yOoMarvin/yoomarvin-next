@@ -12,6 +12,12 @@ export const PERSONAL_PROJECTS = [
   { label: 'Experiments', href: '/lab' },
 ]
 
+export const SOCIAL_LINKS = [
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/marvinmessenzehl' },
+  { label: 'X', href: 'https://twitter.com/yoomarvin' },
+  { label: 'GitHub', href: 'https://github.com/yoomarvin' },
+]
+
 // Only routes listed here get a breadcrumb. Remove a route to hide it.
 export const BREADCRUMB_ROUTES: Record<string, string> = {
   '/work': 'Work',

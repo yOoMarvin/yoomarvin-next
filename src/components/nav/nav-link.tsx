@@ -1,21 +1,16 @@
-'use client'
-
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { ArrowUpRight } from 'iconoir-react'
 import { cn } from '@/lib/utils'
 
 interface NavLinkProps {
   href: string
   label: string
+  isActive?: boolean
   external?: boolean
   onClick?: () => void
 }
 
-export function NavLink({ href, label, external = false, onClick }: NavLinkProps) {
-  const pathname = usePathname()
-  const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href)
-
+export function NavLink({ href, label, isActive = false, external = false, onClick }: NavLinkProps) {
   return (
     <Link
       href={href}
@@ -23,8 +18,7 @@ export function NavLink({ href, label, external = false, onClick }: NavLinkProps
       rel={external ? 'noopener noreferrer' : undefined}
       onClick={onClick}
       className={cn(
-        'group flex items-center gap-1.5 transition-colors duration-100',
-        'text-xl font-semibold',
+        'flex items-center gap-1.5 text-xl font-semibold transition-colors duration-100',
         isActive
           ? 'text-[var(--text-primary)]'
           : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]',
@@ -35,7 +29,7 @@ export function NavLink({ href, label, external = false, onClick }: NavLinkProps
         <ArrowUpRight
           width={16}
           height={16}
-          className="transition-transform duration-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="text-[var(--text-tertiary)]"
         />
       )}
     </Link>

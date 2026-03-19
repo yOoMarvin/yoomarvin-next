@@ -20,7 +20,7 @@ export function MenuButton({ isOpen, onClick }: MenuButtonProps) {
     <button
       onClick={onClick}
       aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
-      className="group fixed left-6 top-6 z-50 flex min-h-[44px] min-w-[44px] items-start justify-start text-[var(--text-primary)]"
+      className="group fixed left-6 top-6 z-50 flex min-h-[44px] min-w-[44px] cursor-pointer items-start justify-start text-[var(--text-primary)]"
     >
       {/* Hover circle — centered on the 24px icon */}
       <span
