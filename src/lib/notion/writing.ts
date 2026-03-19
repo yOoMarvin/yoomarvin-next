@@ -36,24 +36,19 @@ export async function getWritingPosts(): Promise<PostMeta[]> {
     cacheLife('hours')
     cacheTag('writing')
 
-    try {
-        const dataSourceId = await getDataSourceId()
-        const response = await notion.dataSources.query({
-            data_source_id: dataSourceId,
-            filter: {
-                property: 'Status',
-                select: { does_not_equal: 'Archived' },
-            },
-            sorts: [{ property: 'Date', direction: 'descending' }],
-        })
+    const dataSourceId = await getDataSourceId()
+    const response = await notion.dataSources.query({
+        data_source_id: dataSourceId,
+        filter: {
+            property: 'Status',
+            select: { does_not_equal: 'Archived' },
+        },
+        sorts: [{ property: 'Date', direction: 'descending' }],
+    })
 
-        return response.results.map((page) =>
-            pageToMeta(page as PageObjectResponse)
-        )
-    } catch (e) {
-        console.error('Failed to fetch writing posts:', e)
-        return []
-    }
+    return response.results.map((page) =>
+        pageToMeta(page as PageObjectResponse)
+    )
 }
 
 export async function getWritingPost(slug: string): Promise<Post | null> {
