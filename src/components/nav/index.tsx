@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { MenuButton } from './menu-button'
 import { Breadcrumb } from './breadcrumb'
 import { Sidebar } from './sidebar'
@@ -30,7 +30,9 @@ export function Nav() {
     <>
       <div className="fixed inset-x-0 top-0 z-40 h-16 bg-[var(--bg-page)]" />
       <MenuButton isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
-      <Breadcrumb />
+      <Suspense>
+        <Breadcrumb />
+      </Suspense>
       <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   )
