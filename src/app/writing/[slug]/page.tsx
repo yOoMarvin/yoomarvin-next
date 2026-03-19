@@ -5,11 +5,14 @@ import { SectionHeader } from '@/components/ui/section-header'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
+export const dynamicParams = true
+
 export async function generateStaticParams() {
     const posts = await getWritingPosts()
-    return posts
+    const params = posts
         .filter((p) => p.status === 'Published' && p.slug)
         .map((p) => ({ slug: p.slug }))
+    return params.length > 0 ? params : [{ slug: '_placeholder' }]
 }
 
 export async function generateMetadata({
