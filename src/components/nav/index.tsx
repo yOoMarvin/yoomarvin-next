@@ -28,7 +28,7 @@ export function Nav() {
 
   return (
     <>
-      <div className="fixed inset-x-0 top-0 z-40 h-16 bg-[var(--bg-page)]" />
+      <div className="fixed inset-x-0 top-0 z-40 h-16 bg-[var(--bg-page)] lg:[mask-image:linear-gradient(black,transparent)]" />
       <MenuButton isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
       <Suspense>
         <Breadcrumb />
