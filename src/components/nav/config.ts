@@ -22,6 +22,5 @@ export const SOCIAL_LINKS = [
 export const BREADCRUMB_ROUTES: Record<string, string> = {
   '/work': 'Work',
   '/writing': 'Writing',
-  '/now': 'Now',
   '/about': 'About',
 }
