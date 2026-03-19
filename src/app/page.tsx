@@ -1,26 +1,16 @@
-import { posts, work } from '.velite'
+import { getWritingPosts } from '@/lib/notion/writing'
+import { featuredWork } from '@/lib/work-data'
 import { Hero } from '@/components/ui/hero'
 import { PhotoFan } from '@/components/ui/photo-fan'
 import { SectionHeader } from '@/components/ui/section-header'
 import { WorkRow } from '@/components/ui/work-row'
 import { PostRow } from '@/components/ui/post-row'
 
-function getFeaturedWork() {
-  return work
-    .filter((item) => item.featured && item.published)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-}
-
-function getRecentPosts(count = 6) {
-  return posts
-    .filter((post) => post.published)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, count)
-}
-
-export default function HomePage() {
-  const featuredWork = getFeaturedWork()
-  const recentPosts = getRecentPosts()
+export default async function HomePage() {
+  const allPosts = await getWritingPosts()
+  const recentPosts = allPosts
+    .filter((post) => post.status === 'Published')
+    .slice(0, 6)
 
   return (
     <>
@@ -42,10 +32,10 @@ export default function HomePage() {
         <div className="space-y-1">
           {featuredWork.map((item) => (
             <WorkRow
-              key={item.slug}
+              key={item.title}
               title={item.title}
               description={item.description}
-              href={item.href ?? `/work/${item.slug}`}
+              href={item.href}
               icon={item.icon}
             />
           ))}
@@ -57,7 +47,7 @@ export default function HomePage() {
         <div className="space-y-1">
           {recentPosts.map((post) => (
             <PostRow
-              key={post.slug}
+              key={post.id}
               title={post.title}
               href={`/writing/${post.slug}`}
             />

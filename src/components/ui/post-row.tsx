@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cn } from '@/lib/utils'
 
 interface PostRowProps {
   title: string
@@ -7,12 +8,19 @@ interface PostRowProps {
 }
 
 export function PostRow({ title, href, draft }: PostRowProps) {
-  return (
-    <Link
-      href={href}
-      className="group flex items-center gap-2 py-1"
+  const inner = (
+    <div
+      className={cn(
+        'group flex items-center gap-2 py-1',
+        draft && 'opacity-50 cursor-not-allowed select-none'
+      )}
     >
-      <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">
+      <span
+        className={cn(
+          'text-xl font-medium text-[var(--text-primary)]',
+          !draft && 'group-hover:underline'
+        )}
+      >
         {title}
       </span>
       {draft && (
@@ -20,6 +28,14 @@ export function PostRow({ title, href, draft }: PostRowProps) {
           DRAFT
         </span>
       )}
+    </div>
+  )
+
+  if (draft) return inner
+
+  return (
+    <Link href={href} className="block">
+      {inner}
     </Link>
   )
 }

@@ -3,8 +3,6 @@ import { socialLinks } from '@/lib/config'
 import { isExternalHref } from '@/lib/utils'
 
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer>
       <div className="max-w-2xl mx-auto px-6">
@@ -27,7 +25,7 @@ export function Footer() {
         <hr className="border-[var(--border-default)]" />
         <div className="flex flex-col items-center gap-3 py-8 text-center">
           <span className="font-mono text-sm text-[var(--text-primary)]">Keep creating awesome stuff</span>
-          <span className="text-sm text-[var(--text-tertiary)]">© {year} Marvin Messenzehl</span>
+          <span className="text-sm text-[var(--text-tertiary)]">© 2026 Marvin Messenzehl</span>
           <div className="flex gap-4 text-sm text-[var(--text-tertiary)]">
             <Link
               href="/imprint"
