@@ -103,14 +103,14 @@ function renderRichText(richText: RichTextItemResponse[]) {
   return richText.map((t, i) => {
     let node: React.ReactNode = t.plain_text
 
-    if (t.annotations.bold) node = <strong key={i}>{node}</strong>
+    if (t.annotations.bold) node = <strong key={i} className="font-semibold">{node}</strong>
     if (t.annotations.italic) node = <em key={i}>{node}</em>
     if (t.annotations.strikethrough) node = <s key={i}>{node}</s>
     if (t.annotations.underline) node = <u key={i}>{node}</u>
     if (t.annotations.code) node = <code key={i}>{node}</code>
     if (t.href)
       node = (
-        <a key={i} href={t.href}>
+        <a key={i} href={t.href} className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:decoration-[var(--text-primary)]">
           {node}
         </a>
       )

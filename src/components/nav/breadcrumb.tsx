@@ -36,7 +36,12 @@ export function Breadcrumb() {
         Marvin
       </Link>
       <span className="text-base font-medium text-[var(--text-tertiary)]">/</span>
-      <span className="text-base font-medium text-[var(--text-primary)]">{label}</span>
+      <Link
+        href={Object.entries(BREADCRUMB_ROUTES).find(([, l]) => l === label)?.[0] ?? '/'}
+        className="text-base font-medium text-[var(--text-primary)] transition-colors duration-100 hover:text-[var(--text-secondary)]"
+      >
+        {label}
+      </Link>
     </motion.div>
   )
 }

@@ -1,7 +1,7 @@
 import { getWritingPost, getWritingPosts } from '@/lib/notion/writing'
 import { renderBlocks } from '@/components/writing/render-blocks'
+import { PostRow } from '@/components/ui/post-row'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
@@ -58,17 +58,20 @@ export default async function WritingPostPage({
             {cleanDate}
           </p>
         )}
-        <h1 className="text-2xl font-semibold leading-snug text-[var(--text-primary)]">
+        <h1 className="text-3xl font-bold leading-[1.2] tracking-[-0.5px] text-[var(--text-primary)]">
           {post.title}
         </h1>
       </div>
 
       <div
         className="prose prose-zinc dark:prose-invert max-w-none
-          prose-p:text-[var(--text-secondary)] prose-p:text-lg prose-p:leading-relaxed
-          prose-headings:font-semibold
-          prose-a:text-[var(--text-primary)] prose-a:underline prose-a:underline-offset-2
-          prose-code:text-sm prose-code:font-mono
+          prose-p:text-[var(--text-primary)] prose-p:text-lg prose-p:leading-relaxed
+          prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
+          prose-li:text-[var(--text-primary)] prose-li:text-lg
+          prose-blockquote:text-[var(--text-primary)]
+          prose-strong:text-[var(--text-primary)]
+          prose-a:text-[var(--text-primary)] prose-a:underline prose-a:decoration-[var(--text-tertiary)] prose-a:underline-offset-2
+          prose-code:text-sm prose-code:font-mono prose-code:text-[var(--text-primary)]
           prose-code:bg-[var(--bg-subtle)] prose-code:px-1 prose-code:rounded"
       >
         {renderBlocks(post.blocks)}
@@ -76,16 +79,14 @@ export default async function WritingPostPage({
 
       {related.length > 0 && (
         <div className="border-t border-[var(--border-default)] pt-8">
-          <p className="mb-4 text-sm text-[var(--text-tertiary)]">Read next</p>
-          <div className="space-y-1">
+          <p className="mb-4 text-base text-[var(--text-tertiary)]">Read next</p>
+          <div>
             {related.map((p) => (
-              <Link
+              <PostRow
                 key={p.id}
+                title={p.title}
                 href={`/writing/${p.slug}`}
-                className="block py-1 text-sm text-[var(--text-secondary)] transition-colors duration-100 hover:text-[var(--text-primary)]"
-              >
-                {p.title}
-              </Link>
+              />
             ))}
           </div>
         </div>

@@ -26,7 +26,7 @@ export default async function WritingPage() {
             <p className="mb-4 font-mono text-sm text-[var(--text-tertiary)]">
               {year}
             </p>
-            <div className="divide-y divide-[var(--border-subtle)]">
+            <div>
               {byYear[year].map((post) => (
                 <PostRow
                   key={post.id}
