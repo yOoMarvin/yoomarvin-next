@@ -11,25 +11,25 @@ export default function AboutPage() {
       <section>
         <Hero showName={false}>
           <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
-            I&apos;m a design engineer at DAYY&reg;, Germany&apos;s best design agency. We work with some
+            I&apos;m a design engineer at <a href="https://www.dayy.com/en" target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:text-[var(--text-primary)] hover:decoration-[var(--text-primary)]">DAYY&reg;</a>, <a href="https://www.linkedin.com/posts/germanwebawards_awards-awards-germanwebawards-activity-7368641621921280000-eEUa" target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:text-[var(--text-primary)] hover:decoration-[var(--text-primary)]">Germany&apos;s best design agency</a>. We work with some
             of the world&apos;s most recognized brands. For example Red Bull, Allianz, Volvo, and Isar
             Aerospace. I care about the full picture: from the first sketch to the shipped thing.
           </p>
           <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
-            Before DAYY&reg;, I led design on the RTL+ iOS and tvOS apps. I started with podcast and
+            Before DAYY&reg;, I led design on the <a href="https://plus.rtl.de/" target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:text-[var(--text-primary)] hover:decoration-[var(--text-primary)]">RTL+</a> iOS and tvOS apps. I started with podcast and
             music features, but over time took on the full scope of their mobile and TV platforms,
             shaping the experience for millions of users.
           </p>
           <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
             I got into this field through an unusual door. My master&apos;s in business informatics
-            at the University of Mannheim led me to building and running the Innovation Lab at SV
+            at the University of Mannheim led me to building and running the <a href="https://www.sv-informatik.de/unternehmen/it-lab.html" target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:text-[var(--text-primary)] hover:decoration-[var(--text-primary)]">Innovation Lab</a> at SV
             Informatik. It was a small team exploring new technology trends in insurtech. That&apos;s
             where I fell in love with building digital products.
           </p>
           <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
             After that I went freelance, working with companies ranging from early-stage startups
             to large corporates: LBS Group, Notch.so, enduco, ONVY, Hello Design, SAS, and
-            Instaffo. Alongside that, I teach UX/UI design with Memorisely, helping the next
+            Instaffo. Alongside that, I teach UX/UI design with <a href="https://www.memorisely.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:text-[var(--text-primary)] hover:decoration-[var(--text-primary)]">Memorisely</a>, helping the next
             generation of designers find their footing.
           </p>
           <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
