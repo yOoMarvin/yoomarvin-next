@@ -16,7 +16,7 @@ export default async function WritingPage() {
 
   return (
     <>
-      <h1 className="text-2xl font-semibold text-[var(--text-primary)]">
+      <h1 className="text-3xl leading-[1.2] font-bold -tracking-[0.64px] md:text-4xl lg:text-[2.5rem] text-[var(--text-primary)]">
         Writing
       </h1>
 

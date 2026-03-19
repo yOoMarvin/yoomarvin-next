@@ -66,7 +66,7 @@ export default async function WritingPostPage({
       <div
         className="prose prose-zinc dark:prose-invert max-w-none
           prose-p:text-[var(--text-primary)] prose-p:text-lg prose-p:leading-relaxed
-          prose-headings:text-[var(--text-primary)] prose-headings:font-semibold
+          prose-headings:text-[var(--text-primary)] prose-headings:font-bold prose-headings:mb-2
           prose-li:text-[var(--text-primary)] prose-li:text-lg
           prose-blockquote:text-[var(--text-primary)]
           prose-strong:text-[var(--text-primary)]

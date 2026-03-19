@@ -11,7 +11,7 @@ export function PostRow({ title, href, draft }: PostRowProps) {
   const inner = (
     <div
       className={cn(
-        'group flex items-center gap-2 py-1',
+        'group flex items-center gap-2 py-3 md:py-1',
         draft && 'opacity-50 cursor-not-allowed select-none'
       )}
     >
