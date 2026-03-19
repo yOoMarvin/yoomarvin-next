@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { Providers } from '@/components/providers'
@@ -28,7 +29,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
-          <Nav />
+          <Suspense>
+            <Nav />
+          </Suspense>
           <main className="max-w-2xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:py-32 space-y-16 sm:space-y-24">
             {children}
           </main>
