@@ -76,7 +76,7 @@ function PhotoCard({ isHovered, anyHovered, deflection, baseRotation, src, label
         />
         <motion.p
           style={{ opacity: gradientOpacity }}
-          className="absolute bottom-2.5 left-3 font-mono text-xs text-white pointer-events-none"
+          className="absolute bottom-2.5 left-3 right-3 font-mono text-xs text-white text-balance pointer-events-none"
         >
           {label}
         </motion.p>
@@ -179,7 +179,7 @@ export function PhotoFan() {
         {CARDS.map(({ src, label }, i) => (
           <div key={i} className={`relative aspect-[3/4] w-30 md:w-36 shrink-0 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-zinc-700 ring-1 ring-inset ring-black/10 dark:ring-white/10 ${i > 0 ? '-ml-16' : ''}`}>
             <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 768px) 120px, 144px" />
-            <p className="absolute bottom-2.5 left-3 font-mono text-xs text-white">{label}</p>
+            <p className="absolute bottom-2.5 left-3 right-3 font-mono text-xs text-white text-balance">{label}</p>
           </div>
         ))}
       </div>
