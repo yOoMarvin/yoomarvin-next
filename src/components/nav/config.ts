@@ -5,12 +5,12 @@ export const NAV_ITEMS = [
   { label: 'Writing', href: '/writing' },
 ]
 
-export const PERSONAL_PROJECTS = [
-  { label: 'Fighill', href: 'https://fighill.com' },
-  { label: 'Pixel Perfect Picks', href: 'https://pixelperfectpicks.com' },
-  { label: 'TIL', href: '/til' },
-  { label: 'Experiments', href: '/lab' },
-]
+import { projects } from '@/lib/work-data'
+
+export const PERSONAL_PROJECTS = projects.map((p) => ({
+  label: p.title,
+  href: p.href,
+}))
 
 export const SOCIAL_LINKS = [
   { label: 'LinkedIn', href: 'https://linkedin.com/in/marvinmessenzehl' },

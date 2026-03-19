@@ -1,5 +1,5 @@
 import { getWritingPosts } from '@/lib/notion/writing'
-import { featuredWork } from '@/lib/work-data'
+import { projects } from '@/lib/work-data'
 import { Hero } from '@/components/ui/hero'
 import { PhotoFan } from '@/components/ui/photo-fan'
 import { SectionHeader } from '@/components/ui/section-header'
@@ -8,9 +8,7 @@ import { PostRow } from '@/components/ui/post-row'
 
 export default async function HomePage() {
   const allPosts = await getWritingPosts()
-  const recentPosts = allPosts
-    .filter((post) => post.status === 'Published')
-    .slice(0, 6)
+  const recentPosts = allPosts.slice(0, 6)
 
   return (
     <>
@@ -30,7 +28,7 @@ export default async function HomePage() {
       <section className="space-y-4">
         <SectionHeader label="Selected Projects" href="/work" />
         <div className="space-y-1">
-          {featuredWork.map((item) => (
+          {projects.map((item) => (
             <WorkRow
               key={item.title}
               title={item.title}
@@ -50,6 +48,7 @@ export default async function HomePage() {
               key={post.id}
               title={post.title}
               href={`/writing/${post.slug}`}
+              draft={post.status === 'Draft'}
             />
           ))}
         </div>

@@ -12,13 +12,13 @@ export function PostRow({ title, href, draft }: PostRowProps) {
     <div
       className={cn(
         'group flex items-center gap-2 py-3 md:py-1',
-        draft && 'opacity-50 cursor-not-allowed select-none'
+        draft && 'cursor-not-allowed select-none'
       )}
     >
       <span
         className={cn(
-          'text-xl font-medium text-[var(--text-primary)]',
-          !draft && 'group-hover:underline'
+          'text-xl font-medium',
+          draft ? 'text-[var(--text-tertiary)]' : 'text-[var(--text-primary)] group-hover:underline'
         )}
       >
         {title}
