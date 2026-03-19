@@ -4,12 +4,14 @@ Personal portfolio site for Marvin Messenzehl — design engineer based in Germa
 This is a working environment maintained in public. It should feel like a product.
 
 ## Before writing any UI code, read:
+
 - docs/design-system.md — colors, typography, spacing, component patterns
 - docs/motion-principles.md — when and how to animate
 - docs/architecture.md — stack, folder structure, conventions
 - docs/craft.md — micro-polish: border radius, shadows, optical alignment, image treatment
 
 ## Stack
+
 - Next.js (latest), React 19, TypeScript
 - Tailwind CSS v4 (CSS-based config, no tailwind.config.js)
 - Notion API (`@notionhq/client`) for writing content
@@ -20,6 +22,7 @@ This is a working environment maintained in public. It should feel like a produc
 - Vercel Analytics
 
 ## Hard rules
+
 - Never introduce a dependency not listed above without flagging it
 - Never use inline styles
 - Never hardcode colors — use only the tokens defined in docs/design-system.md

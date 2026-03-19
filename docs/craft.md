@@ -25,6 +25,7 @@ account for. When something looks misaligned despite being numerically correct,
 trust your eyes.
 
 Common cases:
+
 - Icons next to text need slightly less padding on the icon side for optical balance
 - Prefer fixing spacing inside the SVG file itself over adding CSS overrides
 - Round numbers with `rounded` often need icons nudged 1px up to feel centered
@@ -36,11 +37,12 @@ transparency and work on any background; solid border colors break on
 non-matching surfaces.
 
 **Layer multiple shadows for nuance:**
+
 ```css
 box-shadow:
-  0 0 0 1px rgba(0, 0, 0, 0.06),   /* thin outline */
-  0 1px 3px rgba(0, 0, 0, 0.08),   /* soft fill */
-  0 4px 12px rgba(0, 0, 0, 0.05);  /* ambient depth */
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    /* thin outline */ 0 1px 3px rgba(0, 0, 0, 0.08),
+    /* soft fill */ 0 4px 12px rgba(0, 0, 0, 0.05); /* ambient depth */
 ```
 
 In dark mode, flip to white-tinted shadows at lower opacity.
@@ -62,6 +64,7 @@ outline-offset: -1px;
 In dark mode, switch to `rgba(255, 255, 255, 0.1)`.
 
 In Tailwind, use the `ring` utilities:
+
 ```tsx
 <img className="ring-1 ring-black/10 dark:ring-white/10" ... />
 ```

@@ -1,6 +1,7 @@
 # Architecture
 
 ## Stack
+
 - **Framework**: Next.js (latest), App Router, React 19
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4 (CSS-based config)
@@ -14,6 +15,7 @@
 ## Content Strategy
 
 ### Writing (Notion)
+
 - Notion database with properties: Title, Slug, Status, Date, Excerpt
 - Fetched server-side via `@notionhq/client` SDK v5
 - SDK v5 uses the `dataSources.query` API — the `data_source_id` is resolved at runtime from the database via `databases.retrieve`
@@ -22,10 +24,12 @@
 - Data layer: `src/lib/notion/client.ts`, `types.ts`, `writing.ts`
 
 ### Work (static)
+
 - Curated list in `src/lib/work-data.ts`
 - No CMS needed — items change rarely and are hand-ordered
 
 ### Environment Variables
+
 - `NOTION_TOKEN` — Notion integration secret
 - `NOTION_WRITING_DB_ID` — Notion database ID for writing posts
 - See `.env.example` for reference
@@ -33,18 +37,21 @@
 ## Conventions
 
 ### Components
+
 - Server components by default
 - Add `'use client'` only when using: hooks, browser APIs, event handlers
 - One component per file
 - File named same as component in kebab-case: `sidebar.tsx`, `post-row.tsx`
 
 ### Caching
+
 - `'use cache'` directive on data-fetching functions (requires `cacheComponents: true` in `next.config.ts`)
 - `cacheLife('hours')` for Notion data
 - `cacheTag('writing')` for on-demand revalidation
 - `generateStaticParams` pre-renders published posts at build time
 
 ### Routing
+
 - `/` — Homepage
 - `/about` — About page
 - `/work` — All client case studies
@@ -56,10 +63,12 @@
 - `/now` — What I'm focused on
 
 ### Redirects
+
 - `/blog` → `/writing` (308 permanent)
 - `/blog/:slug` → `/writing/:slug` (308 permanent)
 
 ### Utilities
+
 - `cn()` in `src/lib/utils.ts` — always use for conditional Tailwind classes
 - Never use string concatenation for class names
 
@@ -98,6 +107,7 @@ src/
 ```
 
 ## File Naming
+
 - Pages: `page.tsx`
 - Layouts: `layout.tsx`
 - Components: `kebab-case.tsx`

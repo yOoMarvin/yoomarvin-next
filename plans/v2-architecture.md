@@ -25,75 +25,75 @@ untouched until V2 is ready to ship.
 
 ### Remove these packages entirely
 
-| Package | Reason |
-|---|---|
-| `@headlessui/react` | Overkill — sidebar state handled with simple `useState` |
-| `@heroicons/react` | Replaced by Iconoir |
-| `@theme-toggles/react` | Removed — system preference only, no toggle UI |
-| `next-mdx-remote` | Replaced by Velite |
-| `date-fns` | Not needed — use `Intl.DateTimeFormat` natively |
-| `@tailwindcss/forms` | Not needed in V2 |
+| Package                | Reason                                                  |
+| ---------------------- | ------------------------------------------------------- |
+| `@headlessui/react`    | Overkill — sidebar state handled with simple `useState` |
+| `@heroicons/react`     | Replaced by Iconoir                                     |
+| `@theme-toggles/react` | Removed — system preference only, no toggle UI          |
+| `next-mdx-remote`      | Replaced by Velite                                      |
+| `date-fns`             | Not needed — use `Intl.DateTimeFormat` natively         |
+| `@tailwindcss/forms`   | Not needed in V2                                        |
 
 ### Add these packages
 
-| Package | Version | Reason |
-|---|---|---|
-| `iconoir-react` | latest | Icon library (consistent with Figma) |
-| `velite` | latest | MDX/content pipeline — typed, compiled at build time |
-| `motion` | latest | Formerly framer-motion — required by motion principles |
+| Package         | Version | Reason                                                 |
+| --------------- | ------- | ------------------------------------------------------ |
+| `iconoir-react` | latest  | Icon library (consistent with Figma)                   |
+| `velite`        | latest  | MDX/content pipeline — typed, compiled at build time   |
+| `motion`        | latest  | Formerly framer-motion — required by motion principles |
 
 ### Upgrade these packages
 
-| Package | From | To |
-|---|---|---|
-| `next` | 16.1.6 | latest |
-| `react` | ^18.2.0 | ^19.x |
-| `react-dom` | ^18.2.0 | ^19.x |
-| `next-themes` | ^0.3.0 | ^0.4.x |
-| `tailwindcss` | ^3.4.3 | ^4.x |
-| `prettier` | ^2.8.8 | ^3.x |
+| Package                       | From    | To                             |
+| ----------------------------- | ------- | ------------------------------ |
+| `next`                        | 16.1.6  | latest                         |
+| `react`                       | ^18.2.0 | ^19.x                          |
+| `react-dom`                   | ^18.2.0 | ^19.x                          |
+| `next-themes`                 | ^0.3.0  | ^0.4.x                         |
+| `tailwindcss`                 | ^3.4.3  | ^4.x                           |
+| `prettier`                    | ^2.8.8  | ^3.x                           |
 | `prettier-plugin-tailwindcss` | ^0.1.13 | latest (must match Prettier 3) |
-| `eslint` | ^9.39.3 | latest ^9.x |
+| `eslint`                      | ^9.39.3 | latest ^9.x                    |
 
 ### Keep as-is
 
-| Package | Reason |
-|---|---|
-| `@vercel/analytics` | Already correct |
+| Package                   | Reason                             |
+| ------------------------- | ---------------------------------- |
+| `@vercel/analytics`       | Already correct                    |
 | `@tailwindcss/typography` | Still needed for MDX prose styling |
-| `next-themes` | Keeps system preference dark mode |
+| `next-themes`             | Keeps system preference dark mode  |
 
 ### Final `package.json` dependencies
 
 ```json
 {
-  "dependencies": {
-    "clsx": "latest",
-    "iconoir-react": "latest",
-    "motion": "latest",
-    "next": "latest",
-    "next-themes": "^0.4.x",
-    "react": "^19.x",
-    "react-dom": "^19.x",
-    "tailwind-merge": "latest",
-    "velite": "latest",
-    "@vercel/analytics": "latest"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "latest",
-    "@tailwindcss/typography": "latest",
-    "@types/node": "latest",
-    "@types/react": "^19.x",
-    "@types/react-dom": "^19.x",
-    "concurrently": "latest",
-    "eslint": "^9.x",
-    "eslint-config-next": "latest",
-    "postcss": "latest",
-    "prettier": "^3.x",
-    "prettier-plugin-tailwindcss": "latest",
-    "tailwindcss": "^4.x",
-    "typescript": "^5.x"
-  }
+    "dependencies": {
+        "clsx": "latest",
+        "iconoir-react": "latest",
+        "motion": "latest",
+        "next": "latest",
+        "next-themes": "^0.4.x",
+        "react": "^19.x",
+        "react-dom": "^19.x",
+        "tailwind-merge": "latest",
+        "velite": "latest",
+        "@vercel/analytics": "latest"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "latest",
+        "@tailwindcss/typography": "latest",
+        "@types/node": "latest",
+        "@types/react": "^19.x",
+        "@types/react-dom": "^19.x",
+        "concurrently": "latest",
+        "eslint": "^9.x",
+        "eslint-config-next": "latest",
+        "postcss": "latest",
+        "prettier": "^3.x",
+        "prettier-plugin-tailwindcss": "latest",
+        "tailwindcss": "^4.x",
+        "typescript": "^5.x"
+    }
 }
 ```
 
@@ -111,27 +111,27 @@ convert files as you touch them.
 
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [{ "name": "next" }],
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"]
 }
 ```
 
@@ -204,6 +204,7 @@ Keep what works, add what's needed for V2. Final target structure:
 ```
 
 **Notes:**
+
 - `src/components/` — delete all existing `.js` components entirely. V2 components are built from scratch as `.tsx` files.
 - `src/db/` — delete `blog.js`. MDX content migrates to `content/posts/` via Velite.
 - `blog/` route renamed to `writing/` to match the new IA — set up a redirect from `/blog` to `/writing`
@@ -279,75 +280,78 @@ BORDER TOKENS — two levels of weight
 **`src/styles/globals.css`:**
 
 ```css
-@import "tailwindcss";
-@import "@tailwindcss/typography";
+@import 'tailwindcss';
+@import '@tailwindcss/typography';
 
 @theme {
-  /* Typography */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    /* Typography */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* No custom font loaded for mono — system stack only.
+    /* No custom font loaded for mono — system stack only.
      Resolves to SF Mono (Mac), Consolas (Windows), system mono (Linux).
      Use for: dates, timestamps, numbers, stats, code blocks.
      Always pair with --text-tertiary or --text-quaternary — never primary. */
 
-  /* Palette: zinc only. To switch palettes, change zinc → neutral/olive/etc.
+    /* Palette: zinc only. To switch palettes, change zinc → neutral/olive/etc.
      here and in the .dark block below. Nothing else needs to change. */
 }
 
 /* ─── Semantic color tokens ─────────────────────────────────────────── */
 /* Tailwind v4 generates CSS vars for all palette values: var(--color-zinc-900) etc. */
 :root {
-  /* Text — four levels */
-  --text-primary:    var(--color-zinc-900);   /* names, titles, body */
-  --text-secondary:  var(--color-zinc-600);   /* descriptions, bio */
-  --text-tertiary:   var(--color-zinc-400);   /* labels, timestamps, nav */
-  --text-quaternary: var(--color-zinc-300);   /* icons, arrows, disabled */
+    /* Text — four levels */
+    --text-primary: var(--color-zinc-900); /* names, titles, body */
+    --text-secondary: var(--color-zinc-600); /* descriptions, bio */
+    --text-tertiary: var(--color-zinc-400); /* labels, timestamps, nav */
+    --text-quaternary: var(--color-zinc-300); /* icons, arrows, disabled */
 
-  /* Backgrounds — four levels */
-  --bg-page:         var(--color-zinc-50);    /* outermost page bg */
-  --bg-surface:      var(--color-white);      /* content areas, sidebar */
-  --bg-subtle:       var(--color-zinc-100);   /* hover states */
-  --bg-moderate:     var(--color-zinc-200);   /* active/selected states */
+    /* Backgrounds — four levels */
+    --bg-page: var(--color-zinc-50); /* outermost page bg */
+    --bg-surface: var(--color-white); /* content areas, sidebar */
+    --bg-subtle: var(--color-zinc-100); /* hover states */
+    --bg-moderate: var(--color-zinc-200); /* active/selected states */
 
-  /* Borders — two levels */
-  --border-default:  var(--color-zinc-200);   /* section dividers */
-  --border-subtle:   var(--color-zinc-100);   /* list item separators */
+    /* Borders — two levels */
+    --border-default: var(--color-zinc-200); /* section dividers */
+    --border-subtle: var(--color-zinc-100); /* list item separators */
 }
 
 .dark {
-  /* Text */
-  --text-primary:    var(--color-zinc-100);
-  --text-secondary:  var(--color-zinc-400);
-  --text-tertiary:   var(--color-zinc-500);
-  --text-quaternary: var(--color-zinc-600);
+    /* Text */
+    --text-primary: var(--color-zinc-100);
+    --text-secondary: var(--color-zinc-400);
+    --text-tertiary: var(--color-zinc-500);
+    --text-quaternary: var(--color-zinc-600);
 
-  /* Backgrounds */
-  --bg-page:         var(--color-zinc-950);
-  --bg-surface:      var(--color-zinc-900);
-  --bg-subtle:       var(--color-zinc-800);
-  --bg-moderate:     var(--color-zinc-700);
+    /* Backgrounds */
+    --bg-page: var(--color-zinc-950);
+    --bg-surface: var(--color-zinc-900);
+    --bg-subtle: var(--color-zinc-800);
+    --bg-moderate: var(--color-zinc-700);
 
-  /* Borders */
-  --border-default:  var(--color-zinc-800);
-  --border-subtle:   var(--color-zinc-900);
+    /* Borders */
+    --border-default: var(--color-zinc-800);
+    --border-subtle: var(--color-zinc-900);
 }
 
 /* ─── Base styles ────────────────────────────────────────────────────── */
 body {
-  background-color: var(--bg-page);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
 }
 
 /* Reduced motion support — always included */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 ```
 
@@ -367,9 +371,9 @@ Tailwind v4 replaces autoprefixer with `@tailwindcss/postcss`. Delete the existi
 
 ```js
 module.exports = {
-  plugins: {
-    '@tailwindcss/postcss': {},
-  },
+    plugins: {
+        '@tailwindcss/postcss': {},
+    },
 }
 ```
 
@@ -388,46 +392,46 @@ Replace `next-mdx-remote` with Velite for typed, compiled content.
 import { defineConfig, s } from 'velite'
 
 export default defineConfig({
-  root: 'content',
-  collections: {
-    posts: {
-      name: 'Post',
-      pattern: 'posts/**/*.mdx',
-      schema: s.object({
-        title: s.string(),
-        description: s.string(),
-        date: s.isodate(),
-        slug: s.slug('posts'),
-        published: s.boolean().default(true),
-        body: s.mdx(),
-      }),
+    root: 'content',
+    collections: {
+        posts: {
+            name: 'Post',
+            pattern: 'posts/**/*.mdx',
+            schema: s.object({
+                title: s.string(),
+                description: s.string(),
+                date: s.isodate(),
+                slug: s.slug('posts'),
+                published: s.boolean().default(true),
+                body: s.mdx(),
+            }),
+        },
+        work: {
+            name: 'Work',
+            pattern: 'work/**/*.mdx',
+            schema: s.object({
+                title: s.string(),
+                description: s.string(),
+                client: s.string(),
+                date: s.isodate(),
+                slug: s.slug('work'),
+                published: s.boolean().default(true),
+                body: s.mdx(),
+            }),
+        },
+        projects: {
+            name: 'Project',
+            pattern: 'projects/**/*.mdx',
+            schema: s.object({
+                title: s.string(),
+                description: s.string(),
+                url: s.string().url().optional(),
+                slug: s.slug('projects'),
+                featured: s.boolean().default(false),
+                body: s.mdx(),
+            }),
+        },
     },
-    work: {
-      name: 'Work',
-      pattern: 'work/**/*.mdx',
-      schema: s.object({
-        title: s.string(),
-        description: s.string(),
-        client: s.string(),
-        date: s.isodate(),
-        slug: s.slug('work'),
-        published: s.boolean().default(true),
-        body: s.mdx(),
-      }),
-    },
-    projects: {
-      name: 'Project',
-      pattern: 'projects/**/*.mdx',
-      schema: s.object({
-        title: s.string(),
-        description: s.string(),
-        url: s.string().url().optional(),
-        slug: s.slug('projects'),
-        featured: s.boolean().default(false),
-        body: s.mdx(),
-      }),
-    },
-  },
 })
 ```
 
@@ -437,12 +441,16 @@ export default defineConfig({
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      { source: '/blog', destination: '/writing', permanent: true },
-      { source: '/blog/:slug', destination: '/writing/:slug', permanent: true },
-    ]
-  },
+    async redirects() {
+        return [
+            { source: '/blog', destination: '/writing', permanent: true },
+            {
+                source: '/blog/:slug',
+                destination: '/writing/:slug',
+                permanent: true,
+            },
+        ]
+    },
 }
 
 export default nextConfig
@@ -450,6 +458,7 @@ export default nextConfig
 
 > Note: Next.js 16 enables Turbopack by default for both dev and build, making the
 > webpack plugin approach incompatible. Velite is triggered via npm hooks instead:
+>
 > - `prebuild`: runs `velite build` automatically before `next build`
 > - `dev`: runs `velite --watch` in parallel via `concurrently`
 
@@ -468,11 +477,13 @@ Personal portfolio site for Marvin Messenzehl — design engineer based in Germa
 This is a working environment maintained in public. It should feel like a product.
 
 ## Before writing any UI code, read:
+
 - docs/design-system.md — colors, typography, spacing, component patterns
 - docs/motion-principles.md — when and how to animate
 - docs/architecture.md — stack, folder structure, conventions
 
 ## Stack
+
 - Next.js (latest), React 19, TypeScript
 - Tailwind CSS v4 (CSS-based config, no tailwind.config.js)
 - Velite for MDX content
@@ -482,6 +493,7 @@ This is a working environment maintained in public. It should feel like a produc
 - Vercel Analytics
 
 ## Hard rules
+
 - Never introduce a dependency not listed above without flagging it
 - Never use inline styles
 - Never hardcode colors — use only the tokens defined in design-system.md
@@ -491,10 +503,11 @@ This is a working environment maintained in public. It should feel like a produc
 
 ### `docs/design-system.md`
 
-```markdown
+````markdown
 # Design System
 
 ## Philosophy
+
 Zinc only. No accent color. No brand color. Let the work provide the color.
 Hierarchy through weight and size, not hue.
 
@@ -508,39 +521,41 @@ raw zinc-NNN values. Tokens are defined in `src/styles/globals.css`.
 
 ### Text — four levels
 
-| Token | Use for | Light | Dark |
-|---|---|---|---|
-| `--text-primary` | Names, headings, post titles, body copy. The highest contrast text — use sparingly for the most important content. | zinc-900 | zinc-100 |
-| `--text-secondary` | Bios, descriptions, supporting body. One step down — readable but not dominant. | zinc-600 | zinc-400 |
-| `--text-tertiary` | Section labels ("Writing"), timestamps, metadata, nav labels. Clearly muted — guides without competing. | zinc-400 | zinc-500 |
-| `--text-quaternary` | Icons, arrow indicators, disabled states. Barely there — decorative or structural only. | zinc-300 | zinc-600 |
+| Token               | Use for                                                                                                            | Light    | Dark     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
+| `--text-primary`    | Names, headings, post titles, body copy. The highest contrast text — use sparingly for the most important content. | zinc-900 | zinc-100 |
+| `--text-secondary`  | Bios, descriptions, supporting body. One step down — readable but not dominant.                                    | zinc-600 | zinc-400 |
+| `--text-tertiary`   | Section labels ("Writing"), timestamps, metadata, nav labels. Clearly muted — guides without competing.            | zinc-400 | zinc-500 |
+| `--text-quaternary` | Icons, arrow indicators, disabled states. Barely there — decorative or structural only.                            | zinc-300 | zinc-600 |
 
 In Tailwind, always reference via CSS variable: `text-[var(--text-primary)]`
 Never use raw zinc classes for color — that bypasses the token system and breaks palette swaps.
 
 ### Backgrounds — four levels
 
-| Token | Use for | Light | Dark |
-|---|---|---|---|
-| `--bg-page` | Outermost page background. zinc-50 — NOT pure white. Slightly warm, avoids a clinical feel under bright screens. | zinc-50 | zinc-950 |
-| `--bg-surface` | Content areas, sidebar background, cards. Pure white creates subtle lift above the page bg. | white | zinc-900 |
-| `--bg-subtle` | Hover states on list rows, sidebar nav items. Only appears on interaction. | zinc-100 | zinc-800 |
-| `--bg-moderate` | Active/pressed states, selected sidebar items. Stronger emphasis for selection. | zinc-200 | zinc-700 |
+| Token           | Use for                                                                                                          | Light    | Dark     |
+| --------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| `--bg-page`     | Outermost page background. zinc-50 — NOT pure white. Slightly warm, avoids a clinical feel under bright screens. | zinc-50  | zinc-950 |
+| `--bg-surface`  | Content areas, sidebar background, cards. Pure white creates subtle lift above the page bg.                      | white    | zinc-900 |
+| `--bg-subtle`   | Hover states on list rows, sidebar nav items. Only appears on interaction.                                       | zinc-100 | zinc-800 |
+| `--bg-moderate` | Active/pressed states, selected sidebar items. Stronger emphasis for selection.                                  | zinc-200 | zinc-700 |
 
 ### Borders — two levels
 
-| Token | Use for | Light | Dark |
-|---|---|---|---|
-| `--border-default` | Section dividers, card outlines, major structural lines. | zinc-200 | zinc-800 |
-| `--border-subtle` | Separators between list items. Nearly invisible — implies structure without drawing attention. | zinc-100 | zinc-900 |
+| Token              | Use for                                                                                        | Light    | Dark     |
+| ------------------ | ---------------------------------------------------------------------------------------------- | -------- | -------- |
+| `--border-default` | Section dividers, card outlines, major structural lines.                                       | zinc-200 | zinc-800 |
+| `--border-subtle`  | Separators between list items. Nearly invisible — implies structure without drawing attention. | zinc-100 | zinc-900 |
 
 ### Rules
+
 - Never use: gray, slate, neutral, stone scales. Only zinc.
 - Never hardcode hex values in components.
 - Never add a color not listed here without updating this document first.
 - No accent color. No brand color. Let the work provide the color.
 
 ## Typography
+
 - Body: `text-sm` (14px), `leading-relaxed`, `font-normal`
 - Names/titles in rows: `font-semibold`
 - Section labels: `text-sm text-[var(--text-tertiary)]`
@@ -550,6 +565,7 @@ Never use raw zinc classes for color — that bypasses the token system and brea
 - Never use: `font-bold`, `text-xs` for body content, custom font sizes
 
 ### Monospace
+
 - Use `font-mono` for: dates, timestamps, numbers, stats, code blocks
 - System stack only — no custom font loaded (`ui-monospace` → SF Mono / Consolas)
 - Always pair with `--text-tertiary` or `--text-quaternary` — never primary or secondary
@@ -557,6 +573,7 @@ Never use raw zinc classes for color — that bypasses the token system and brea
 - Example: `<span className="font-mono text-[var(--text-tertiary)] text-sm">Jan '26</span>`
 
 ## Spacing
+
 - Content max-width: `max-w-2xl mx-auto`
 - Page padding: `px-4 md:px-8 py-12`
 - Section gaps: `space-y-12`
@@ -565,6 +582,7 @@ Never use raw zinc classes for color — that bypasses the token system and brea
 - Never use: arbitrary values like `p-[13px]`, `mt-[7px]`
 
 ## Icons (Iconoir)
+
 - Import from `iconoir-react`
 - Size: always `width={18} height={18}` or `width={20} height={20}` in body content
 - Color: `currentColor` always — never hardcode a color on an icon
@@ -576,34 +594,56 @@ Never use raw zinc classes for color — that bypasses the token system and brea
 > are implemented. Read the actual components instead.
 
 ### Project row
+
 ```tsx
 <div className="flex items-center gap-3 py-3">
-  <Icon width={18} height={18} className="text-[var(--text-quaternary)] shrink-0" />
-  <span className="font-semibold text-[var(--text-primary)]">Name</span>
-  <span className="text-sm text-[var(--text-secondary)]">Short description</span>
-  <ArrowUpRight className="ml-auto text-[var(--text-quaternary)]" width={16} height={16} />
+    <Icon
+        width={18}
+        height={18}
+        className="text-[var(--text-quaternary)] shrink-0"
+    />
+    <span className="font-semibold text-[var(--text-primary)]">Name</span>
+    <span className="text-sm text-[var(--text-secondary)]">
+        Short description
+    </span>
+    <ArrowUpRight
+        className="ml-auto text-[var(--text-quaternary)]"
+        width={16}
+        height={16}
+    />
 </div>
 ```
+````
 
 ### Section header
+
 ```tsx
 <div className="flex items-center justify-between">
-  <span className="text-sm text-[var(--text-tertiary)]">Section title</span>
-  <Link href="/section" className="text-sm text-[var(--text-tertiary)] hover:text-[var(--text-primary)]">→</Link>
+    <span className="text-sm text-[var(--text-tertiary)]">Section title</span>
+    <Link
+        href="/section"
+        className="text-sm text-[var(--text-tertiary)] hover:text-[var(--text-primary)]"
+    >
+        →
+    </Link>
 </div>
 ```
 
 ### Divider
+
 ```tsx
 <hr className="border-[var(--border-default)]" />
 ```
 
 ## Utility: cn()
+
 Always use cn() for conditional classes. Located at `src/lib/utils.ts`.
+
 ```tsx
 import { cn } from '@/lib/utils'
 ```
-```
+
+````
 
 ### `docs/motion-principles.md`
 
@@ -645,7 +685,7 @@ The more often an interaction occurs, the less animation it should have.
 - Anything on scroll unless it directly serves spatial orientation
 
 ## The Test
-Remove the animation. Does something feel missing or broken? 
+Remove the animation. Does something feel missing or broken?
 - Yes → keep it
 - No → remove it
 - Users comment "nice animation" → it's too prominent, dial it back
@@ -659,8 +699,9 @@ Remove the animation. Does something feel missing or broken?
   @media (prefers-reduced-motion: reduce) {
     * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
-  ```
-```
+````
+
+````
 
 ### `docs/architecture.md`
 
@@ -716,7 +757,7 @@ Remove the animation. Does something feel missing or broken?
 - Components: `kebab-case.tsx`
 - Utilities: `kebab-case.ts`
 - Types: `types.ts` (co-located or in `src/lib/types.ts`)
-```
+````
 
 ---
 
@@ -732,6 +773,7 @@ Read docs/design-system.md, docs/motion-principles.md, and docs/architecture.md
 before writing any UI code.
 
 Key constraints:
+
 - Zinc color scale only. No accent colors. No hardcoded hex values.
 - Iconoir icons only (iconoir-react). Size 18–20px. currentColor only.
 - TypeScript strict. No `any`. Server components by default.
@@ -762,12 +804,14 @@ Work through these in sequence. Each step should result in a working (or at leas
 buildable) state before moving to the next.
 
 ### Step 1 — Branch
+
 ```bash
 git checkout master && git pull
 git checkout -b v2
 ```
 
 ### Step 2 — Dependencies
+
 ```bash
 # Remove old packages (including @tailwindcss/forms)
 npm uninstall @headlessui/react @heroicons/react @theme-toggles/react next-mdx-remote date-fns @tailwindcss/forms
@@ -790,6 +834,7 @@ npm install -D typescript @types/react@latest @types/react-dom@latest @types/nod
 ```
 
 ### Step 3 — TypeScript + Clean slate
+
 - Delete `jsconfig.json`
 - Create `tsconfig.json` (see section 3)
 - Delete all files in `src/components/` — V2 components are written from scratch
@@ -802,15 +847,18 @@ npm install -D typescript @types/react@latest @types/react-dom@latest @types/nod
 - Delete all other `.js` page files — they get replaced by stubs in Step 6
 
 ### Step 4 — Tailwind v4
+
 - Delete `tailwind.config.js`
 - Replace `postcss.config.js` with the v4 version (see section 5 — PostCSS Config)
 - Create `src/styles/globals.css` (see section 5)
 - No `tailwind.config.js` created — v4 is configured entirely in CSS
 
 ### Step 4b — next.config rename
+
 - Rename `next.config.mjs` → `next.config.ts` (enables TypeScript config, required for Velite plugin in Step 5)
 
 ### Step 5 — Content Structure
+
 - Create `/content/posts/`, `/content/work/`, `/content/projects/` directories
 - Migrate MDX files from `data/blog/` → `content/posts/`
 - Update frontmatter to match Velite schema (title, description, date, published)
@@ -818,11 +866,13 @@ npm install -D typescript @types/react@latest @types/react-dom@latest @types/nod
 - Update `next.config.ts` for Velite plugin
 
 ### Step 6 — Routing
+
 - Create stub `page.tsx` files for all routes in section 7
 - Add `/blog` → `/writing` redirect in `next.config.ts`
 - Rename `src/app/blog/` → `src/app/writing/`
 
 ### Step 7 — AI Rules
+
 - Create `CLAUDE.md` at project root
 - Create `.cursor/rules/project.mdc`
 - Create `docs/design-system.md`
@@ -830,19 +880,23 @@ npm install -D typescript @types/react@latest @types/react-dom@latest @types/nod
 - Create `docs/architecture.md`
 
 ### Step 8 — Utilities
+
 - `clsx` and `tailwind-merge` were already installed in Step 2
 - Create `src/lib/utils.ts` with `cn()`:
+
 ```typescript
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+    return twMerge(clsx(inputs))
 }
 ```
 
 ### Step 9 — Providers
+
 - Create `src/components/providers.tsx` with ThemeProvider:
+
 ```typescript
 'use client'
 import { ThemeProvider } from 'next-themes'
@@ -855,12 +909,15 @@ export function Providers({ children }: { children: React.ReactNode }) {
   )
 }
 ```
+
 - Update `src/app/layout.tsx` to wrap with Providers
 
 ### Step 10 — Verify
+
 ```bash
 npm run build
 ```
+
 Build should pass with no errors. All routes should be stubs that render without crashing.
 No design work yet — just a clean, buildable TypeScript + Tailwind v4 + Velite baseline.
 
