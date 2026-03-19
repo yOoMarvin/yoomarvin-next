@@ -1,0 +1,17 @@
+---
+description: Project rules for marvinmessenzehl.com v2
+alwaysApply: true
+---
+
+Read docs/design-system.md, docs/motion-principles.md, and docs/architecture.md
+before writing any UI code.
+
+Key constraints:
+- Zinc color scale only. No accent colors. No hardcoded hex values.
+- Always reference colors via CSS variable: `text-[var(--text-primary)]`
+- Iconoir icons only (iconoir-react). Size 18–20px. currentColor only.
+- TypeScript strict. No `any`. Server components by default.
+- Tailwind v4 CSS-based config. No tailwind.config.js.
+- motion package for JS animations. Follow docs/motion-principles.md.
+- max-w-2xl content container. No wider.
+- Never add a dependency not listed in docs/architecture.md without flagging it.
