@@ -26,8 +26,8 @@ export default async function HomePage() {
       </section>
 
       <section className="space-y-4">
-        <SectionHeader label="Selected Projects" href="/work" />
-        <div className="space-y-1">
+        <SectionHeader label="Projects" href="/work" />
+        <div className="flex flex-col gap-4 sm:gap-1.5">
           {projects.map((item) => (
             <WorkRow
               key={item.title}
@@ -42,7 +42,7 @@ export default async function HomePage() {
 
       <section className="space-y-4">
         <SectionHeader label="Writing" href="/writing" />
-        <div className="space-y-1">
+        <div className="flex flex-col gap-4 sm:gap-1.5">
           {recentPosts.map((post) => (
             <PostRow
               key={post.id}

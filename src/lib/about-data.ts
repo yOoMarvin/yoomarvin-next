@@ -1,8 +1,11 @@
+import { ComponentType } from 'react'
+import { DayyLogo, FreelanceLogo, MemLogo } from '@/components/icons/experience-logos'
+
 export interface ExperienceItem {
   company: string
   role: string
   years: string
-  logo: string
+  logo: string | ComponentType<{ size?: number; className?: string }>
 }
 
 export interface AppearanceItem {
@@ -16,13 +19,13 @@ export const experience: ExperienceItem[] = [
     company: 'DAYY®',
     role: 'Senior Product Designer',
     years: 'Current',
-    logo: '/logos/dayy.svg',
+    logo: DayyLogo,
   },
   {
     company: 'Memorisely',
     role: 'UX/UI Teacher',
     years: 'Current',
-    logo: '/logos/mem.svg',
+    logo: MemLogo,
   },
   {
     company: 'RTL+',
@@ -34,7 +37,7 @@ export const experience: ExperienceItem[] = [
     company: 'Freelance',
     role: 'Product Designer',
     years: '2021–23',
-    logo: '/logos/freelance.svg',
+    logo: FreelanceLogo,
   },
   {
     company: 'SV Informatik',

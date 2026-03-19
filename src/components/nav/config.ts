@@ -13,7 +13,7 @@ export const PERSONAL_PROJECTS = projects.map((p) => ({
 }))
 
 export const SOCIAL_LINKS = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/marvinmessenzehl' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/marvin-messenzehl/' },
   { label: 'X', href: 'https://twitter.com/yoomarvin' },
   { label: 'GitHub', href: 'https://github.com/yoomarvin' },
 ]

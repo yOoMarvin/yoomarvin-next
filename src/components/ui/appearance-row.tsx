@@ -7,6 +7,8 @@ interface AppearanceRowProps {
 }
 
 export function AppearanceRow({ title, date, href }: AppearanceRowProps) {
+  const rowClass = "group flex flex-col items-start gap-0 leading-[1.6] sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+
   const inner = (
     <>
       <span className="text-xl font-medium text-[var(--text-primary)] group-hover:underline">{title}</span>
@@ -16,11 +18,11 @@ export function AppearanceRow({ title, date, href }: AppearanceRowProps) {
 
   if (href) {
     return (
-      <Link href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between gap-4 py-1">
+      <Link href={href} target="_blank" rel="noopener noreferrer" className={rowClass}>
         {inner}
       </Link>
     )
   }
 
-  return <div className="flex items-center justify-between gap-4 py-1">{inner}</div>
+  return <div className={rowClass}>{inner}</div>
 }

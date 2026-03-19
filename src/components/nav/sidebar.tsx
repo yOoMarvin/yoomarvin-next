@@ -27,7 +27,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-40 flex flex-col bg-[var(--bg-page)] px-6 pt-20 pb-12"
+          className="fixed inset-0 z-40 flex flex-col bg-[var(--bg-page)] px-4 sm:px-6 pt-20 pb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

@@ -29,7 +29,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Nav />
-          <main className="max-w-2xl mx-auto px-6 pt-32 pb-12 space-y-24">
+          <main className="max-w-2xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:py-32 space-y-16 sm:space-y-24">
             {children}
           </main>
           <Footer />

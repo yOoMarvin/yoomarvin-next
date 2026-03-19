@@ -2,6 +2,7 @@ import type {
   BlockObjectResponse,
   RichTextItemResponse,
 } from '@notionhq/client/build/src/api-endpoints'
+import { inlineLinkClass } from '@/lib/utils'
 
 export function renderBlocks(blocks: BlockObjectResponse[]) {
   const elements: React.ReactNode[] = []
@@ -110,7 +111,7 @@ function renderRichText(richText: RichTextItemResponse[]) {
     if (t.annotations.code) node = <code key={i}>{node}</code>
     if (t.href)
       node = (
-        <a key={i} href={t.href} className="underline decoration-[var(--text-tertiary)] underline-offset-2 transition-colors duration-100 hover:decoration-[var(--text-primary)]">
+        <a key={i} href={t.href} className={inlineLinkClass}>
           {node}
         </a>
       )

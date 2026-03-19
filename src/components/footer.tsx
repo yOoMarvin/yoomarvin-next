@@ -5,7 +5,7 @@ import { isExternalHref } from '@/lib/utils'
 export function Footer() {
   return (
     <footer>
-      <div className="max-w-2xl mx-auto px-6">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6">
         <div className="flex justify-center gap-6 py-8">
           {socialLinks.map(({ label, href }) => {
             const isExternal = isExternalHref(href)

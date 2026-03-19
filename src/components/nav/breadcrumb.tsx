@@ -24,7 +24,7 @@ export function Breadcrumb() {
 
   return (
     <motion.div
-      className="fixed top-6 left-[72px] z-50 flex items-center gap-2"
+      className="fixed top-6 left-[56px] sm:left-[72px] z-50 flex items-center gap-2"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.15 }}

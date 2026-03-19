@@ -26,7 +26,7 @@ export default async function WritingPage() {
             <p className="mb-4 font-mono text-sm text-[var(--text-tertiary)]">
               {year}
             </p>
-            <div>
+            <div className="flex flex-col gap-4 sm:gap-1.5">
               {byYear[year].map((post) => (
                 <PostRow
                   key={post.id}
