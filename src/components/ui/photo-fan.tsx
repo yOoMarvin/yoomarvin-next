@@ -186,10 +186,27 @@ export function PhotoFan() {
         lastPointer.current = null
     }, [])
 
+    const touchStart = useRef<{ x: number; y: number } | null>(null)
+
     const handleTouchStart = useCallback((e: React.TouchEvent) => {
         lastTouchTime.current = Date.now()
-        if (!containerRef.current) return
         const touch = e.touches[0]
+        touchStart.current = { x: touch.clientX, y: touch.clientY }
+    }, [])
+
+    const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+        if (!containerRef.current || !touchStart.current) return
+        const touch = e.changedTouches[0]
+        const dx = touch.clientX - touchStart.current.x
+        const dy = touch.clientY - touchStart.current.y
+
+        // Only activate if the finger barely moved (tap, not scroll)
+        if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
+            touchStart.current = null
+            return
+        }
+
+        touchStart.current = null
         const children = Array.from(
             containerRef.current.children
         ) as HTMLElement[]
@@ -241,10 +258,11 @@ export function PhotoFan() {
     return (
         <div
             ref={containerRef}
-            className="flex items-end justify-center pt-8 pb-8"
+            className="flex items-end justify-center overflow-x-clip pt-8 pb-8"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleLeave}
             onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
         >
             {CARDS.map(({ src, label }, i) => {
                 const isHovered = hoveredIndex === i
