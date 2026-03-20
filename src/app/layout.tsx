@@ -7,11 +7,37 @@ import '../styles/globals.css'
 
 export const metadata: Metadata = {
     title: {
-        default: 'Marvin Messenzehl',
+        default: 'Marvin Messenzehl — Design Engineer',
         template: '%s — Marvin Messenzehl',
     },
     description: 'Design engineer based in Germany.',
     metadataBase: new URL('https://marvinmessenzehl.com'),
+    openGraph: {
+        title: 'Marvin Messenzehl — Design Engineer',
+        description: 'Design engineer based in Germany.',
+        url: 'https://marvinmessenzehl.com',
+        siteName: 'Marvin Messenzehl',
+        locale: 'en_US',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary',
+        title: 'Marvin Messenzehl — Design Engineer',
+        description: 'Design engineer based in Germany.',
+    },
+    icons: {
+        icon: [
+            { url: '/favicon.ico' },
+            { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+            { url: '/favicon.svg', type: 'image/svg+xml' },
+        ],
+        shortcut: '/favicon.ico',
+        apple: '/apple-touch-icon.png',
+    },
+    manifest: '/site.webmanifest',
+    appleWebApp: {
+        title: 'Marvin Messenzehl',
+    },
 }
 
 export const viewport: Viewport = {
