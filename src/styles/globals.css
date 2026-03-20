@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
-@variant dark (.dark &);
 
 @theme {
     /* Typography */
@@ -14,7 +13,7 @@
      Always pair with --text-tertiary or --text-quaternary — never primary. */
 
     /* Palette: zinc only. To switch palettes, change zinc → neutral/olive/etc.
-     here and in the .dark block below. Nothing else needs to change. */
+     here and in the dark media query below. Nothing else needs to change. */
 }
 
 /* ─── Semantic color tokens ─────────────────────────────────────────── */
@@ -37,27 +36,30 @@
     --border-subtle: var(--color-zinc-100); /* list item separators */
 }
 
-.dark {
-    /* Text */
-    --text-primary: var(--color-zinc-100);
-    --text-secondary: var(--color-zinc-300);
-    --text-tertiary: var(--color-zinc-500);
-    --text-quaternary: var(--color-zinc-600);
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Text */
+        --text-primary: var(--color-zinc-100);
+        --text-secondary: var(--color-zinc-300);
+        --text-tertiary: var(--color-zinc-500);
+        --text-quaternary: var(--color-zinc-600);
 
-    /* Backgrounds */
-    --bg-page: var(--color-zinc-950);
-    --bg-surface: var(--color-zinc-900);
-    --bg-subtle: var(--color-zinc-800);
-    --bg-moderate: var(--color-zinc-700);
+        /* Backgrounds */
+        --bg-page: var(--color-zinc-950);
+        --bg-surface: var(--color-zinc-900);
+        --bg-subtle: var(--color-zinc-800);
+        --bg-moderate: var(--color-zinc-700);
 
-    /* Borders */
-    --border-default: var(--color-zinc-800);
-    --border-subtle: var(--color-zinc-900);
+        /* Borders */
+        --border-default: var(--color-zinc-800);
+        --border-subtle: var(--color-zinc-900);
+    }
 }
 
 /* ─── Base styles ────────────────────────────────────────────────────── */
 html {
     overflow-x: hidden;
+    color-scheme: light dark;
 }
 
 body {

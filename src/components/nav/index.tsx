@@ -1,12 +1,19 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
+import { usePathname } from 'next/navigation'
 import { MenuButton } from './menu-button'
 import { Breadcrumb } from './breadcrumb'
 import { Sidebar } from './sidebar'
 
 export function Nav() {
     const [isOpen, setIsOpen] = useState(false)
+    const pathname = usePathname()
+
+    // Scroll to top on route change
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
 
     // Scroll lock
     useEffect(() => {
