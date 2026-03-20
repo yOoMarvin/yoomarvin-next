@@ -16,12 +16,7 @@ export default function OGImage() {
                 padding: '80px',
             }}
         >
-            <svg
-                width="120"
-                height="120"
-                viewBox="0 0 196 200"
-                fill="none"
-            >
+            <svg width="120" height="120" viewBox="0 0 196 200" fill="none">
                 <path
                     d="M98 166C142.183 166 178 130.183 178 86C178 41.8172 142.183 6 98 6"
                     stroke="#09090B"
