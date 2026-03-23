@@ -15,7 +15,31 @@ export interface PostMeta {
 }
 
 export interface Post extends PostMeta {
-    blocks: BlockObjectResponse[]
+    blocks: NotionBlock[]
+}
+
+export type WorkType = 'Personal' | 'Inhouse' | 'Freelance' | 'Others'
+export type WorkLinkMode = 'Internal' | 'External'
+
+export interface WorkMeta {
+    id: string
+    title: string
+    slug: string
+    type: WorkType
+    date: string | null
+    excerpt: string
+    coverImage: string | null
+    linkMode: WorkLinkMode
+    externalUrl: string
+    icon: string
+}
+
+export interface WorkItem extends WorkMeta {
+    blocks: NotionBlock[]
+}
+
+export type NotionBlock = BlockObjectResponse & {
+    children?: NotionBlock[]
 }
 
 export type { PageObjectResponse, BlockObjectResponse }

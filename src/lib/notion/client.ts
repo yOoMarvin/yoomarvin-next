@@ -1,7 +1,6 @@
 import { Client } from '@notionhq/client'
+import { getNotionToken } from './config'
 
 export const notion = new Client({
-    auth: process.env.NOTION_TOKEN,
+    auth: getNotionToken(),
 })
-
-export const WRITING_DB_ID = process.env.NOTION_WRITING_DB_ID!

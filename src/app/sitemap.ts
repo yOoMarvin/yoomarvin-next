@@ -1,12 +1,19 @@
 import type { MetadataRoute } from 'next'
 import { getWritingPosts } from '@/lib/notion/writing'
+import { getWorkItems } from '@/lib/notion/work'
 
 const BASE_URL = 'https://marvinmessenzehl.com'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const posts = await getWritingPosts()
+    const [posts, workItems] = await Promise.all([
+        getWritingPosts(),
+        getWorkItems(),
+    ])
     const publishedPosts = posts.filter(
         (p) => p.status === 'Published' && p.slug
+    )
+    const internalWorkItems = workItems.filter(
+        (item) => item.linkMode === 'Internal' && item.slug
     )
 
     const staticRoutes: MetadataRoute.Sitemap = [
@@ -27,5 +34,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.6,
     }))
 
-    return [...staticRoutes, ...postRoutes]
+    const workRoutes: MetadataRoute.Sitemap = internalWorkItems.map((item) => ({
+        url: `${BASE_URL}/work/${item.slug}`,
+        lastModified: item.date ? new Date(item.date) : undefined,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }))
+
+    return [...staticRoutes, ...postRoutes, ...workRoutes]
 }
