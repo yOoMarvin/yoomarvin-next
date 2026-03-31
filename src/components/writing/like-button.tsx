@@ -349,6 +349,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
             setParticles(
                 generateParticles(() => particleIdRef.current++, intensity)
             )
+            setTimeout(() => setParticles([]), 1000)
         }
 
         scheduleFlush()
