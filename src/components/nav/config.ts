@@ -26,4 +26,5 @@ export const BREADCRUMB_ROUTES: Record<string, string> = {
     '/work': 'Work',
     '/writing': 'Writing',
     '/about': 'About',
+    '/til': 'TIL',
 }

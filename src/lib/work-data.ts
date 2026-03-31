@@ -18,4 +18,10 @@ export const projects: ProjectItem[] = [
         icon: 'Mail',
         href: 'https://world.hey.com/mrvn',
     },
+    {
+        title: 'TIL',
+        description: 'Things I learned',
+        icon: 'LightBulb',
+        href: '/til',
+    },
 ]

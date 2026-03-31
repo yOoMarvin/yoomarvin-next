@@ -194,9 +194,16 @@ function getHeartColorClass(progress: number): string {
 interface LikeButtonProps {
     slug: string
     initialLikes: number
+    type?: 'writing' | 'til'
 }
 
-export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
+export function LikeButton({
+    slug,
+    initialLikes,
+    type = 'writing',
+}: LikeButtonProps) {
+    const likesUrl = `/api/likes/${slug}${type === 'til' ? '?type=til' : ''}`
+    const storageKey = `likes:${type}:${slug}`
     const [displayCount, _setDisplayCount] = useState(initialLikes)
     const displayCountRef = useRef(initialLikes)
     const setDisplayCount = useCallback(
@@ -238,7 +245,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
     // Read localStorage + fetch fresh count on mount
     useEffect(() => {
         try {
-            const stored = localStorage.getItem(`likes:${slug}`)
+            const stored = localStorage.getItem(storageKey)
             if (stored) setUserLikes(Number(stored) || 0)
         } catch {
             // private browsing or unavailable
@@ -246,7 +253,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
         setParticles([])
         setMounted(true)
 
-        fetch(`/api/likes/${slug}`)
+        fetch(likesUrl)
             .then((res) => res.json())
             .then((data) => {
                 if (typeof data.likes === 'number') {
@@ -276,7 +283,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
         return () => {
             if (debounceTimer.current) clearTimeout(debounceTimer.current)
             if (pendingDelta.current > 0) {
-                fetch(`/api/likes/${slug}`, {
+                fetch(likesUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ count: pendingDelta.current }),
@@ -292,7 +299,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
         pendingDelta.current = 0
         const gen = ++flushGeneration.current
 
-        fetch(`/api/likes/${slug}`, {
+        fetch(likesUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ count: delta }),
@@ -334,7 +341,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
         pendingDelta.current += 1
 
         try {
-            localStorage.setItem(`likes:${slug}`, String(newUserLikes))
+            localStorage.setItem(storageKey, String(newUserLikes))
         } catch {
             // ignore
         }

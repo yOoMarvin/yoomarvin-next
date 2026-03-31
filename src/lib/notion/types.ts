@@ -42,6 +42,18 @@ export interface WorkItem extends WorkMeta {
     blocks: NotionBlock[]
 }
 
+export interface TilMeta {
+    id: string
+    title: string
+    status: PostStatus
+    date: string | null
+    likes: number
+}
+
+export interface TilEntry extends TilMeta {
+    blocks: NotionBlock[]
+}
+
 export type NotionBlock = BlockObjectResponse & {
     children?: NotionBlock[]
 }
