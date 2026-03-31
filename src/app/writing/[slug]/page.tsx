@@ -63,11 +63,7 @@ export default async function WritingPostPage({
                 <h1 className="text-3xl font-bold leading-[1.2] -tracking-[0.64px] md:text-4xl lg:text-[2.5rem] text-[var(--text-primary)]">
                     {post.title}
                 </h1>
-                <LikeButton
-                    postId={post.id}
-                    slug={post.slug}
-                    initialLikes={post.likes}
-                />
+                <LikeButton slug={post.slug} initialLikes={post.likes} />
             </div>
 
             <div

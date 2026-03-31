@@ -27,15 +27,7 @@ function AnimatedDigit({
 }) {
     const reduced = useReducedMotion()
     return (
-        <span
-            className="relative inline-flex h-[1em] w-[0.6em] items-center justify-center overflow-hidden"
-            style={{
-                maskImage:
-                    'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                WebkitMaskImage:
-                    'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-            }}
-        >
+        <span className="relative inline-flex h-[1em] w-[0.6em] items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%)]">
             <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                     key={digit}
@@ -60,11 +52,7 @@ function AnimatedDigit({
                         duration: 0.2,
                         ease: [0.25, 0.1, 0.25, 1],
                     }}
-                    className="absolute leading-none"
-                    style={{
-                        willChange: 'transform',
-                        backfaceVisibility: 'hidden',
-                    }}
+                    className="absolute leading-none will-change-transform [backface-visibility:hidden]"
                 >
                     {digit}
                 </motion.span>
@@ -73,15 +61,38 @@ function AnimatedDigit({
     )
 }
 
-function AnimatedNumber({ value }: { value: number }) {
-    const [[prev, direction], setState] = useState<[number, 'up' | 'down']>([
-        value,
-        'up',
-    ])
+function PlainNumber({ value }: { value: number }) {
+    return (
+        <span className="inline-flex leading-none tabular-nums">
+            {String(value)
+                .split('')
+                .map((d, i) => (
+                    <span
+                        key={i}
+                        className="relative inline-flex h-[1em] w-[0.6em] items-center justify-center"
+                    >
+                        {d}
+                    </span>
+                ))}
+        </span>
+    )
+}
 
-    if (value !== prev) {
-        setState([value, value > prev ? 'up' : 'down'])
-    }
+function AnimatedNumber({
+    value,
+    animated,
+}: {
+    value: number
+    animated: boolean
+}) {
+    const prevRef = useRef(value)
+    const direction = value > prevRef.current ? 'up' : 'down'
+
+    useEffect(() => {
+        prevRef.current = value
+    }, [value])
+
+    if (!animated) return <PlainNumber value={value} />
 
     const digits = String(value).split('')
 
@@ -110,16 +121,17 @@ interface Particle {
     duration: number
 }
 
-let particleId = 0
-
-function generateParticles(intensity: number): Particle[] {
+function generateParticles(
+    nextId: () => number,
+    intensity: number
+): Particle[] {
     const count = Math.floor(6 + intensity * 6)
     const baseSpread = 30 + intensity * 20
     const baseSize = 4 + intensity * 4
     const baseDuration = 0.5 + intensity * 0.2
 
     return Array.from({ length: count }, () => ({
-        id: particleId++,
+        id: nextId(),
         angle: Math.random() * Math.PI * 2,
         distance: baseSpread * (0.7 + Math.random() * 0.6),
         size: baseSize * (0.6 + Math.random() * 0.8),
@@ -162,13 +174,29 @@ function Particles({ particles }: { particles: Particle[] }) {
 // LikeButton
 // ---------------------------------------------------------------------------
 
+// Maps like progress (0–1) to increasingly saturated Tailwind red classes
+const HEART_COLOR_STEPS = [
+    'text-red-400',
+    'text-red-450',
+    'text-red-500',
+    'text-red-550',
+    'text-red-600',
+] as const
+
+function getHeartColorClass(progress: number): string {
+    const index = Math.min(
+        Math.floor(progress * HEART_COLOR_STEPS.length),
+        HEART_COLOR_STEPS.length - 1
+    )
+    return HEART_COLOR_STEPS[index]
+}
+
 interface LikeButtonProps {
-    postId: string
     slug: string
     initialLikes: number
 }
 
-export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
+export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
     const [displayCount, setDisplayCount] = useState(initialLikes)
     const [userLikes, setUserLikes] = useState(0)
     const [mounted, setMounted] = useState(false)
@@ -176,6 +204,8 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
     const [isShaking, setIsShaking] = useState(false)
     const pendingDelta = useRef(0)
     const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const flushGeneration = useRef(0)
+    const particleIdRef = useRef(0)
     const reduced = useReducedMotion()
 
     // Springs
@@ -194,17 +224,18 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
     // Read localStorage on mount
     useEffect(() => {
         try {
-            const stored = localStorage.getItem(`likes:${postId}`)
+            const stored = localStorage.getItem(`likes:${slug}`)
             if (stored) setUserLikes(Number(stored) || 0)
         } catch {
             // private browsing or unavailable
         }
         setMounted(true)
-    }, [postId])
+    }, [slug])
 
     // Flush pending likes on unmount
     useEffect(() => {
         return () => {
+            if (debounceTimer.current) clearTimeout(debounceTimer.current)
             if (pendingDelta.current > 0) {
                 fetch(`/api/likes/${slug}`, {
                     method: 'POST',
@@ -220,6 +251,7 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
         if (pendingDelta.current <= 0) return
         const delta = pendingDelta.current
         pendingDelta.current = 0
+        const gen = ++flushGeneration.current
 
         fetch(`/api/likes/${slug}`, {
             method: 'POST',
@@ -228,12 +260,13 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
         })
             .then((res) => res.json())
             .then((data) => {
+                if (gen !== flushGeneration.current) return
                 if (typeof data.likes === 'number') {
                     setDisplayCount(data.likes + pendingDelta.current)
                 }
             })
             .catch(() => {
-                // silent failure — personal site
+                pendingDelta.current += delta
             })
     }, [slug])
 
@@ -262,7 +295,7 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
         pendingDelta.current += 1
 
         try {
-            localStorage.setItem(`likes:${postId}`, String(newUserLikes))
+            localStorage.setItem(`likes:${slug}`, String(newUserLikes))
         } catch {
             // ignore
         }
@@ -274,17 +307,16 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
             setTimeout(() => heartScale.set(1), 150)
             buttonScale.set(1.02)
             setTimeout(() => buttonScale.set(1), 100)
-            setParticles(generateParticles(intensity))
+            setParticles(
+                generateParticles(() => particleIdRef.current++, intensity)
+            )
         }
 
         scheduleFlush()
-    }, [userLikes, postId, reduced, heartScale, buttonScale, scheduleFlush])
+    }, [userLikes, slug, reduced, heartScale, buttonScale, scheduleFlush])
 
     const isFilled = mounted && userLikes > 0
     const fillProgress = userLikes / MAX_LIKES
-    const heartColor = isFilled
-        ? `hsl(0, ${70 + fillProgress * 30}%, ${55 - fillProgress * 10}%)`
-        : undefined
 
     return (
         <motion.button
@@ -325,8 +357,10 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
                 <Heart
                     width={18}
                     height={18}
-                    className="fill-current transition-colors duration-150"
-                    style={heartColor ? { color: heartColor } : undefined}
+                    className={cn(
+                        'fill-current transition-colors duration-150',
+                        isFilled && getHeartColorClass(fillProgress)
+                    )}
                 />
                 <Particles particles={particles} />
             </motion.span>
@@ -336,7 +370,7 @@ export function LikeButton({ postId, slug, initialLikes }: LikeButtonProps) {
                     isFilled ? 'text-red-500' : 'text-[var(--text-tertiary)]'
                 )}
             >
-                <AnimatedNumber value={displayCount} />
+                <AnimatedNumber value={displayCount} animated={mounted} />
             </span>
         </motion.button>
     )
