@@ -17,3 +17,7 @@ export function getWritingDbId(): string {
 export function getWorkDbId(): string {
     return getEnv('NOTION_WORK_DB_ID')
 }
+
+export function getTilDbId(): string {
+    return getEnv('NOTION_TIL_DB_ID')
+}
