@@ -200,6 +200,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
     const [displayCount, setDisplayCount] = useState(initialLikes)
     const [userLikes, setUserLikes] = useState(0)
     const [mounted, setMounted] = useState(false)
+    const [ready, setReady] = useState(false)
     const [particles, setParticles] = useState<Particle[]>([])
     const [isShaking, setIsShaking] = useState(false)
     const pendingDelta = useRef(0)
@@ -237,8 +238,13 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
                 if (typeof data.likes === 'number') {
                     setDisplayCount(data.likes + pendingDelta.current)
                 }
+                // Enable animations one frame after the fresh count renders,
+                // so AnimatedNumber syncs its prev state via PlainNumber first
+                requestAnimationFrame(() => setReady(true))
             })
-            .catch(() => {})
+            .catch(() => {
+                requestAnimationFrame(() => setReady(true))
+            })
     }, [slug])
 
     // Flush pending likes on unmount
@@ -379,7 +385,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
                     isFilled ? 'text-red-500' : 'text-[var(--text-tertiary)]'
                 )}
             >
-                <AnimatedNumber value={displayCount} animated={mounted} />
+                <AnimatedNumber value={displayCount} animated={ready} />
             </span>
         </motion.button>
     )
