@@ -1,29 +1,7 @@
 import Link from 'next/link'
-import {
-    ArrowUpRight,
-    Figma,
-    Mail,
-    Atom,
-    Code,
-    Wrench,
-    SelectFace3d,
-    LightBulb,
-} from 'iconoir-react'
-import type { ComponentType } from 'react'
+import { ArrowUpRight } from 'iconoir-react'
 import { isExternalHref } from '@/lib/utils'
-
-const iconMap: Record<
-    string,
-    ComponentType<{ width?: number; height?: number; className?: string }>
-> = {
-    Figma,
-    Mail,
-    Atom,
-    Code,
-    Wrench,
-    SelectFace3d,
-    LightBulb,
-}
+import { iconMap } from '@/lib/work-icons'
 
 interface WorkRowProps {
     title: string

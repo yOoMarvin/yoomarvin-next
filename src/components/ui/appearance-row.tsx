@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { isExternalHref } from '@/lib/utils'
 
 interface AppearanceRowProps {
     title: string
@@ -9,6 +10,7 @@ interface AppearanceRowProps {
 export function AppearanceRow({ title, date, href }: AppearanceRowProps) {
     const rowClass =
         'group flex flex-col items-start gap-0 leading-[1.6] sm:flex-row sm:items-center sm:justify-between sm:gap-4'
+    const isExternal = href ? isExternalHref(href) : false
 
     const inner = (
         <>
@@ -25,8 +27,8 @@ export function AppearanceRow({ title, date, href }: AppearanceRowProps) {
         return (
             <Link
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
                 className={rowClass}
             >
                 {inner}

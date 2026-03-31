@@ -2,12 +2,17 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { renderBlocks } from '@/components/writing/render-blocks'
 import { SectionHeader } from '@/components/ui/section-header'
-import { WorkLinkRow } from '@/components/work/work-link-row'
+import { AppearanceRow } from '@/components/ui/appearance-row'
 import {
     getWorkItem,
     getWorkItems,
     getWorkStaticParams,
 } from '@/lib/notion/work'
+import {
+    getWorkItemHref,
+    formatWorkDateRange,
+    formatWorkYearRange,
+} from '@/lib/utils'
 
 export async function generateStaticParams() {
     return getWorkStaticParams()
@@ -24,6 +29,7 @@ export async function generateMetadata({
 
     return {
         title: item.title,
+        description: item.excerpt,
     }
 }
 
@@ -40,16 +46,14 @@ export default async function WorkCaseStudyPage({
 
     if (!item) notFound()
 
-    const cleanDate = item.date
-        ? new Intl.DateTimeFormat('en-US', {
-              year: 'numeric',
-          }).format(new Date(item.date))
-        : null
+    const cleanDate = formatWorkDateRange(item.date, item.dateEnd)
 
     const related = allItems
         .filter(
             (candidate) =>
-                candidate.type === item.type && candidate.id !== item.id
+                candidate.status === 'Published' &&
+                candidate.type === item.type &&
+                candidate.id !== item.id
         )
         .slice(0, 5)
 
@@ -82,22 +86,19 @@ export default async function WorkCaseStudyPage({
 
             {related.length > 0 && (
                 <section className="space-y-4 border-t border-[var(--border-default)] pt-8">
-                    <SectionHeader label="Related work" href="/work" />
+                    <SectionHeader label="Similar work" href="/work" />
                     <div className="flex flex-col gap-4 sm:gap-1.5">
                         {related.map((relatedItem) => (
-                            <WorkLinkRow
+                            <AppearanceRow
                                 key={relatedItem.id}
                                 title={relatedItem.title}
-                                description={relatedItem.excerpt}
-                                href={
-                                    relatedItem.linkMode === 'External' &&
-                                    relatedItem.externalUrl
-                                        ? relatedItem.externalUrl
-                                        : relatedItem.slug
-                                          ? `/work/${relatedItem.slug}`
-                                          : '/work'
+                                date={
+                                    formatWorkYearRange(
+                                        relatedItem.date,
+                                        relatedItem.dateEnd
+                                    ) ?? ''
                                 }
-                                icon={relatedItem.icon || undefined}
+                                href={getWorkItemHref(relatedItem)}
                             />
                         ))}
                     </div>

@@ -4,7 +4,13 @@ import { notion } from './client'
 import { getWorkDbId } from './config'
 import { resolveDataSourceId } from './resolve-data-source-id'
 import { listPageBlocks } from './list-page-blocks'
-import type { PageObjectResponse, WorkItem, WorkMeta, WorkType } from './types'
+import type {
+    PageObjectResponse,
+    WorkItem,
+    WorkMeta,
+    WorkType,
+    WorkStatus,
+} from './types'
 
 const SECTION_ORDER: WorkType[] = ['Personal', 'Inhouse', 'Freelance', 'Others']
 
@@ -23,8 +29,12 @@ export async function getWorkItems(): Promise<WorkMeta[]> {
         sorts: [{ property: 'Date', direction: 'descending' }],
     })
 
+    // Filter out archived items in memory. Once a "Status" select property
+    // is added to the Notion work database, move this to a query-level filter
+    // like writing.ts does.
     return response.results
         .map((page) => pageToMeta(page as PageObjectResponse))
+        .filter((item) => item.status !== 'Archived')
         .sort(sortByDateDesc)
 }
 
@@ -36,7 +46,10 @@ export async function getWorkItem(slug: string): Promise<WorkItem | null> {
     try {
         const items = await getWorkItems()
         const match = items.find(
-            (item) => item.linkMode === 'Internal' && item.slug === slug
+            (item) =>
+                item.linkMode === 'Internal' &&
+                item.slug === slug &&
+                item.status === 'Published'
         )
         if (!match) return null
 
@@ -98,15 +111,21 @@ function pageToMeta(page: PageObjectResponse): WorkMeta {
         id: page.id,
         title,
         slug,
+        status:
+            props.Status?.type === 'select'
+                ? ((props.Status.select?.name as WorkStatus) ?? 'Draft')
+                : 'Draft',
         type:
             props.Type?.type === 'select' &&
             isWorkType(props.Type.select?.name ?? '')
-                ? props.Type.select.name
+                ? (props.Type.select?.name as WorkType)
                 : 'Others',
         date:
             props.Date?.type === 'date'
                 ? (props.Date.date?.start ?? null)
                 : null,
+        dateEnd:
+            props.Date?.type === 'date' ? (props.Date.date?.end ?? null) : null,
         excerpt:
             props.Excerpt?.type === 'rich_text'
                 ? (props.Excerpt.rich_text[0]?.plain_text ?? '')

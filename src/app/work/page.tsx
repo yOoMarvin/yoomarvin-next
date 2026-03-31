@@ -4,6 +4,7 @@ import { ProjectGridSection } from '@/components/work/project-grid-section'
 import { PersonalProjectItem } from '@/components/work/personal-project-item'
 import { WorkRow } from '@/components/ui/work-row'
 import { SectionHeader } from '@/components/ui/section-header'
+import { getWorkItemHref } from '@/lib/utils'
 
 export const metadata: Metadata = {
     title: 'Work',
@@ -19,11 +20,11 @@ export default async function WorkPage() {
                 Work
             </h1>
 
-            <div className="space-y-14">
+            <div className="space-y-16 sm:space-y-24">
                 {sections.Personal.length > 0 && (
-                    <section className="space-y-5">
+                    <section className="space-y-4">
                         <SectionHeader label="Personal Projects" />
-                        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                             {sections.Personal.map((item) => (
                                 <PersonalProjectItem
                                     key={item.id}
@@ -44,22 +45,15 @@ export default async function WorkPage() {
                 />
 
                 {sections.Others.length > 0 && (
-                    <section className="space-y-5">
+                    <section className="space-y-4">
                         <SectionHeader label="Utilities & Everything Else" />
-                        <div className="flex flex-col gap-5 sm:gap-2.5">
+                        <div className="flex flex-col gap-4 sm:gap-1.5">
                             {sections.Others.map((item) => (
                                 <WorkRow
                                     key={item.id}
                                     title={item.title}
                                     description={item.excerpt}
-                                    href={
-                                        item.linkMode === 'External' &&
-                                        item.externalUrl
-                                            ? item.externalUrl
-                                            : item.slug
-                                              ? `/work/${item.slug}`
-                                              : '/work'
-                                    }
+                                    href={getWorkItemHref(item)}
                                     icon={item.icon || undefined}
                                     showExternalIndicator={false}
                                 />

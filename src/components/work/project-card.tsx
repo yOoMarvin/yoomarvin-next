@@ -1,19 +1,15 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'iconoir-react'
 import type { WorkMeta } from '@/lib/notion/types'
-import { isExternalHref } from '@/lib/utils'
+import { isExternalHref, getWorkItemHref } from '@/lib/utils'
 
 interface ProjectCardProps {
     item: WorkMeta
 }
 
 export function ProjectCard({ item }: ProjectCardProps) {
-    const href =
-        item.linkMode === 'External' && item.externalUrl
-            ? item.externalUrl
-            : item.slug
-              ? `/work/${item.slug}`
-              : '/work'
+    const href = getWorkItemHref(item)
     const isExternal = isExternalHref(href)
     const hasImage = Boolean(item.coverImage)
     const showPlaceholder =
@@ -26,13 +22,14 @@ export function ProjectCard({ item }: ProjectCardProps) {
             rel={isExternal ? 'noopener noreferrer' : undefined}
             className="group block space-y-2"
         >
-            <div className="aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--bg-surface)] ring-1 ring-inset ring-[var(--border-default)]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--bg-surface)] ring-1 ring-inset ring-[var(--border-default)]">
                 {hasImage && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                         src={item.coverImage ?? ''}
                         alt={item.title}
-                        className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.01]"
+                        fill
+                        unoptimized
+                        className="object-cover transition-transform duration-200 group-hover:scale-[1.01]"
                     />
                 )}
                 {showPlaceholder && (

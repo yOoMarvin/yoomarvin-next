@@ -20,13 +20,16 @@ export interface Post extends PostMeta {
 
 export type WorkType = 'Personal' | 'Inhouse' | 'Freelance' | 'Others'
 export type WorkLinkMode = 'Internal' | 'External'
+export type WorkStatus = 'Draft' | 'Published' | 'Archived'
 
 export interface WorkMeta {
     id: string
     title: string
     slug: string
+    status: WorkStatus
     type: WorkType
     date: string | null
+    dateEnd: string | null
     excerpt: string
     coverImage: string | null
     linkMode: WorkLinkMode

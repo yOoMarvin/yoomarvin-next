@@ -11,7 +11,7 @@ export function ProjectGridSection({ label, items }: ProjectGridSectionProps) {
     if (!items.length) return null
 
     return (
-        <section className="space-y-5">
+        <section className="space-y-4">
             <SectionHeader label={label} />
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {items.map((item) => (
