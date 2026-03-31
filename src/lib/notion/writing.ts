@@ -84,5 +84,6 @@ function pageToMeta(page: PageObjectResponse): PostMeta {
             props.Excerpt?.type === 'rich_text'
                 ? (props.Excerpt.rich_text[0]?.plain_text ?? '')
                 : '',
+        likes: props.Likes?.type === 'number' ? (props.Likes.number ?? 0) : 0,
     }
 }
