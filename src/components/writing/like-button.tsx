@@ -85,12 +85,12 @@ function AnimatedNumber({
     value: number
     animated: boolean
 }) {
-    const prevRef = useRef(value)
-    const direction = value > prevRef.current ? 'up' : 'down'
+    const [prev, setPrev] = useState(value)
+    const direction = value > prev ? 'up' : 'down'
 
-    useEffect(() => {
-        prevRef.current = value
-    }, [value])
+    if (value !== prev) {
+        setPrev(value)
+    }
 
     if (!animated) return <PlainNumber value={value} />
 
