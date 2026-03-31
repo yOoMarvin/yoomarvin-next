@@ -20,7 +20,7 @@ export const projects: ProjectItem[] = [
     },
     {
         title: 'TIL',
-        description: 'Things I learned',
+        description: 'Bite sized learnings from daily work',
         icon: 'LightBulb',
         href: '/til',
     },

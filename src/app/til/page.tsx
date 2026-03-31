@@ -44,7 +44,7 @@ export default async function TilPage() {
                                 {entry.title}
                             </h2>
 
-                            <div className="mt-2 sm:mt-4 flex sm:justify-end">
+                            <div className="mt-2 mb-4 sm:mb-0 sm:mt-4 flex sm:justify-end">
                                 <LikeButton
                                     slug={entry.id}
                                     initialLikes={entry.likes}

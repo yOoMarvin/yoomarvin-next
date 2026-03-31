@@ -35,7 +35,6 @@ export default async function HomePage() {
                             title={item.title}
                             description={item.description}
                             href={item.href}
-                            icon={item.icon}
                         />
                     ))}
                 </div>

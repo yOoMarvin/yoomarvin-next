@@ -1,4 +1,5 @@
 import 'server-only'
+import { cacheLife, cacheTag } from 'next/cache'
 import { notion } from './client'
 import { getTilDbId } from './config'
 import { resolveDataSourceId } from './resolve-data-source-id'
@@ -10,6 +11,10 @@ async function getDataSourceId(): Promise<string> {
 }
 
 export async function getTilEntries(): Promise<TilEntry[]> {
+    'use cache'
+    cacheLife('max')
+    cacheTag('til')
+
     const dataSourceId = await getDataSourceId()
     const response = await notion.dataSources.query({
         data_source_id: dataSourceId,
