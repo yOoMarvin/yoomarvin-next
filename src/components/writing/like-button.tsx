@@ -230,6 +230,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
         } catch {
             // private browsing or unavailable
         }
+        setParticles([])
         setMounted(true)
 
         fetch(`/api/likes/${slug}`)
