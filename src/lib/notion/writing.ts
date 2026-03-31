@@ -32,7 +32,7 @@ export async function getWritingPosts(): Promise<PostMeta[]> {
 
 export async function getWritingPost(slug: string): Promise<Post | null> {
     'use cache'
-    cacheLife('hours')
+    cacheLife('minutes')
     cacheTag('writing', `writing:${slug}`)
 
     try {
