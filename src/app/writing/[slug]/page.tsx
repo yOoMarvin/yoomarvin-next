@@ -1,5 +1,6 @@
 import { getWritingPost, getWritingPosts } from '@/lib/notion/writing'
 import { renderBlocks } from '@/components/writing/render-blocks'
+import { LikeButton } from '@/components/writing/like-button'
 import { PostRow } from '@/components/ui/post-row'
 import { SectionHeader } from '@/components/ui/section-header'
 import { notFound } from 'next/navigation'
@@ -62,6 +63,7 @@ export default async function WritingPostPage({
                 <h1 className="text-3xl font-bold leading-[1.2] -tracking-[0.64px] md:text-4xl lg:text-[2.5rem] text-[var(--text-primary)]">
                     {post.title}
                 </h1>
+                <LikeButton slug={post.slug} initialLikes={post.likes} />
             </div>
 
             <div

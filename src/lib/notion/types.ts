@@ -12,6 +12,7 @@ export interface PostMeta {
     status: PostStatus
     date: string | null
     excerpt: string
+    likes: number
 }
 
 export interface Post extends PostMeta {
