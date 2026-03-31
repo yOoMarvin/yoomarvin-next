@@ -276,7 +276,7 @@ export function LikeButton({
             .catch(() => {
                 requestAnimationFrame(() => setReady(true))
             })
-    }, [slug])
+    }, [storageKey, likesUrl, setDisplayCount])
 
     // Flush pending likes on unmount
     useEffect(() => {
@@ -291,7 +291,7 @@ export function LikeButton({
                 })
             }
         }
-    }, [slug])
+    }, [likesUrl])
 
     const flushLikes = useCallback(() => {
         if (pendingDelta.current <= 0) return
@@ -314,7 +314,7 @@ export function LikeButton({
             .catch(() => {
                 pendingDelta.current += delta
             })
-    }, [slug])
+    }, [likesUrl, setDisplayCount])
 
     const scheduleFlush = useCallback(() => {
         if (debounceTimer.current) clearTimeout(debounceTimer.current)
@@ -360,7 +360,15 @@ export function LikeButton({
         }
 
         scheduleFlush()
-    }, [userLikes, slug, reduced, heartScale, buttonScale, scheduleFlush])
+    }, [
+        userLikes,
+        storageKey,
+        reduced,
+        heartScale,
+        buttonScale,
+        scheduleFlush,
+        setDisplayCount,
+    ])
 
     const isFilled = mounted && userLikes > 0
     const fillProgress = userLikes / MAX_LIKES
