@@ -1,34 +1,13 @@
 import 'server-only'
 import { cacheLife, cacheTag } from 'next/cache'
-import { notion, WRITING_DB_ID } from './client'
-import type {
-    PostMeta,
-    Post,
-    PageObjectResponse,
-    BlockObjectResponse,
-} from './types'
-
-// In Notion API v2025-09-03, databases contain "data sources" with their own IDs.
-// We resolve the data_source_id from the database once, then use it for queries.
-let resolvedDataSourceId: string | undefined
+import { notion } from './client'
+import { getWritingDbId } from './config'
+import { resolveDataSourceId } from './resolve-data-source-id'
+import { listPageBlocks } from './list-page-blocks'
+import type { PostMeta, Post, PageObjectResponse } from './types'
 
 async function getDataSourceId(): Promise<string> {
-    if (resolvedDataSourceId) return resolvedDataSourceId
-
-    const db = await notion.databases.retrieve({ database_id: WRITING_DB_ID })
-    const dataSources = (db as Record<string, unknown>).data_sources as
-        | Array<{ id: string }>
-        | undefined
-
-    if (!dataSources?.length) {
-        throw new Error(
-            `No data sources found on database ${WRITING_DB_ID}. ` +
-                'Ensure the database is shared with the integration.'
-        )
-    }
-
-    resolvedDataSourceId = dataSources[0].id
-    return resolvedDataSourceId
+    return resolveDataSourceId(getWritingDbId())
 }
 
 export async function getWritingPosts(): Promise<PostMeta[]> {
@@ -72,32 +51,13 @@ export async function getWritingPost(slug: string): Promise<Post | null> {
 
         const page = response.results[0] as PageObjectResponse
         const meta = pageToMeta(page)
-        const blocks = await getBlocks(page.id)
+        const blocks = await listPageBlocks(page.id)
 
         return { ...meta, blocks }
     } catch (e) {
         console.error(`Failed to fetch writing post "${slug}":`, e)
         return null
     }
-}
-
-async function getBlocks(pageId: string): Promise<BlockObjectResponse[]> {
-    const blocks: BlockObjectResponse[] = []
-    let cursor: string | undefined
-
-    do {
-        const response = await notion.blocks.children.list({
-            block_id: pageId,
-            start_cursor: cursor,
-            page_size: 100,
-        })
-        blocks.push(...(response.results as BlockObjectResponse[]))
-        cursor = response.has_more
-            ? (response.next_cursor ?? undefined)
-            : undefined
-    } while (cursor)
-
-    return blocks
 }
 
 function pageToMeta(page: PageObjectResponse): PostMeta {
