@@ -221,7 +221,7 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
         mass: 0.5,
     })
 
-    // Read localStorage on mount
+    // Read localStorage + fetch fresh count on mount
     useEffect(() => {
         try {
             const stored = localStorage.getItem(`likes:${slug}`)
@@ -230,6 +230,15 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
             // private browsing or unavailable
         }
         setMounted(true)
+
+        fetch(`/api/likes/${slug}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (typeof data.likes === 'number') {
+                    setDisplayCount(data.likes + pendingDelta.current)
+                }
+            })
+            .catch(() => {})
     }, [slug])
 
     // Flush pending likes on unmount
