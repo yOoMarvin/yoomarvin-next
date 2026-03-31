@@ -197,12 +197,25 @@ interface LikeButtonProps {
 }
 
 export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
-    const [displayCount, setDisplayCount] = useState(initialLikes)
+    const [displayCount, _setDisplayCount] = useState(initialLikes)
+    const displayCountRef = useRef(initialLikes)
+    const setDisplayCount = useCallback(
+        (update: number | ((prev: number) => number)) => {
+            _setDisplayCount((prev) => {
+                const next =
+                    typeof update === 'function' ? update(prev) : update
+                displayCountRef.current = next
+                return next
+            })
+        },
+        []
+    )
     const [userLikes, setUserLikes] = useState(0)
     const [mounted, setMounted] = useState(false)
     const [ready, setReady] = useState(false)
     const [particles, setParticles] = useState<Particle[]>([])
     const [isShaking, setIsShaking] = useState(false)
+    const [countVisible, setCountVisible] = useState(true)
     const pendingDelta = useRef(0)
     const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
     const flushGeneration = useRef(0)
@@ -237,11 +250,21 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
             .then((res) => res.json())
             .then((data) => {
                 if (typeof data.likes === 'number') {
-                    setDisplayCount(data.likes + pendingDelta.current)
+                    const fresh = data.likes + pendingDelta.current
+                    if (fresh !== displayCountRef.current) {
+                        // Crossfade: fade out, swap value, fade in
+                        setCountVisible(false)
+                        setTimeout(() => {
+                            setDisplayCount(fresh)
+                            setCountVisible(true)
+                            requestAnimationFrame(() => setReady(true))
+                        }, 150)
+                    } else {
+                        requestAnimationFrame(() => setReady(true))
+                    }
+                } else {
+                    requestAnimationFrame(() => setReady(true))
                 }
-                // Enable animations one frame after the fresh count renders,
-                // so AnimatedNumber syncs its prev state via PlainNumber first
-                requestAnimationFrame(() => setReady(true))
             })
             .catch(() => {
                 requestAnimationFrame(() => setReady(true))
@@ -382,7 +405,8 @@ export function LikeButton({ slug, initialLikes }: LikeButtonProps) {
             </motion.span>
             <span
                 className={cn(
-                    '-translate-x-px translate-y-px font-mono text-sm font-medium leading-none transition-colors duration-150',
+                    '-translate-x-px translate-y-px font-mono text-sm font-medium leading-none transition-all duration-150',
+                    countVisible ? 'opacity-100' : 'opacity-0',
                     isFilled ? 'text-red-500' : 'text-[var(--text-tertiary)]'
                 )}
             >
