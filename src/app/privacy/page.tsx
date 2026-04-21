@@ -112,7 +112,35 @@ export default function PrivacyPage() {
                 <br />
                 privacy@vercel.com
             </p>
-            <h2>3. Allgemeine Hinweise und Pflicht&shy;informationen</h2>
+            <h2>3. Analyse-Tools</h2>
+            <h3>Vercel Web Analytics &amp; Speed Insights</h3>{' '}
+            <p>
+                Diese Website nutzt Vercel Web Analytics und Vercel Speed
+                Insights, Dienste der Vercel Inc., 440 N Barranca Ave #4133,
+                Covina, CA 91723, USA, zur anonymen Messung von Seitenaufrufen
+                und Web-Performance-Kennzahlen (Core Web Vitals wie LCP, CLS,
+                INP).
+            </p>{' '}
+            <p>
+                Vercel setzt hierf&uuml;r keine Cookies und speichert keine
+                personenbezogenen Daten. IP-Adressen werden vor der Verarbeitung
+                anonymisiert und nicht dauerhaft gespeichert. Erhoben werden
+                ausschlie&szlig;lich aggregierte, nicht auf einzelne Personen
+                zur&uuml;ckf&uuml;hrbare technische Daten wie Seiten-URL,
+                Referrer, Ger&auml;tetyp, Browser und Performance-Metriken.
+            </p>{' '}
+            <p>
+                Die Nutzung erfolgt auf Grundlage unseres berechtigten
+                Interesses an einer statistisch fehlerfreien und performanten
+                Darstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f
+                DSGVO). Weitere Informationen finden Sie in der
+                Datenschutzerkl&auml;rung von Vercel unter{' '}
+                <a href="https://vercel.com/legal/privacy-policy">
+                    https://vercel.com/legal/privacy-policy
+                </a>
+                .
+            </p>
+            <h2>4. Allgemeine Hinweise und Pflicht&shy;informationen</h2>
             <h3>Datenschutz</h3>{' '}
             <p>
                 Die Betreiber dieser Seiten nehmen den Schutz Ihrer
@@ -331,7 +359,7 @@ export default function PrivacyPage() {
                 Europ&auml;ischen Union oder eines Mitgliedstaats verarbeitet
                 werden.
             </p>
-            <h2>4. Datenerfassung auf dieser Website</h2>
+            <h2>5. Datenerfassung auf dieser Website</h2>
             <h3>Anfrage per E-Mail, Telefon oder Telefax</h3>{' '}
             <p>
                 Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird
