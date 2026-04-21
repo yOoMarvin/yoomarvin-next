@@ -19,9 +19,23 @@
 - Notion database with properties: Title, Slug, Status, Date, Excerpt
 - Fetched server-side via `@notionhq/client` SDK v5
 - SDK v5 uses the `dataSources.query` API — the `data_source_id` is resolved at runtime from the database via `databases.retrieve`
-- Cached with `'use cache'`, `cacheLife('hours')`, and `cacheTag('writing')`
+- Cached with `'use cache'`, `cacheLife('max')`, and `cacheTag('writing')` — pages are built once and never re-fetched Notion between deploys
 - Block content rendered by `src/components/writing/render-blocks.tsx`
 - Data layer: `src/lib/notion/client.ts`, `types.ts`, `writing.ts`
+
+### Notion-hosted images
+
+Notion file URLs are signed S3 URLs that expire after ~1 hour. To keep the site
+truly static we download every referenced image at build time.
+
+- `scripts/sync-notion-assets.ts` runs as `prebuild` (Vercel build + `npm run build`)
+- Downloads all image/video/cover assets from writing, work, and TIL into `public/notion-assets/`
+- Emits `src/generated/notion-asset-manifest.json` (pathname → local path)
+- `src/lib/notion/localize-url.ts` rewrites Notion URLs via the manifest at render time
+- Fallback: if a URL is not in the manifest, the raw Notion URL is used (keeps `next dev` working before first sync)
+- Run `npm run sync-notion-assets` manually to refresh local dev images
+
+Both the manifest and `public/notion-assets/` are gitignored.
 
 ### Work (static)
 
@@ -46,9 +60,10 @@
 ### Caching
 
 - `'use cache'` directive on data-fetching functions (requires `cacheComponents: true` in `next.config.ts`)
-- `cacheLife('hours')` for Notion data
-- `cacheTag('writing')` for on-demand revalidation
+- `cacheLife('max')` for Notion data — pages are produced at build time and never re-fetch Notion between deploys
+- `cacheTag('writing' | 'work' | 'til')` for potential on-demand revalidation
 - `generateStaticParams` pre-renders published posts at build time
+- Likes are read live from Notion via `GET /api/likes/[slug]` on the client; the likes `POST` does NOT call `revalidateTag` (pages stay static; the client crossfades the fresh count on mount)
 
 ### Routing
 

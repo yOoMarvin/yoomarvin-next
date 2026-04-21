@@ -17,6 +17,7 @@ import type {
 import { inlineLinkClass } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 import type { NotionBlock } from '@/lib/notion/types'
+import { localizeNotionUrl } from '@/lib/notion/localize-url'
 
 export function renderBlocks(blocks: NotionBlock[]) {
     const elements: React.ReactNode[] = []
@@ -108,10 +109,11 @@ function Block({ block }: { block: NotionBlock }) {
         }
         case 'image': {
             const b = block as ImageBlockObjectResponse
-            const src =
+            const rawImageSrc =
                 b.image.type === 'external'
                     ? b.image.external.url
                     : b.image.file.url
+            const src = localizeNotionUrl(rawImageSrc)
             const caption = b.image.caption?.[0]?.plain_text ?? ''
             return (
                 <figure>
@@ -135,7 +137,8 @@ function Block({ block }: { block: NotionBlock }) {
                 b.video.type === 'external'
                     ? b.video.external.url
                     : b.video.file.url
-            const src = getEmbeddableUrl(rawSrc)
+            const localized = localizeNotionUrl(rawSrc)
+            const src = getEmbeddableUrl(localized)
             const caption = b.video.caption?.[0]?.plain_text ?? ''
             const isEmbed = /^https?:\/\//.test(src)
 

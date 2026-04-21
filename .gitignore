@@ -36,3 +36,7 @@ yarn-error.log*
 # TypeScript build cache
 tsconfig.tsbuildinfo
 
+# generated Notion asset cache + manifest
+/public/notion-assets
+/src/generated/notion-asset-manifest.json
+

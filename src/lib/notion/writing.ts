@@ -12,7 +12,7 @@ async function getDataSourceId(): Promise<string> {
 
 export async function getWritingPosts(): Promise<PostMeta[]> {
     'use cache'
-    cacheLife('hours')
+    cacheLife('max')
     cacheTag('writing')
 
     const dataSourceId = await getDataSourceId()
@@ -32,7 +32,7 @@ export async function getWritingPosts(): Promise<PostMeta[]> {
 
 export async function getWritingPost(slug: string): Promise<Post | null> {
     'use cache'
-    cacheLife('minutes')
+    cacheLife('max')
     cacheTag('writing', `writing:${slug}`)
 
     try {
