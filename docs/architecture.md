@@ -9,7 +9,7 @@
 - **Icons**: Iconoir (`iconoir-react`)
 - **Animation**: `motion` package
 - **Theming**: `next-themes` (system preference only)
-- **Analytics**: `@vercel/analytics`
+- **Analytics**: `@vercel/analytics`, `@vercel/speed-insights`
 - **Deployment**: Vercel
 
 ## Content Strategy
