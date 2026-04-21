@@ -4,11 +4,13 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
+        "prebuild": "tsx scripts/sync-notion-assets.ts",
         "build": "next build",
         "start": "next start",
         "lint": "eslint .",
         "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format:check": "prettier --check .",
+        "sync-notion-assets": "tsx scripts/sync-notion-assets.ts"
     },
     "dependencies": {
         "@notionhq/client": "^5.13.0",
@@ -34,6 +36,7 @@
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "^4.2.1",
+        "tsx": "^4.21.0",
         "typescript": "^5.9.3"
     }
 }

@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server'
-import { revalidateTag } from 'next/cache'
 import { notion } from '@/lib/notion/client'
 import { getWritingDbId, getTilDbId } from '@/lib/notion/config'
 import { resolveDataSourceId } from '@/lib/notion/resolve-data-source-id'
@@ -9,10 +8,6 @@ type ContentType = 'writing' | 'til'
 
 function getDbId(type: ContentType): string {
     return type === 'til' ? getTilDbId() : getWritingDbId()
-}
-
-function getCacheTagPrefix(type: ContentType): string {
-    return type === 'til' ? 'til' : 'writing'
 }
 
 function parseType(request: Request): ContentType {
@@ -114,10 +109,6 @@ export async function POST(
                 Likes: { number: newTotal },
             },
         })
-
-        const prefix = getCacheTagPrefix(type)
-        revalidateTag(prefix, 'max')
-        revalidateTag(`${prefix}:${slug}`, 'max')
 
         return NextResponse.json({ likes: newTotal })
     } catch (e) {

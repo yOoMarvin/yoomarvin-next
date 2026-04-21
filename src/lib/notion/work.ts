@@ -4,6 +4,7 @@ import { notion } from './client'
 import { getWorkDbId } from './config'
 import { resolveDataSourceId } from './resolve-data-source-id'
 import { listPageBlocks } from './list-page-blocks'
+import { localizeNotionUrl } from './localize-url'
 import type {
     PageObjectResponse,
     WorkItem,
@@ -20,7 +21,7 @@ async function getDataSourceId(): Promise<string> {
 
 export async function getWorkItems(): Promise<WorkMeta[]> {
     'use cache'
-    cacheLife('hours')
+    cacheLife('max')
     cacheTag('work')
 
     const dataSourceId = await getDataSourceId()
@@ -40,7 +41,7 @@ export async function getWorkItems(): Promise<WorkMeta[]> {
 
 export async function getWorkItem(slug: string): Promise<WorkItem | null> {
     'use cache'
-    cacheLife('hours')
+    cacheLife('max')
     cacheTag('work', `work:${slug}`)
 
     try {
@@ -170,8 +171,8 @@ function getCoverImage(
     }
 
     const file = property.files[0]
-    if (file.type === 'external') return file.external.url
-    if (file.type === 'file') return file.file.url
+    if (file.type === 'external') return localizeNotionUrl(file.external.url)
+    if (file.type === 'file') return localizeNotionUrl(file.file.url)
     return null
 }
 
