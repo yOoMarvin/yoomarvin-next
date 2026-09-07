@@ -3,7 +3,14 @@ import type {
     BlockObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints'
 
-export type PostStatus = 'Draft' | 'Published' | 'Archived'
+export type PostStatus =
+    | 'Proposal'
+    | 'Ready to draft'
+    | 'Needs input'
+    | 'Ready for review'
+    | 'Draft'
+    | 'Published'
+    | 'Archived'
 
 export interface PostMeta {
     id: string

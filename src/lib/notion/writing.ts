@@ -20,7 +20,7 @@ export async function getWritingPosts(): Promise<PostMeta[]> {
         data_source_id: dataSourceId,
         filter: {
             property: 'Status',
-            select: { does_not_equal: 'Archived' },
+            select: { equals: 'Published' },
         },
         sorts: [{ property: 'Date', direction: 'descending' }],
     })

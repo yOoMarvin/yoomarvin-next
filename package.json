@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "predev": "tsx scripts/sync-notion-assets.ts",
         "dev": "next dev",
         "prebuild": "tsx scripts/sync-notion-assets.ts",
         "build": "next build",
@@ -37,7 +38,7 @@
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "^4.2.1",
-        "tsx": "^4.21.0",
+        "tsx": "^4.23.13",
         "typescript": "^5.9.3"
     }
 }
