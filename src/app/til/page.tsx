@@ -8,8 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default async function TilPage() {
-    const entries = await getTilEntries()
-    const published = entries.filter((e) => e.status === 'Published')
+    const published = await getTilEntries()
 
     return (
         <>

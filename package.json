@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "predev": "tsx scripts/sync-notion-assets.ts",
         "dev": "next dev",
         "prebuild": "tsx scripts/sync-notion-assets.ts",
         "build": "next build",
