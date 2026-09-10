@@ -17,11 +17,30 @@
 ### Writing (Notion)
 
 - Notion database with properties: Title, Slug, Status, Date, Excerpt
-- Fetched server-side via `@notionhq/client` SDK v5
-- SDK v5 uses the `dataSources.query` API — the `data_source_id` is resolved at runtime from the database via `databases.retrieve`
-- Cached with `'use cache'`, `cacheLife('max')`, and `cacheTag('writing')` — pages are built once and never re-fetched Notion between deploys
+- Cached with `'use cache'`, `cacheLife('max')`, and `cacheTag('writing')` — pages are built once and never re-fetched between deploys
 - Block content rendered by `src/components/writing/render-blocks.tsx`
-- Data layer: `src/lib/notion/client.ts`, `types.ts`, `writing.ts`
+- Data layer: `src/lib/notion/content.ts`, `types.ts`, `writing.ts`
+
+### One Notion crawl per build
+
+`next build` does **not** talk to Notion. `scripts/sync-notion-assets.ts` runs as
+`prebuild`, crawls the writing, work and TIL databases once, and writes
+`src/generated/notion-content.json`. The data layer reads that snapshot.
+
+This is not an optimisation, it is a correctness fix. The script and the build
+used to crawl Notion independently, back to back — ~184 requests against
+Notion's ~3 req/s limit, on a Vercel build machine with a single worker. The
+build got rate limited mid-prerender, a cache fill blew Next's 50 s budget, and
+the post that failed to render was prerendered as a permanent 404 under
+`cacheLife('max')`. Do not reintroduce Notion calls into the prerender path.
+
+- `src/lib/notion/content.ts` — reads the snapshot; the only content data source
+- The crawl sends the same filters and sorts the data layer used to send, so the
+  snapshot arrays are consumed in order without re-filtering
+- Content is therefore current as of `prebuild`, i.e. as of the deploy — which was
+  already true under `cacheLife('max')`
+- **Likes are the exception**: still read from and written to Notion at request
+  time (`src/lib/notion/likes.ts`), batched per page and briefly cached
 
 ### Notion-hosted images
 
@@ -31,11 +50,12 @@ truly static we download every referenced image at build time.
 - `scripts/sync-notion-assets.ts` runs as `prebuild` (Vercel build + `npm run build`)
 - Downloads all image/video/cover assets from writing, work, and TIL into `public/notion-assets/`
 - Emits `src/generated/notion-asset-manifest.json` (pathname → local path)
+- Emits `src/generated/notion-content.json` (the content snapshot, see above)
 - `src/lib/notion/localize-url.ts` rewrites Notion URLs via the manifest at render time
 - Fallback: if a URL is not in the manifest, the raw Notion URL is used (keeps `next dev` working before first sync)
 - Run `npm run sync-notion-assets` manually to refresh local dev images
 
-Both the manifest and `public/notion-assets/` are gitignored.
+The manifest, the content snapshot and `public/notion-assets/` are all gitignored.
 
 ### Work (static)
 

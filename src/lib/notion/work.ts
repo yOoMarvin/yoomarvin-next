@@ -1,10 +1,6 @@
 import 'server-only'
 import { cacheLife, cacheTag } from 'next/cache'
-import { notion } from './client'
-import { notionRequest } from './request'
-import { getWorkDbId } from './config'
-import { resolveDataSourceId } from './resolve-data-source-id'
-import { listPageBlocks } from './list-page-blocks'
+import { getSnapshotPages, getSnapshotBlocks } from './content'
 import { localizeNotionUrl } from './localize-url'
 import type {
     PageObjectResponse,
@@ -16,27 +12,15 @@ import type {
 
 const SECTION_ORDER: WorkType[] = ['Personal', 'Inhouse', 'Freelance', 'Others']
 
-async function getDataSourceId(): Promise<string> {
-    return resolveDataSourceId(getWorkDbId())
-}
-
 export async function getWorkItems(): Promise<WorkMeta[]> {
     'use cache'
     cacheLife('max')
     cacheTag('work')
 
-    const dataSourceId = await getDataSourceId()
-    const response = await notionRequest(() =>
-        notion.dataSources.query({
-            data_source_id: dataSourceId,
-            sorts: [{ property: 'Date', direction: 'descending' }],
-        })
-    )
-
     // Filter out archived items in memory. Once a "Status" select property
-    // is added to the Notion work database, move this to a query-level filter
-    // like writing.ts does.
-    return response.results
+    // is added to the Notion work database, the snapshot crawl can filter at
+    // the query the way it does for writing and TIL.
+    return getSnapshotPages('work')
         .map((page) => pageToMeta(page as PageObjectResponse))
         .filter((item) => item.status !== 'Archived')
         .sort(sortByDateDesc)
@@ -58,8 +42,7 @@ export async function getWorkItem(slug: string): Promise<WorkItem | null> {
     // on why fetch errors must not be swallowed into a null here.
     if (!match) return null
 
-    const blocks = await listPageBlocks(match.id)
-    return { ...match, blocks }
+    return { ...match, blocks: getSnapshotBlocks('work', match.id) }
 }
 
 export async function getWorkStaticParams(): Promise<Array<{ slug: string }>> {
