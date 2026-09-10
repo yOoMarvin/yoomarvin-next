@@ -1,6 +1,7 @@
 import 'server-only'
 import { cacheLife, cacheTag } from 'next/cache'
 import { notion } from './client'
+import { notionRequest } from './request'
 import { getWorkDbId } from './config'
 import { resolveDataSourceId } from './resolve-data-source-id'
 import { listPageBlocks } from './list-page-blocks'
@@ -25,10 +26,12 @@ export async function getWorkItems(): Promise<WorkMeta[]> {
     cacheTag('work')
 
     const dataSourceId = await getDataSourceId()
-    const response = await notion.dataSources.query({
-        data_source_id: dataSourceId,
-        sorts: [{ property: 'Date', direction: 'descending' }],
-    })
+    const response = await notionRequest(() =>
+        notion.dataSources.query({
+            data_source_id: dataSourceId,
+            sorts: [{ property: 'Date', direction: 'descending' }],
+        })
+    )
 
     // Filter out archived items in memory. Once a "Status" select property
     // is added to the Notion work database, move this to a query-level filter
@@ -44,22 +47,19 @@ export async function getWorkItem(slug: string): Promise<WorkItem | null> {
     cacheLife('max')
     cacheTag('work', `work:${slug}`)
 
-    try {
-        const items = await getWorkItems()
-        const match = items.find(
-            (item) =>
-                item.linkMode === 'Internal' &&
-                item.slug === slug &&
-                item.status === 'Published'
-        )
-        if (!match) return null
+    const items = await getWorkItems()
+    const match = items.find(
+        (item) =>
+            item.linkMode === 'Internal' &&
+            item.slug === slug &&
+            item.status === 'Published'
+    )
+    // Only a missing match means "no such item" — see the note in writing.ts
+    // on why fetch errors must not be swallowed into a null here.
+    if (!match) return null
 
-        const blocks = await listPageBlocks(match.id)
-        return { ...match, blocks }
-    } catch (e) {
-        console.error(`Failed to fetch work item "${slug}":`, e)
-        return null
-    }
+    const blocks = await listPageBlocks(match.id)
+    return { ...match, blocks }
 }
 
 export async function getWorkStaticParams(): Promise<Array<{ slug: string }>> {

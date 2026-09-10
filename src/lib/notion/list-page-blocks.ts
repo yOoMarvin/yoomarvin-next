@@ -1,5 +1,6 @@
 import 'server-only'
 import { notion } from './client'
+import { notionRequest } from './request'
 import type { BlockObjectResponse, NotionBlock } from './types'
 
 export async function listPageBlocks(pageId: string): Promise<NotionBlock[]> {
@@ -7,11 +8,13 @@ export async function listPageBlocks(pageId: string): Promise<NotionBlock[]> {
     let cursor: string | undefined
 
     do {
-        const response = await notion.blocks.children.list({
-            block_id: pageId,
-            start_cursor: cursor,
-            page_size: 100,
-        })
+        const response = await notionRequest(() =>
+            notion.blocks.children.list({
+                block_id: pageId,
+                start_cursor: cursor,
+                page_size: 100,
+            })
+        )
         const enriched = await Promise.all(
             (response.results as BlockObjectResponse[]).map((block) =>
                 withNestedChildren(block)
