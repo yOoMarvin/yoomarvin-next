@@ -83,7 +83,9 @@ The manifest, the content snapshot and `public/notion-assets/` are all gitignore
 - `cacheLife('max')` for Notion data — pages are produced at build time and never re-fetch Notion between deploys
 - `cacheTag('writing' | 'work' | 'til')` for potential on-demand revalidation
 - `generateStaticParams` pre-renders published posts at build time
-- Likes are read live from Notion via `GET /api/likes/[slug]` on the client; the likes `POST` does NOT call `revalidateTag` (pages stay static; the client crossfades the fresh count on mount)
+- Likes are read on the client from `GET /api/likes?type=writing|til`, which returns every count for that type in one response — `/til` renders 29 LikeButtons and one request per button meant 29 Notion calls per page view. `src/lib/likes-store.ts` dedupes callers so the buttons share a single fetch
+- `getLikes()` caches with `cacheLife('seconds')` so concurrent readers collapse onto one Notion request while counts still read as live
+- The likes `POST` revalidates only the `likes:<type>` tag, never `writing`/`til` — post pages stay static and are never rebuilt by a like; the client crossfades the fresh count on mount
 
 ### Routing
 

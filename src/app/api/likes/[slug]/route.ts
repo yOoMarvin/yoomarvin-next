@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server'
+import { revalidateTag } from 'next/cache'
 import { notion } from '@/lib/notion/client'
 import { getWritingDbId, getTilDbId } from '@/lib/notion/config'
 import { resolveDataSourceId } from '@/lib/notion/resolve-data-source-id'
-import type { PageObjectResponse } from '@/lib/notion/types'
+import { getLikes } from '@/lib/notion/likes'
+import type { LikeableType, PageObjectResponse } from '@/lib/notion/types'
 
-type ContentType = 'writing' | 'til'
-
-function getDbId(type: ContentType): string {
+function getDbId(type: LikeableType): string {
     return type === 'til' ? getTilDbId() : getWritingDbId()
 }
 
-function parseType(request: Request): ContentType {
+function parseType(request: Request): LikeableType {
     const { searchParams } = new URL(request.url)
     const type = searchParams.get('type')
     return type === 'til' ? 'til' : 'writing'
@@ -18,7 +18,7 @@ function parseType(request: Request): ContentType {
 
 async function findPage(
     slug: string,
-    type: ContentType
+    type: LikeableType
 ): Promise<PageObjectResponse | null> {
     if (type === 'til') {
         try {
@@ -44,6 +44,10 @@ async function findPage(
         : null
 }
 
+/**
+ * Single count. The UI reads `GET /api/likes?type=…` instead, but this shares
+ * that endpoint's cached map so there is only one read path.
+ */
 export async function GET(
     request: Request,
     { params }: { params: Promise<{ slug: string }> }
@@ -52,19 +56,15 @@ export async function GET(
     const type = parseType(request)
 
     try {
-        const page = await findPage(slug, type)
-        if (!page) {
+        const likes = await getLikes(type)
+        if (!(slug in likes)) {
             return NextResponse.json(
                 { error: 'Post not found' },
                 { status: 404 }
             )
         }
 
-        const props = page.properties
-        const likes =
-            props.Likes?.type === 'number' ? (props.Likes.number ?? 0) : 0
-
-        return NextResponse.json({ likes })
+        return NextResponse.json({ likes: likes[slug] })
     } catch {
         return NextResponse.json(
             { error: 'Failed to fetch likes' },
@@ -109,6 +109,10 @@ export async function POST(
                 Likes: { number: newTotal },
             },
         })
+
+        // Only the likes map — page caches deliberately stay untouched so
+        // posts remain static (see docs/architecture.md).
+        revalidateTag(`likes:${type}`, 'max')
 
         return NextResponse.json({ likes: newTotal })
     } catch (e) {

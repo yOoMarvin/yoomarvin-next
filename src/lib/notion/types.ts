@@ -67,6 +67,8 @@ export type NotionBlock = BlockObjectResponse & {
 
 export type { PageObjectResponse, BlockObjectResponse }
 
+export type LikeableType = 'writing' | 'til'
+
 /**
  * A build-time copy of everything the site renders from Notion. The prebuild
  * asset sync already walks every page and block, so it writes this out and the

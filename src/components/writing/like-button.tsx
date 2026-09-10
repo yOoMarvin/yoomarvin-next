@@ -10,6 +10,8 @@ import {
 } from 'motion/react'
 import { Heart } from 'iconoir-react'
 import { cn } from '@/lib/utils'
+import { fetchLikes, invalidateLikes } from '@/lib/likes-store'
+import type { LikeableType } from '@/lib/notion/types'
 
 const MAX_LIKES = 10
 const DEBOUNCE_MS = 500
@@ -194,7 +196,7 @@ function getHeartColorClass(progress: number): string {
 interface LikeButtonProps {
     slug: string
     initialLikes: number
-    type?: 'writing' | 'til'
+    type?: LikeableType
 }
 
 export function LikeButton({
@@ -253,11 +255,13 @@ export function LikeButton({
         setParticles([])
         setMounted(true)
 
-        fetch(likesUrl)
-            .then((res) => res.json())
-            .then((data) => {
-                if (typeof data.likes === 'number') {
-                    const fresh = data.likes + pendingDelta.current
+        // Shared across every LikeButton on the page — one request, not one
+        // per button.
+        fetchLikes(type)
+            .then((likes) => {
+                const current = likes[slug]
+                if (typeof current === 'number') {
+                    const fresh = current + pendingDelta.current
                     if (fresh !== displayCountRef.current) {
                         // Crossfade: fade out, swap value, fade in
                         setCountVisible(false)
@@ -276,7 +280,7 @@ export function LikeButton({
             .catch(() => {
                 requestAnimationFrame(() => setReady(true))
             })
-    }, [storageKey, likesUrl, setDisplayCount])
+    }, [storageKey, slug, type, setDisplayCount])
 
     // Flush pending likes on unmount
     useEffect(() => {
@@ -306,6 +310,8 @@ export function LikeButton({
         })
             .then((res) => res.json())
             .then((data) => {
+                // Drop the shared counts so a remount reads this like back.
+                invalidateLikes(type)
                 if (gen !== flushGeneration.current) return
                 if (typeof data.likes === 'number') {
                     setDisplayCount(data.likes + pendingDelta.current)
@@ -314,7 +320,7 @@ export function LikeButton({
             .catch(() => {
                 pendingDelta.current += delta
             })
-    }, [likesUrl, setDisplayCount])
+    }, [likesUrl, type, setDisplayCount])
 
     const scheduleFlush = useCallback(() => {
         if (debounceTimer.current) clearTimeout(debounceTimer.current)
