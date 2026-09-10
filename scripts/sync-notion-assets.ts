@@ -1,10 +1,19 @@
 /**
- * Downloads every Notion-hosted image referenced by published writing, work,
- * and TIL pages into `public/notion-assets/` at build time and emits a manifest
- * mapping stable Notion URL paths to the local asset paths.
+ * The single Notion crawl for a build.
  *
- * The runtime `localizeNotionUrl` helper rewrites URLs using this manifest so
- * the site never depends on Notion's signed S3 URLs (which expire after ~1 h).
+ * Walks every page and block of the writing, work and TIL databases exactly
+ * once, then writes two files:
+ *
+ * - `public/notion-assets/` + `notion-asset-manifest.json` — every Notion-hosted
+ *   image downloaded locally, so the site never depends on Notion's signed S3
+ *   URLs (which expire after ~1 h). `localizeNotionUrl` rewrites URLs using it.
+ * - `notion-content.json` — the pages and blocks themselves, which the app's
+ *   data layer reads instead of querying Notion again.
+ *
+ * That second file exists because this script and `next build` used to crawl
+ * Notion independently, back to back. ~184 requests against a ~3 req/s limit
+ * meant the build got rate limited mid-prerender, and a post that failed to
+ * render was cached as a permanent 404.
  */
 
 import path from 'node:path'
@@ -18,6 +27,12 @@ import type {
     BlockObjectResponse,
     PartialBlockObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints'
+import type {
+    ContentSnapshot,
+    DatabaseSnapshot,
+    NotionBlock,
+    SnapshotKey,
+} from '../src/lib/notion/types'
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 loadEnvConfig(rootDir)
@@ -28,6 +43,12 @@ const MANIFEST_PATH = path.join(
     'src',
     'generated',
     'notion-asset-manifest.json'
+)
+const CONTENT_PATH = path.join(
+    rootDir,
+    'src',
+    'generated',
+    'notion-content.json'
 )
 
 const NOTION_HOST_PATTERNS = [
@@ -63,13 +84,21 @@ async function resolveDataSourceId(databaseId: string): Promise<string> {
 }
 
 async function queryAllPages(
-    dataSourceId: string
+    dataSourceId: string,
+    options: { publishedOnly: boolean }
 ): Promise<PageObjectResponse[]> {
     const results: PageObjectResponse[] = []
     let cursor: string | undefined
     do {
         const response = await notion.dataSources.query({
             data_source_id: dataSourceId,
+            // Mirrors the filter and sort the app's data layer used to send
+            // itself. Keeping them identical is what lets the app read the
+            // snapshot without re-sorting or re-filtering.
+            filter: options.publishedOnly
+                ? { property: 'Status', select: { equals: 'Published' } }
+                : undefined,
+            sorts: [{ property: 'Date', direction: 'descending' }],
             start_cursor: cursor,
             page_size: 100,
         })
@@ -83,8 +112,12 @@ async function queryAllPages(
     return results
 }
 
-async function listAllBlocks(blockId: string): Promise<BlockObjectResponse[]> {
-    const blocks: BlockObjectResponse[] = []
+/**
+ * Fetches a block tree, nesting children under `children` — the same shape the
+ * app's renderer expects, so the result can be stored in the snapshot as-is.
+ */
+async function listAllBlocks(blockId: string): Promise<NotionBlock[]> {
+    const blocks: NotionBlock[] = []
     let cursor: string | undefined
     do {
         const response = await notion.blocks.children.list({
@@ -96,17 +129,24 @@ async function listAllBlocks(blockId: string): Promise<BlockObjectResponse[]> {
             BlockObjectResponse | PartialBlockObjectResponse
         >) {
             if (!('type' in block)) continue
-            blocks.push(block)
-            if (block.has_children) {
-                const children = await listAllBlocks(block.id)
-                blocks.push(...children)
-            }
+            blocks.push(
+                block.has_children
+                    ? { ...block, children: await listAllBlocks(block.id) }
+                    : block
+            )
         }
         cursor = response.has_more
             ? (response.next_cursor ?? undefined)
             : undefined
     } while (cursor)
     return blocks
+}
+
+function flattenBlocks(blocks: NotionBlock[]): NotionBlock[] {
+    return blocks.flatMap((block) => [
+        block,
+        ...flattenBlocks(block.children ?? []),
+    ])
 }
 
 function isNotionHostedUrl(url: string): boolean {
@@ -198,38 +238,67 @@ async function fileExists(p: string): Promise<boolean> {
     }
 }
 
-async function collectNotionUrls(): Promise<NotionUrl[]> {
-    const writingDbId = requireEnv('NOTION_WRITING_DB_ID')
-    const workDbId = requireEnv('NOTION_WORK_DB_ID')
-    const tilDbId = requireEnv('NOTION_TIL_DB_ID')
+const DATABASES: Array<{
+    key: SnapshotKey
+    env: string
+    // Work has no Status filter in Notion; the app drops archived items in
+    // memory instead. Writing and TIL filter at the query.
+    publishedOnly: boolean
+}> = [
+    { key: 'writing', env: 'NOTION_WRITING_DB_ID', publishedOnly: true },
+    { key: 'work', env: 'NOTION_WORK_DB_ID', publishedOnly: false },
+    { key: 'til', env: 'NOTION_TIL_DB_ID', publishedOnly: true },
+]
 
-    const [writingDs, workDs, tilDs] = await Promise.all([
-        resolveDataSourceId(writingDbId),
-        resolveDataSourceId(workDbId),
-        resolveDataSourceId(tilDbId),
-    ])
+async function crawlDatabase(
+    env: string,
+    publishedOnly: boolean
+): Promise<DatabaseSnapshot> {
+    const dataSourceId = await resolveDataSourceId(requireEnv(env))
+    const pages = await queryAllPages(dataSourceId, { publishedOnly })
 
-    const [writingPages, workPages, tilPages] = await Promise.all([
-        queryAllPages(writingDs),
-        queryAllPages(workDs),
-        queryAllPages(tilDs),
-    ])
+    const blocks: Record<string, NotionBlock[]> = {}
+    for (const page of pages) {
+        blocks[page.id] = await listAllBlocks(page.id)
+    }
 
-    const allPages = [...writingPages, ...workPages, ...tilPages]
+    return { pages, blocks }
+}
 
-    const seen = new Map<string, NotionUrl>()
+async function crawl(): Promise<ContentSnapshot> {
+    const snapshot: Partial<ContentSnapshot> = {
+        generatedAt: new Date().toISOString(),
+    }
+
+    // Sequential on purpose. Notion allows ~3 requests/second and Vercel builds
+    // on a single worker; running the three databases in parallel is what used
+    // to push this over the limit.
+    for (const { key, env, publishedOnly } of DATABASES) {
+        const result = await crawlDatabase(env, publishedOnly)
+        snapshot[key] = result
+        console.log(`  ${key}: ${result.pages.length} page(s)`)
+    }
+
+    return snapshot as ContentSnapshot
+}
+
+function collectNotionUrls(snapshot: ContentSnapshot): NotionUrl[] {
     const rawUrls: string[] = []
 
-    for (const page of workPages) {
+    for (const page of snapshot.work.pages) {
         const cover = extractCoverImageUrl(page)
         if (cover) rawUrls.push(cover)
     }
 
-    for (const page of allPages) {
-        const blocks = await listAllBlocks(page.id)
-        for (const block of blocks) rawUrls.push(...extractBlockUrls(block))
+    for (const { key } of DATABASES) {
+        for (const blocks of Object.values(snapshot[key].blocks)) {
+            for (const block of flattenBlocks(blocks)) {
+                rawUrls.push(...extractBlockUrls(block))
+            }
+        }
     }
 
+    const seen = new Map<string, NotionUrl>()
     for (const raw of rawUrls) {
         if (!isNotionHostedUrl(raw)) continue
         const entry = toStableKey(raw)
@@ -244,8 +313,19 @@ async function sync(): Promise<void> {
     await fs.mkdir(PUBLIC_DIR, { recursive: true })
     await fs.mkdir(path.dirname(MANIFEST_PATH), { recursive: true })
 
-    console.log('Collecting Notion-hosted URLs from writing, work, and TIL...')
-    const urls = await collectNotionUrls()
+    console.log('Crawling Notion (writing, work, TIL)...')
+    const snapshot = await crawl()
+
+    await fs.writeFile(CONTENT_PATH, JSON.stringify(snapshot) + '\n')
+    console.log(
+        `Content snapshot written (${(
+            (await fs.stat(CONTENT_PATH)).size /
+            1024 /
+            1024
+        ).toFixed(2)} MB)`
+    )
+
+    const urls = collectNotionUrls(snapshot)
     console.log(`Found ${urls.length} unique Notion-hosted asset(s)`)
 
     const manifest: Record<string, string> = {}

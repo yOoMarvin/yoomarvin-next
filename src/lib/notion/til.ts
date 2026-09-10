@@ -1,43 +1,18 @@
 import 'server-only'
 import { cacheLife, cacheTag } from 'next/cache'
-import { notion } from './client'
-import { notionRequest } from './request'
-import { getTilDbId } from './config'
-import { resolveDataSourceId } from './resolve-data-source-id'
-import { listPageBlocks } from './list-page-blocks'
+import { getSnapshotPages, getSnapshotBlocks } from './content'
 import type { TilEntry, PageObjectResponse } from './types'
-
-async function getDataSourceId(): Promise<string> {
-    return resolveDataSourceId(getTilDbId())
-}
 
 export async function getTilEntries(): Promise<TilEntry[]> {
     'use cache'
     cacheLife('max')
     cacheTag('til')
 
-    const dataSourceId = await getDataSourceId()
-    const response = await notionRequest(() =>
-        notion.dataSources.query({
-            data_source_id: dataSourceId,
-            filter: {
-                property: 'Status',
-                select: { equals: 'Published' },
-            },
-            sorts: [{ property: 'Date', direction: 'descending' }],
-        })
-    )
-
-    const entries = await Promise.all(
-        response.results.map(async (page) => {
-            const p = page as PageObjectResponse
-            const meta = pageToTilMeta(p)
-            const blocks = await listPageBlocks(p.id)
-            return { ...meta, blocks }
-        })
-    )
-
-    return entries
+    // Published-only and date-sorted already — see the note in writing.ts.
+    return getSnapshotPages('til').map((page) => {
+        const p = page as PageObjectResponse
+        return { ...pageToTilMeta(p), blocks: getSnapshotBlocks('til', p.id) }
+    })
 }
 
 function pageToTilMeta(page: PageObjectResponse): Omit<TilEntry, 'blocks'> {

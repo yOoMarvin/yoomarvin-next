@@ -66,3 +66,24 @@ export type NotionBlock = BlockObjectResponse & {
 }
 
 export type { PageObjectResponse, BlockObjectResponse }
+
+/**
+ * A build-time copy of everything the site renders from Notion. The prebuild
+ * asset sync already walks every page and block, so it writes this out and the
+ * app reads it instead of crawling Notion a second time — see the note in
+ * `content.ts`.
+ */
+export interface DatabaseSnapshot {
+    pages: PageObjectResponse[]
+    /** Page id -> that page's block tree, nested children included. */
+    blocks: Record<string, NotionBlock[]>
+}
+
+export interface ContentSnapshot {
+    generatedAt: string
+    writing: DatabaseSnapshot
+    work: DatabaseSnapshot
+    til: DatabaseSnapshot
+}
+
+export type SnapshotKey = 'writing' | 'work' | 'til'
