@@ -1,6 +1,7 @@
 import 'server-only'
 import { cacheLife, cacheTag } from 'next/cache'
 import { notion } from './client'
+import { notionRequest } from './request'
 import { getTilDbId } from './config'
 import { resolveDataSourceId } from './resolve-data-source-id'
 import { listPageBlocks } from './list-page-blocks'
@@ -16,14 +17,16 @@ export async function getTilEntries(): Promise<TilEntry[]> {
     cacheTag('til')
 
     const dataSourceId = await getDataSourceId()
-    const response = await notion.dataSources.query({
-        data_source_id: dataSourceId,
-        filter: {
-            property: 'Status',
-            select: { equals: 'Published' },
-        },
-        sorts: [{ property: 'Date', direction: 'descending' }],
-    })
+    const response = await notionRequest(() =>
+        notion.dataSources.query({
+            data_source_id: dataSourceId,
+            filter: {
+                property: 'Status',
+                select: { equals: 'Published' },
+            },
+            sorts: [{ property: 'Date', direction: 'descending' }],
+        })
+    )
 
     const entries = await Promise.all(
         response.results.map(async (page) => {

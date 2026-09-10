@@ -1,5 +1,6 @@
 import 'server-only'
 import { notion } from './client'
+import { notionRequest } from './request'
 
 const dataSourceIds = new Map<string, string>()
 
@@ -7,7 +8,9 @@ export async function resolveDataSourceId(databaseId: string): Promise<string> {
     const cached = dataSourceIds.get(databaseId)
     if (cached) return cached
 
-    const db = await notion.databases.retrieve({ database_id: databaseId })
+    const db = await notionRequest(() =>
+        notion.databases.retrieve({ database_id: databaseId })
+    )
     const dataSources = (db as Record<string, unknown>).data_sources as
         | Array<{ id: string }>
         | undefined
