@@ -29,6 +29,20 @@ This is a working environment maintained in public. It should feel like a produc
 - TypeScript strict mode — no `any` types
 - All components are server components by default; add 'use client' only when needed
 
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues on yOoMarvin/yoomarvin-next (via `gh`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default canonical labels: needs-triage, needs-info, ready-for-agent, ready-for-human, wontfix. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
