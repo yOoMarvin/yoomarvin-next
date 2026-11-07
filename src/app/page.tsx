@@ -15,9 +15,9 @@ export default async function HomePage() {
             <section>
                 <Hero>
                     <p className="text-2xl font-semibold text-[var(--text-secondary)] leading-snug text-pretty">
-                        I&apos;m a design engineer living in Germany. I build
-                        products with DAYY and spend the rest of my time making
-                        things I wished existed.
+                        At MVV Energie I turn AI hype into tools people actually
+                        use, and spend the rest of my time making things I
+                        wished existed.
                     </p>
                 </Hero>
             </section>

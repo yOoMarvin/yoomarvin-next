@@ -20,9 +20,15 @@ export interface AppearanceItem {
 
 export const experience: ExperienceItem[] = [
     {
+        company: 'MVV Energie',
+        role: 'Digitization Architect',
+        years: 'Current',
+        logo: '/logos/mvv.png',
+    },
+    {
         company: 'DAYY®',
         role: 'Senior Product Designer',
-        years: 'Current',
+        years: '2025–26',
         logo: DayyLogo,
     },
     {
