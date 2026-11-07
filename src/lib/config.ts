@@ -1,6 +1,6 @@
 export const siteConfig = {
     name: 'Marvin Messenzehl',
-    description: 'Design engineer based in Germany.',
+    description: 'AI architect turning hype into tools people actually use.',
     url: 'https://marvinmessenzehl.com',
 } as const
 

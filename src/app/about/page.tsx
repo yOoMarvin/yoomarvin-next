@@ -9,7 +9,8 @@ import { inlineLinkClass } from '@/lib/utils'
 
 export const metadata: Metadata = {
     title: 'About',
-    description: 'Design engineer at DAYY, previously RTL+. Based in Germany.',
+    description:
+        'AI architect at MVV Energie, previously DAYY® and RTL+. Based in Germany.',
 }
 
 export default function AboutPage() {
@@ -18,7 +19,22 @@ export default function AboutPage() {
             <section>
                 <Hero showName={false}>
                     <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
-                        I&apos;m a design engineer at{' '}
+                        I&apos;m an AI architect at{' '}
+                        <a
+                            href="https://www.mvv.de"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={inlineLinkClass}
+                        >
+                            MVV Energie
+                        </a>
+                        , the energy company based in Mannheim. I help people
+                        make sense of AI: I build prototypes and tooling, enable
+                        teams to put it to work, and help the company through
+                        its transition to becoming AI-driven.
+                    </p>
+                    <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
+                        Before MVV, I was a design engineer at{' '}
                         <a
                             href="https://www.dayy.com/en"
                             target="_blank"
@@ -36,10 +52,9 @@ export default function AboutPage() {
                         >
                             Germany&apos;s best design agency
                         </a>
-                        . We work with some of the world&apos;s most recognized
-                        brands. For example Red Bull, Allianz, Volvo, and Isar
-                        Aerospace. I care about the full picture: from the first
-                        sketch to the shipped thing.
+                        , working with brands like Red Bull, Allianz, Volvo, and
+                        Isar Aerospace. I cared about the full picture: from the
+                        first sketch to the shipped thing.
                     </p>
                     <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
                         Before DAYY&reg;, I led design on the{' '}
@@ -57,9 +72,9 @@ export default function AboutPage() {
                         millions of users.
                     </p>
                     <p className="text-2xl font-medium text-[var(--text-secondary)] leading-relaxed text-pretty">
-                        I got into this field through an unusual door. My
-                        master&apos;s in business informatics at the University
-                        of Mannheim led me to building and running the{' '}
+                        I started out on the engineering side. My master&apos;s
+                        in business informatics at the University of Mannheim
+                        led me to building and running the{' '}
                         <a
                             href="https://www.sv-informatik.de/unternehmen/it-lab.html"
                             target="_blank"

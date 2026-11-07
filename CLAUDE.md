@@ -1,6 +1,6 @@
 # marvinmessenzehl.com v2
 
-Personal portfolio site for Marvin Messenzehl — design engineer based in Germany.
+Personal portfolio site for Marvin Messenzehl — AI architect based in Germany.
 This is a working environment maintained in public. It should feel like a product.
 
 ## Before writing any UI code, read:

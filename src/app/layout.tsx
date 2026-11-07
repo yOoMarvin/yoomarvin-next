@@ -8,14 +8,15 @@ import '../styles/globals.css'
 
 export const metadata: Metadata = {
     title: {
-        default: 'Marvin Messenzehl — Design Engineer',
+        default: 'Marvin Messenzehl — AI Architect',
         template: '%s — Marvin Messenzehl',
     },
-    description: 'Design engineer based in Germany.',
+    description: 'AI architect turning hype into tools people actually use.',
     metadataBase: new URL('https://marvinmessenzehl.com'),
     openGraph: {
-        title: 'Marvin Messenzehl — Design Engineer',
-        description: 'Design engineer based in Germany.',
+        title: 'Marvin Messenzehl — AI Architect',
+        description:
+            'AI architect turning hype into tools people actually use.',
         url: 'https://marvinmessenzehl.com',
         siteName: 'Marvin Messenzehl',
         locale: 'en_US',
@@ -23,8 +24,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary',
-        title: 'Marvin Messenzehl — Design Engineer',
-        description: 'Design engineer based in Germany.',
+        title: 'Marvin Messenzehl — AI Architect',
+        description:
+            'AI architect turning hype into tools people actually use.',
     },
     icons: {
         icon: [

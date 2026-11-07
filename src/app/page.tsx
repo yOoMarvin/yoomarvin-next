@@ -5,6 +5,7 @@ import { PhotoFan } from '@/components/ui/photo-fan'
 import { SectionHeader } from '@/components/ui/section-header'
 import { WorkRow } from '@/components/ui/work-row'
 import { PostRow } from '@/components/ui/post-row'
+import { inlineLinkClass } from '@/lib/utils'
 
 export default async function HomePage() {
     const allPosts = await getWritingPosts()
@@ -15,9 +16,17 @@ export default async function HomePage() {
             <section>
                 <Hero>
                     <p className="text-2xl font-semibold text-[var(--text-secondary)] leading-snug text-pretty">
-                        I&apos;m a design engineer living in Germany. I build
-                        products with DAYY and spend the rest of my time making
-                        things I wished existed.
+                        At{' '}
+                        <a
+                            href="https://www.mvv.de"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={inlineLinkClass}
+                        >
+                            MVV
+                        </a>{' '}
+                        I turn AI hype into tools people actually use, and spend
+                        the rest of my time making things I wished existed.
                     </p>
                 </Hero>
             </section>

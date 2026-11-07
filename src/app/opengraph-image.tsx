@@ -56,8 +56,7 @@ export default function OGImage() {
                         lineHeight: 1.15,
                     }}
                 >
-                    I build products with DAYY® and spend the rest of my time
-                    making things I wished existed.
+                    I turn AI hype into tools people actually use.
                 </p>
             </div>
         </div>,
