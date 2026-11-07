@@ -4,9 +4,9 @@ Copy is updated on `new-job-content`. Open items for afterwards:
 
 ## Images (Marvin)
 
-- [ ] MVV logo: add an SVG to `public/logos/` and swap the `FreelanceLogo` placeholder in `src/lib/about-data.ts`
-- [ ] Photo fan: new images, and update the "My first day at DAYY" caption in `src/components/ui/photo-fan.tsx`
-- [ ] Profile photo (`public/marvin-profile.webp`), if it should change
+- [x] MVV logo: `public/logos/mvv.png` (transparent PNG; swap for an SVG if one turns up)
+- [x] Photo fan: Osaka photo replaces the DAYY card ("Loving life in Japan")
+- [x] Profile photo: pixel-art avatar (`public/marvin-avatar.png`)
 
 ## Content
 

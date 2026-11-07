@@ -23,8 +23,7 @@ export const experience: ExperienceItem[] = [
         company: 'MVV Energie',
         role: 'Digitization Architect',
         years: 'Current',
-        // TODO: placeholder until an MVV logo lands in /public/logos
-        logo: FreelanceLogo,
+        logo: '/logos/mvv.png',
     },
     {
         company: 'DAYY®',

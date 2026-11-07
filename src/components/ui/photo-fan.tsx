@@ -8,10 +8,10 @@ const SPRING = { stiffness: 200, damping: 24, mass: 1 }
 const VELOCITY_THRESHOLD = 0.8 // px/ms — ignore hovers above this speed
 
 const CARDS = [
-    { src: '/photo-fan/cycling.webp', label: 'Cylcling in summer' },
+    { src: '/photo-fan/cycling.webp', label: 'Cycling in summer' },
     { src: '/photo-fan/desk.webp', label: 'Where things get done' },
     { src: '/photo-fan/laptop-min.webp', label: 'Running workshops' },
-    { src: '/marvin-profile.webp', label: 'My first day at DAYY' },
+    { src: '/photo-fan/osaka.jpg', label: 'Loving life in Japan' },
     { src: '/photo-fan/memfam.webp', label: 'Memorisely Fam' },
     { src: '/photo-fan/running.webp', label: 'My first Marathon' },
     { src: '/photo-fan/work-min.webp', label: 'Work in the office' },

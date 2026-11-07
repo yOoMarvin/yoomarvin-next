@@ -9,7 +9,7 @@ export function Hero({ children, showName = true }: HeroProps) {
     return (
         <div className="flex flex-col gap-4">
             <Image
-                src="/marvin-profile.webp"
+                src="/marvin-avatar.png"
                 alt="Marvin Messenzehl"
                 width={56}
                 height={56}
