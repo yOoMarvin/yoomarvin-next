@@ -5,6 +5,7 @@ import { PhotoFan } from '@/components/ui/photo-fan'
 import { SectionHeader } from '@/components/ui/section-header'
 import { WorkRow } from '@/components/ui/work-row'
 import { PostRow } from '@/components/ui/post-row'
+
 export default async function HomePage() {
     const allPosts = await getWritingPosts()
     const recentPosts = allPosts.slice(0, 6)
